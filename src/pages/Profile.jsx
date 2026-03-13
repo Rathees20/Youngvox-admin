@@ -12,12 +12,12 @@ const Profile = () => {
 
       {/* Hero Banner Section */}
       <div className="relative">
-        <div className="h-40 bg-[#c72030] rounded-[32px] w-full"></div>
+        <div className="h-40 bg-brand-gradient rounded-[32px] w-full"></div>
         <div className="px-10 -mt-16 pb-1">
           <div className="bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.08)] p-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-8 border border-white">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
               {/* Avatar */}
-              <div className="w-32 h-32 rounded-full bg-[#c72030] flex items-center justify-center text-white text-4xl font-black shadow-2xl shadow-[#c72030]/20 border-[6px] border-white">
+              <div className="w-32 h-32 rounded-full bg-brand-gradient flex items-center justify-center text-white text-4xl font-black shadow-2xl shadow-[#A82228]/20 border-[6px] border-white">
                 JD
               </div>
               <div className="flex flex-col text-center md:text-left pt-6">
@@ -110,7 +110,7 @@ const Profile = () => {
               <div className="flex flex-wrap gap-2">
                 {['English', 'Spanish', 'French'].map(lang => (
                   <span key={lang} className="bg-gray-50 border border-gray-100 text-[#555555] text-[12px] font-bold px-4 py-2 rounded-xl flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#c72030]" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
                     {lang}
                   </span>
                 ))}
@@ -165,11 +165,11 @@ const Profile = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-[#f0f7ff] border border-[#d9e9ff] rounded-[24px] p-6 flex items-center gap-6 group hover:scale-[1.02] transition-transform duration-500">
-            <div className="w-12 h-12 rounded-2xl bg-[#c72030] flex items-center justify-center text-white text-[20px] font-black shadow-lg shadow-[#c72030]/20">1</div>
+            <div className="w-12 h-12 rounded-2xl bg-brand-gradient flex items-center justify-center text-white text-[20px] font-black shadow-lg shadow-[#A82228]/20">1</div>
             <p className="text-[14px] font-black text-[#1a1a1a] leading-snug">Academic and Career<br />Guidance Wing</p>
           </div>
           <div className="bg-[#f0fff4] border border-[#d3f9e1] rounded-[24px] p-6 flex items-center gap-6 group hover:scale-[1.02] transition-transform duration-500">
-            <div className="w-12 h-12 rounded-2xl bg-[#c72030] flex items-center justify-center text-white text-[20px] font-black shadow-lg shadow-[#c72030]/20">2</div>
+            <div className="w-12 h-12 rounded-2xl bg-brand-gradient flex items-center justify-center text-white text-[20px] font-black shadow-lg shadow-[#A82228]/20">2</div>
             <p className="text-[14px] font-black text-[#1a1a1a] leading-snug">Student Wellbeing<br />Wing</p>
           </div>
         </div>
@@ -248,15 +248,15 @@ const Profile = () => {
                     <span className="text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider block">Ranking based on:</span>
                     <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
                         <li className="flex items-center gap-2 text-[13px] font-bold text-[#1a1a1a]">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#c72030]" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
                             Timely reviews & feedback
                         </li>
                         <li className="flex items-center gap-2 text-[13px] font-bold text-[#1a1a1a]">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#c72030]" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
                             Chapter success
                         </li>
                         <li className="flex items-center gap-2 text-[13px] font-bold text-[#1a1a1a]">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#c72030]" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
                             Collaboration & Communication
                         </li>
                     </ul>

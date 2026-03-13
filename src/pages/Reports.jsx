@@ -153,7 +153,7 @@ const Reports = () => {
                     <CheckCircle2 size={16} strokeWidth={2.5} />
                     Approve
                 </button>
-                <button className="w-12 h-12 flex items-center justify-center bg-[#c72030] hover:bg-[#a51a28] rounded-2xl text-white shadow-lg shadow-[#c72030]/20 transition-all">
+                <button className="w-12 h-12 flex items-center justify-center bg-brand-gradient hover:opacity-90 rounded-2xl text-white shadow-lg shadow-[#A82228]/20 transition-all">
                     <MoreHorizontal size={20} strokeWidth={2.5} />
                 </button>
              </div>
@@ -171,7 +171,7 @@ const Reports = () => {
             <div className="flex flex-col items-end gap-2">
                 <button className="flex items-center gap-3 bg-white border border-[#eeeeee] px-4 py-2.5 rounded-xl text-[11px] font-black text-[#1a1a1a]">
                     Choose month
-                    <Calendar size={14} className="text-[#c72030]" />
+                    <Calendar size={14} className="text-[#A82228]" />
                 </button>
                 <div className="relative">
                     <select className="appearance-none bg-transparent text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-widest pr-6 outline-none cursor-pointer">

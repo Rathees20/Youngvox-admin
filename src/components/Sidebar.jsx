@@ -24,7 +24,7 @@ const Sidebar = () => {
       {/* Logo Section */}
       <div className="p-8">
         <div className="flex items-center gap-4">
-          <div className="w-[50px] h-[50px] bg-[#c72030] rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-[0_8px_16px_rgba(199,32,48,0.2)]">
+          <div className="w-[50px] h-[50px] bg-brand-gradient rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-[0_8px_16px_rgba(168,34,40,0.2)]">
             YV
           </div>
           <div className="flex flex-col">
@@ -45,7 +45,7 @@ const Sidebar = () => {
               className={cn(
                 "flex items-center justify-between gap-3 px-5 py-4 rounded-2xl text-[14px] font-extrabold transition-all duration-300",
                 isActive
-                  ? "bg-[#c72030] text-white shadow-2xl shadow-[#c72030]/30 scale-[1.02]"
+                  ? "bg-brand-gradient text-white shadow-2xl shadow-[#A82228]/30 scale-[1.02]"
                   : "text-[#555555] hover:bg-gray-50 hover:text-[#1a1a1a]"
               )}
             >
@@ -56,7 +56,7 @@ const Sidebar = () => {
               {item.badge && (
                 <span className={cn(
                   "text-[10px] font-black rounded-full h-5 w-5 flex items-center justify-center transition-all",
-                  isActive ? "bg-white text-[#c72030]" : "bg-[#c72030] text-white"
+                  isActive ? "bg-white text-[#A82228]" : "bg-brand-gradient text-white"
                 )}>
                   {item.badge}
                 </span>
@@ -69,7 +69,7 @@ const Sidebar = () => {
       {/* User Card */}
       <div className="p-6 mt-auto border-t border-gray-50">
         <div className="flex items-center gap-4 p-4 rounded-[20px] bg-gray-50/80 border border-gray-100/50 group hover:bg-white hover:shadow-xl hover:shadow-dark/5 transition-all duration-500 cursor-pointer">
-          <div className="w-12 h-12 rounded-full bg-[#c72030] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-[#c72030]/20">
+          <div className="w-12 h-12 rounded-full bg-brand-gradient flex items-center justify-center text-white font-black text-sm shadow-lg shadow-[#A82228]/20">
             JD
           </div>
           <div className="flex flex-col min-w-0">

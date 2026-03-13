@@ -51,7 +51,7 @@ const Dashboard = () => {
   return (
     <div className="p-10 space-y-10 bg-[#f7f7f8] min-h-screen max-w-[1600px] mx-auto">
       {/* Hero Banner */}
-      <div className="bg-[#c72030] text-white p-10 rounded-[32px] shadow-[0_20px_50px_rgba(199,32,48,0.2)] relative overflow-hidden group border border-white/5">
+      <div className="bg-brand-gradient text-white p-10 rounded-[32px] shadow-[0_20px_50px_rgba(168,34,40,0.2)] relative overflow-hidden group border border-white/5">
         <div className="relative z-10">
           <div className="inline-flex items-center gap-2.5 mb-6 bg-white/10 px-5 py-2 rounded-full backdrop-blur-md border border-white/20 flex-nowrap">
             <span className="text-[11px] font-black uppercase tracking-[0.15em] text-white drop-shadow-sm">Outstanding Performance 🏆</span>
@@ -88,20 +88,20 @@ const Dashboard = () => {
           <h3 className="text-[17px] font-[900] text-[#1a1a1a] mb-10 flex items-center justify-between tracking-tight">
             Upcoming Events
             <div className="flex gap-1.5">
-              <span className="w-2 h-2 bg-[#c72030] rounded-full animate-bounce"></span>
-              <span className="w-2 h-2 bg-[#c72030]/40 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+              <span className="w-2 h-2 bg-[#A82228] rounded-full animate-bounce"></span>
+              <span className="w-2 h-2 bg-[#A82228]/40 rounded-full animate-bounce [animation-delay:0.2s]"></span>
             </div>
           </h3>
           <div className="space-y-8">
             {events.map((event, index) => (
               <div key={index} className="flex gap-6 group cursor-pointer items-start">
-                <div className="w-[100px] h-[100px] rounded-[24px] overflow-hidden shadow-lg flex-shrink-0 border-4 border-gray-50 group-hover:border-[#c72030]/10 transition-colors duration-500">
+                <div className="w-[100px] h-[100px] rounded-[24px] overflow-hidden shadow-lg flex-shrink-0 border-4 border-gray-50 group-hover:border-[#A82228]/10 transition-colors duration-500">
                   <img src={event.img} alt="Event" className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-1000" />
                 </div>
                 <div className="flex-1 min-w-0 pt-2">
-                  <p className="text-[14px] font-[900] text-[#1a1a1a] leading-snug mb-4 group-hover:text-[#c72030] transition-colors line-clamp-2 tracking-tight">{event.title}</p>
+                  <p className="text-[14px] font-[900] text-[#1a1a1a] leading-snug mb-4 group-hover:text-[#A82228] transition-colors line-clamp-2 tracking-tight">{event.title}</p>
                   <div className="flex gap-4">
-                    <button className="text-[11px] font-black text-[#c72030] bg-[#c72030]/5 hover:bg-[#c72030] hover:text-white px-4 py-2 rounded-xl transition-all duration-300 transform active:scale-95 shadow-sm">Join Event</button>
+                    <button className="text-[11px] font-black text-[#A82228] bg-[#A82228]/5 hover:bg-[#A82228] hover:text-white px-4 py-2 rounded-xl transition-all duration-300 transform active:scale-95 shadow-sm">Join Event</button>
                     <button className="text-[11px] font-black text-[#555555] opacity-60 hover:opacity-100 px-4 py-2 rounded-xl transition-all border border-gray-100 hover:bg-gray-50">Report</button>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ const Dashboard = () => {
         {/* Chat Header */}
         <div className="px-10 py-7 border-b border-gray-50 flex items-center justify-between bg-white/80 backdrop-blur-md sticky top-0 z-20">
           <div className="flex items-center gap-5">
-            <div className="w-12 h-12 rounded-2xl bg-[#c72030] shadow-[0_8px_20px_rgba(199,32,48,0.25)] text-white flex items-center justify-center">
+            <div className="w-12 h-12 rounded-2xl bg-brand-gradient shadow-[0_8px_20px_rgba(168,34,40,0.25)] text-white flex items-center justify-center">
               <MessageSquare size={24} strokeWidth={3} />
             </div>
             <div className="flex flex-col">
@@ -178,7 +178,7 @@ const Dashboard = () => {
 
         {/* Chat Input */}
         <div className="px-10 py-8 bg-white border-t border-gray-50">
-          <div className="flex items-center gap-5 bg-gray-50 px-6 py-3 rounded-[24px] focus-within:bg-white focus-within:ring-4 focus-within:ring-[#c72030]/10 border border-transparent focus-within:border-gray-200 transition-all duration-500 group shadow-inner">
+          <div className="flex items-center gap-5 bg-gray-50 px-6 py-3 rounded-[24px] focus-within:bg-white focus-within:ring-4 focus-within:ring-[#A82228]/10 border border-transparent focus-within:border-gray-200 transition-all duration-500 group shadow-inner">
             <input 
               type="text" 
               placeholder="Type your message or ask a question" 
@@ -188,7 +188,7 @@ const Dashboard = () => {
               <button className="p-3 text-[#555555]/40 hover:text-[#1a1a1a] hover:bg-white hover:shadow-md rounded-2xl transition-all duration-300">
                 <Paperclip size={22} strokeWidth={3} />
               </button>
-              <button className="p-4 bg-[#c72030] text-white rounded-2xl hover:brightness-110 shadow-xl shadow-[#c72030]/20 transition-all duration-300 hover:scale-105 active:scale-95">
+              <button className="p-4 bg-brand-gradient text-white rounded-2xl hover:brightness-110 shadow-xl shadow-[#A82228]/20 transition-all duration-300 hover:scale-105 active:scale-95">
                 <Send size={20} strokeWidth={3} />
               </button>
             </div>

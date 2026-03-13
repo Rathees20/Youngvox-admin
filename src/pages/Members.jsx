@@ -69,7 +69,7 @@ const Members = () => {
               <tr key={member.id} className="hover:bg-gray-50/50 transition-colors group">
                 <td className="px-8 py-5">
                   <div className="flex items-center gap-4">
-                    <div className="w-11 h-11 rounded-full bg-[#c72030] flex items-center justify-center text-white text-[13px] font-black shadow-lg shadow-[#c72030]/10">
+                    <div className="w-11 h-11 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[13px] font-black shadow-lg shadow-[#A82228]/10">
                       {member.id}
                     </div>
                     <div className="flex flex-col">

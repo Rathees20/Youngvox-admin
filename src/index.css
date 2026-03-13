@@ -1,18 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #c72030;
-  --color-secondary: #4a90e2;
+  --color-primary: #A82228;
+  --color-secondary: #8A1B20;
+  --color-brand-gradient: linear-gradient(135deg, #A82228 0%, #8A1B20 100%);
   --color-accent: #f5a623;
   --color-success: #7ed321;
   --color-dark: #1a1a1a;
   --color-light: #f7f7f8;
   --color-gray-dark: #555555;
   --color-gray-light: #dddddd;
+  --font-sans: Arial, sans-serif;
+}
+
+@utility bg-brand-gradient {
+  background-image: var(--color-brand-gradient);
 }
 
 body {
-  @apply bg-[#f7f7f8] text-[#1a1a1a] font-sans antialiased overflow-x-hidden;
+  @apply bg-[#f7f7f8] text-[#1a1a1a] antialiased overflow-x-hidden;
+  font-family: var(--font-sans);
 }
 
 /* Custom Scrollbar */
