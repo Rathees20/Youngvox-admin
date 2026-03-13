@@ -1,0 +1,120 @@
+import React from 'react';
+import { Search, ChevronDown, MoreVertical, Filter } from 'lucide-react';
+
+const Members = () => {
+  const members = [
+    { id: 'AJ', name: 'Alice Johnson', email: 'alice.j@school.edu', role: 'Chapter Chief', status: 'active', performance: 95, color: '#1caf5f' },
+    { id: 'BM', name: 'Bob Martinez', email: 'bob.m@school.edu', role: 'Secretary', status: 'active', performance: 88, color: '#f59e0b' },
+    { id: 'CD', name: 'Carol Davis', email: 'carol.d@school.edu', role: 'Treasurer', status: 'warning', performance: 65, color: '#ef4444' },
+    { id: 'DC', name: 'David Chen', email: 'david.c@school.edu', role: 'Wing Leader - Academic & Career', status: 'active', performance: 98, color: '#1caf5f' },
+    { id: 'EW', name: 'Emma Wilson', email: 'emma.w@school.edu', role: 'Wing Leader - Student Wellbeing', status: 'active', performance: 92, color: '#1caf5f' },
+    { id: 'FT', name: 'Frank Thompson', email: 'frank.t@school.edu', role: 'Wing Leader - Child Rights & Social Justice', status: 'active', performance: 85, color: '#f59e0b' },
+    { id: 'GL', name: 'Grace Lee', email: 'grace.l@school.edu', role: 'Wing Leader - Community Outreach and Service', status: 'active', performance: 94, color: '#1caf5f' },
+  ];
+
+  return (
+    <div className="p-8 max-w-7xl mx-auto space-y-8 animate-in fade-in duration-700">
+      {/* Header */}
+      <div className="flex flex-col gap-1">
+        <h2 className="text-[24px] font-black text-[#1a1a1a] tracking-tight">Chapter Directory</h2>
+        <p className="text-[14px] font-semibold text-[#555555] opacity-60">Manage and monitor your chapter members</p>
+      </div>
+
+      {/* Search and Filters */}
+      <div className="bg-white rounded-[24px] p-6 shadow-sm border border-[#eeeeee] flex flex-col md:flex-row gap-4">
+        <div className="flex-1 relative">
+          <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-[#555555] opacity-40" size={20} />
+          <input 
+            type="text" 
+            placeholder="Search by name, email, chapter, or role..." 
+            className="w-full bg-[#f4f4f5]/60 border border-transparent focus:border-[#eeeeee] focus:bg-white rounded-2xl py-4 pl-14 pr-6 text-[14px] font-bold text-[#1a1a1a] outline-none transition-all placeholder:text-[#555555]/40"
+          />
+        </div>
+        <div className="flex gap-4">
+          <div className="relative group">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40">
+              <Filter size={16} />
+            </div>
+            <select className="appearance-none bg-[#f4f4f5]/60 hover:bg-white border border-transparent hover:border-[#eeeeee] rounded-2xl py-4 pl-12 pr-12 text-[14px] font-black text-[#1a1a1a] outline-none transition-all cursor-pointer">
+              <option>All Roles</option>
+            </select>
+            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40 pointer-events-none" size={16} />
+          </div>
+          <div className="relative group">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40">
+              <Filter size={16} />
+            </div>
+            <select className="appearance-none bg-[#f4f4f5]/60 hover:bg-white border border-transparent hover:border-[#eeeeee] rounded-2xl py-4 pl-12 pr-12 text-[14px] font-black text-[#1a1a1a] outline-none transition-all cursor-pointer">
+              <option>All Status</option>
+            </select>
+            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40 pointer-events-none" size={16} />
+          </div>
+        </div>
+      </div>
+
+      {/* Members Table */}
+      <div className="bg-white rounded-[32px] overflow-hidden shadow-sm border border-[#eeeeee]">
+        <table className="w-full border-collapse">
+          <thead>
+            <tr className="border-b border-gray-50 bg-gray-50/30">
+              <th className="px-8 py-5 text-left text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Member</th>
+              <th className="px-8 py-5 text-left text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Role</th>
+              <th className="px-8 py-5 text-left text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Status</th>
+              <th className="px-8 py-5 text-left text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Performance</th>
+              <th className="px-8 py-5 text-right text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-50">
+            {members.map((member) => (
+              <tr key={member.id} className="hover:bg-gray-50/50 transition-colors group">
+                <td className="px-8 py-5">
+                  <div className="flex items-center gap-4">
+                    <div className="w-11 h-11 rounded-full bg-[#c72030] flex items-center justify-center text-white text-[13px] font-black shadow-lg shadow-[#c72030]/10">
+                      {member.id}
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[14px] font-black text-[#1a1a1a] leading-tight mb-0.5">{member.name}</span>
+                      <span className="text-[12px] font-bold text-[#555555] opacity-50">{member.email}</span>
+                    </div>
+                  </div>
+                </td>
+                <td className="px-8 py-5">
+                  <span className="text-[14px] font-bold text-[#555555]">{member.role}</span>
+                </td>
+                <td className="px-8 py-5">
+                  <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                    member.status === 'active' 
+                      ? 'bg-[#e7f6ed] text-[#1caf5f]' 
+                      : 'bg-[#fff9e6] text-[#f59e0b]'
+                  }`}>
+                    {member.status}
+                  </span>
+                </td>
+                <td className="px-8 py-5">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[12px] font-black text-[#1a1a1a]">{member.performance}%</span>
+                    </div>
+                    <div className="w-32 h-2 bg-gray-100/80 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full rounded-full transition-all duration-1000" 
+                        style={{ width: `${member.performance}%`, backgroundColor: member.color }}
+                      ></div>
+                    </div>
+                  </div>
+                </td>
+                <td className="px-8 py-5 text-right">
+                  <button className="p-2 hover:bg-white hover:shadow-lg rounded-xl transition-all text-[#555555] opacity-40 hover:opacity-100">
+                    <ChevronDown size={20} />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default Members;
