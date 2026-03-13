@@ -1,11 +1,16 @@
-import React from 'react';
-import { LayoutDashboard, User, Users, FileText, CheckSquare, BarChart2, Heart, Box, Calendar, Settings } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { LayoutDashboard, User, Users, FileText, CheckSquare, BarChart2, Heart, Box, Calendar, Settings, LogOut } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '../utils/cn';
 
 const Sidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   
+  const handleLogout = () => {
+    localStorage.removeItem('isAuthenticated');
+    navigate('/login');
+  };
+
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
     { icon: User, label: 'Profile', path: '/profile' },
@@ -67,15 +72,24 @@ const Sidebar = () => {
       </nav>
 
       {/* User Card */}
-      <div className="p-6 mt-auto border-t border-gray-50">
-        <div className="flex items-center gap-4 p-4 rounded-[20px] bg-gray-50/80 border border-gray-100/50 group hover:bg-white hover:shadow-xl hover:shadow-dark/5 transition-all duration-500 cursor-pointer">
-          <div className="w-12 h-12 rounded-full bg-[#c72030] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-[#c72030]/20">
-            JD
+      <div className="p-6 mt-auto border-t border-gray-50 flex flex-col gap-4">
+        <div className="flex items-center justify-between gap-4 p-4 rounded-[20px] bg-gray-50/80 border border-gray-100/50 group hover:bg-white hover:shadow-xl hover:shadow-dark/5 transition-all duration-500">
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="w-12 h-12 rounded-full bg-[#c72030] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-[#c72030]/20 flex-shrink-0">
+              JD
+            </div>
+            <div className="flex flex-col min-w-0">
+              <p className="text-[14px] font-black text-[#1a1a1a] truncate leading-tight mb-1">Jane Doe</p>
+              <p className="text-[10px] font-black text-[#555555] truncate uppercase tracking-tighter opacity-50">Senior Mentor</p>
+            </div>
           </div>
-          <div className="flex flex-col min-w-0">
-            <p className="text-[14px] font-black text-[#1a1a1a] truncate leading-tight mb-1">Jane Doe</p>
-            <p className="text-[10px] font-black text-[#555555] truncate uppercase tracking-tighter opacity-50">Senior Mentor</p>
-          </div>
+          <button 
+            onClick={handleLogout}
+            className="p-3 bg-white text-[#c72030] hover:bg-red-50 rounded-xl transition-all duration-300 border border-transparent hover:border-red-100 shadow-sm"
+            title="Logout"
+          >
+            <LogOut size={18} strokeWidth={3} />
+          </button>
         </div>
       </div>
     </div>
