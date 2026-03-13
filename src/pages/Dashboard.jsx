@@ -2,25 +2,25 @@ import React from 'react';
 import { Users, Activity, CheckCircle, Star, MessageSquare, Paperclip, Send } from 'lucide-react';
 
 const StatCard = ({ icon, label, value, change, bgColor, percentage }) => (
-  <div className={`p-6 rounded-[24px] shadow-sm ${bgColor} relative overflow-hidden group hover:shadow-2xl transition-all duration-700 h-full min-w-[200px]`}>
-    <div className="flex items-center justify-between mb-6">
-      <div className="p-3 rounded-2xl bg-white/20 text-white backdrop-blur-md border border-white/10">
-        {React.cloneElement(icon, { size: 22, strokeWidth: 3 })}
+  <div className={`p-4 rounded-2xl shadow-sm ${bgColor} relative overflow-hidden group hover:shadow-2xl transition-all duration-700 h-full min-w-[180px]`}>
+    <div className="flex items-center justify-between mb-4">
+      <div className="p-2.5 rounded-xl bg-white/20 text-white backdrop-blur-md border border-white/10">
+        {React.cloneElement(icon, { size: 18, strokeWidth: 3 })}
       </div>
-      <div className="text-[11px] font-[900] bg-white/20 text-white px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10 uppercase tracking-tighter">
+      <div className="text-[11px] font-normal bg-white/20 text-white px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10 uppercase tracking-tighter">
         {change}
       </div>
     </div>
     <div className="relative z-10">
-      <p className="text-white/60 text-[11px] font-bold uppercase tracking-[0.1em] mb-1.5">{label}</p>
-      <p className="text-white text-3xl font-[900] tracking-tight">{value}</p>
+      <p className="text-white/60 text-[11px] font-normal uppercase tracking-[0.1em] mb-1.5">{label}</p>
+      <p className="text-white text-3xl font-normal tracking-tight">{value}</p>
     </div>
-    <div className="mt-6 relative z-10">
-      <div className="flex justify-between items-center mb-2.5">
-        <p className="text-[10px] text-white/50 font-black uppercase tracking-tighter">Performance Level</p>
-        <span className="text-[10px] text-white font-black">{percentage}%</span>
+    <div className="mt-4 relative z-10">
+      <div className="flex justify-between items-center mb-2">
+        <p className="text-[10px] text-white/50 font-normal uppercase tracking-tighter">Performance Level</p>
+        <span className="text-[10px] text-white font-normal">{percentage}%</span>
       </div>
-      <div className="h-2 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm border border-white/5">
+      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm border border-white/5">
         <div 
           className="h-full bg-white rounded-full transition-all duration-[1500ms] ease-out shadow-[0_0_15px_rgba(255,255,255,0.8)]" 
           style={{ width: `${percentage}%` }}
@@ -49,15 +49,15 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="p-10 space-y-10 bg-[#f7f7f8] min-h-screen max-w-[1600px] mx-auto">
+    <div className="p-6 space-y-6 bg-[#f7f7f8] min-h-screen max-w-[1600px] mx-auto">
       {/* Hero Banner */}
-      <div className="bg-brand-gradient text-white p-10 rounded-[32px] shadow-[0_20px_50px_rgba(168,34,40,0.2)] relative overflow-hidden group border border-white/5">
+      <div className="bg-brand-gradient text-white p-6 rounded-2xl shadow-[0_20px_50px_rgba(168,34,40,0.2)] relative overflow-hidden group border border-white/5">
         <div className="relative z-10">
           <div className="inline-flex items-center gap-2.5 mb-6 bg-white/10 px-5 py-2 rounded-full backdrop-blur-md border border-white/20 flex-nowrap">
-            <span className="text-[11px] font-black uppercase tracking-[0.15em] text-white drop-shadow-sm">Outstanding Performance 🏆</span>
+            <span className="text-[11px] font-normal uppercase tracking-[0.15em] text-white drop-shadow-sm">Outstanding Performance 🏆</span>
           </div>
-          <h2 className="text-3xl font-[900] mb-4 tracking-tighter group-hover:translate-x-2 transition-transform duration-700 ease-out">You're making an incredible impact!</h2>
-          <p className="text-white/70 text-[16px] font-bold max-w-3xl leading-relaxed">
+          <h2 className="text-3xl font-normal mb-4 tracking-tighter group-hover:translate-x-2 transition-transform duration-700 ease-out">You're making an incredible impact!</h2>
+          <p className="text-white/70 text-[16px] font-normal max-w-3xl leading-relaxed">
             Your chapters have completed 127 activities this month. Keep up the amazing work and continue empowering students across all platforms!
           </p>
         </div>
@@ -67,15 +67,15 @@ const Dashboard = () => {
       </div>
 
       {/* Stats Cards Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
           <StatCard key={index} {...stat} />
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
         {/* Main Illustration Section */}
-        <div className="lg:col-span-3 rounded-[32px] overflow-hidden shadow-2xl shadow-dark/5 aspect-[16/10] border border-white bg-white group">
+        <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-2xl shadow-dark/5 aspect-[16/10] border border-white bg-white group">
           <img 
             src="https://images.unsplash.com/photo-1523050853064-886ec33f8288?q=80&w=2400&auto=format&fit=crop" 
             alt="Students cheering" 
@@ -84,8 +84,8 @@ const Dashboard = () => {
         </div>
 
         {/* Side Content Section: Upcoming Events */}
-        <div className="lg:col-span-2 bg-white p-10 rounded-[32px] shadow-2xl shadow-dark/5 border border-gray-100/50">
-          <h3 className="text-[17px] font-[900] text-[#1a1a1a] mb-10 flex items-center justify-between tracking-tight">
+        <div className="lg:col-span-2 bg-white p-6 rounded-2xl shadow-2xl shadow-dark/5 border border-gray-100/50">
+          <h3 className="text-[16px] font-normal text-[#1a1a1a] mb-6 flex items-center justify-between tracking-tight">
             Upcoming Events
             <div className="flex gap-1.5">
               <span className="w-2 h-2 bg-[#A82228] rounded-full animate-bounce"></span>
@@ -94,15 +94,15 @@ const Dashboard = () => {
           </h3>
           <div className="space-y-8">
             {events.map((event, index) => (
-              <div key={index} className="flex gap-6 group cursor-pointer items-start">
-                <div className="w-[100px] h-[100px] rounded-[24px] overflow-hidden shadow-lg flex-shrink-0 border-4 border-gray-50 group-hover:border-[#A82228]/10 transition-colors duration-500">
+              <div key={index} className="flex gap-4 group cursor-pointer items-start">
+                <div className="w-[80px] h-[80px] rounded-xl overflow-hidden shadow-md flex-shrink-0 border-4 border-gray-50 group-hover:border-[#A82228]/10 transition-colors duration-500">
                   <img src={event.img} alt="Event" className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-1000" />
                 </div>
-                <div className="flex-1 min-w-0 pt-2">
-                  <p className="text-[14px] font-[900] text-[#1a1a1a] leading-snug mb-4 group-hover:text-[#A82228] transition-colors line-clamp-2 tracking-tight">{event.title}</p>
-                  <div className="flex gap-4">
-                    <button className="text-[11px] font-black text-[#A82228] bg-[#A82228]/5 hover:bg-[#A82228] hover:text-white px-4 py-2 rounded-xl transition-all duration-300 transform active:scale-95 shadow-sm">Join Event</button>
-                    <button className="text-[11px] font-black text-[#555555] opacity-60 hover:opacity-100 px-4 py-2 rounded-xl transition-all border border-gray-100 hover:bg-gray-50">Report</button>
+                <div className="flex-1 min-w-0 pt-1">
+                  <p className="text-[13px] font-normal text-[#1a1a1a] leading-snug mb-3 group-hover:text-[#A82228] transition-colors line-clamp-2 tracking-tight">{event.title}</p>
+                  <div className="flex gap-3">
+                    <button className="text-[10px] font-normal text-[#A82228] bg-[#A82228]/5 hover:bg-[#A82228] hover:text-white px-3 py-1.5 rounded-lg transition-all duration-300 transform active:scale-95 shadow-sm">Join Event</button>
+                    <button className="text-[10px] font-normal text-[#555555] opacity-60 hover:opacity-100 px-3 py-1.5 rounded-lg transition-all border border-gray-100 hover:bg-gray-50">Report</button>
                   </div>
                 </div>
               </div>
@@ -112,9 +112,9 @@ const Dashboard = () => {
       </div>
 
       {/* Modern Chat UI Section */}
-      <div className="bg-white rounded-[32px] shadow-2xl shadow-dark/5 border border-gray-100 flex flex-col overflow-hidden max-w-[1200px] mx-auto w-full">
+      <div className="bg-white rounded-2xl shadow-2xl shadow-dark/5 border border-gray-100 flex flex-col overflow-hidden max-w-[1200px] mx-auto w-full">
         {/* Chat Header */}
-        <div className="px-10 py-7 border-b border-gray-50 flex items-center justify-between bg-white/80 backdrop-blur-md sticky top-0 z-20">
+        <div className="px-6 py-4 border-b border-gray-50 flex items-center justify-between bg-white/80 backdrop-blur-md sticky top-0 z-20">
           <div className="flex items-center gap-5">
             <div className="w-12 h-12 rounded-2xl bg-brand-gradient shadow-[0_8px_20px_rgba(168,34,40,0.25)] text-white flex items-center justify-center">
               <MessageSquare size={24} strokeWidth={3} />
@@ -134,14 +134,14 @@ const Dashboard = () => {
         </div>
         
         {/* Messages Container */}
-        <div className="p-10 space-y-8 max-h-[500px] overflow-y-auto bg-gray-50/10 chat-container">
+        <div className="p-6 space-y-4 max-h-[500px] overflow-y-auto bg-gray-50/10 chat-container">
           {/* User Message */}
           <div className="flex justify-start">
             <div className="group relative">
               <div className="bg-white p-6 rounded-[28px] rounded-tl-none shadow-[0_4px_15px_rgba(0,0,0,0.03)] border border-gray-100 max-w-lg transition-all hover:shadow-lg">
-                <p className="text-[14px] font-bold text-[#1a1a1a] leading-relaxed">How can I download the resources for the Digital Detox activity?</p>
+                <p className="text-[14px] font-normal text-[#1a1a1a] leading-relaxed">How can I download the resources for the Digital Detox activity?</p>
               </div>
-              <span className="absolute -bottom-6 left-2 text-[10px] font-black text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest leading-none pt-2">11:42</span>
+              <span className="absolute -bottom-6 left-2 text-[10px] font-normal text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest leading-none pt-2">11:42</span>
             </div>
           </div>
 
@@ -149,47 +149,47 @@ const Dashboard = () => {
           <div className="flex justify-end">
             <div className="group relative">
               <div className="bg-[#e7f9ef] p-6 rounded-[28px] rounded-tr-none shadow-[0_4px_15px_rgba(52,211,153,0.1)] border border-[#d1fae5] max-w-lg text-[#065f46] animate-in slide-in-from-right duration-700">
-                <p className="text-[14px] font-bold leading-relaxed">Hi! To download the Digital Detox Activity resources, please use the link provided and click on the Resources page. You'll find the downloadable materials there.</p>
+                <p className="text-[14px] font-normal leading-relaxed">Hi! To download the Digital Detox Activity resources, please use the link provided and click on the Resources page. You'll find the downloadable materials there.</p>
               </div>
-              <span className="absolute -bottom-6 right-2 text-[10px] font-black text-[#10b981] opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest leading-none pt-2">11:45</span>
+              <span className="absolute -bottom-6 right-2 text-[10px] font-normal text-[#10b981] opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest leading-none pt-2">11:45</span>
             </div>
           </div>
 
           <div className="flex justify-end -mt-4">
             <div className="bg-[#e7f9ef] px-6 py-4 rounded-[20px] rounded-tr-none shadow-sm border border-[#d1fae5] animate-in slide-in-from-right duration-700 delay-150">
-              <p className="text-[14px] font-[900] text-[#065f46]">Thank You very much!</p>
+              <p className="text-[14px] font-normal text-[#065f46]">Thank You very much!</p>
             </div>
           </div>
 
           <div className="flex justify-start">
             <div className="group relative">
               <div className="bg-white p-6 rounded-[28px] rounded-tl-none shadow-[0_4px_15px_rgba(0,0,0,0.03)] border border-gray-100 max-w-lg">
-                <p className="text-[14px] font-bold text-[#1a1a1a] leading-relaxed">You're very welcome 😊 If you need any further assistance, feel free to reach out anytime!</p>
+                <p className="text-[14px] font-normal text-[#1a1a1a] leading-relaxed">You're very welcome 😊 If you need any further assistance, feel free to reach out anytime!</p>
               </div>
             </div>
           </div>
 
           <div className="flex justify-end">
             <div className="bg-[#e7f9ef] px-6 py-4 rounded-[20px] rounded-tr-none shadow-sm border border-[#d1fae5] pulse-effect">
-              <p className="text-[14px] font-[900] text-[#065f46]">Sure!</p>
+              <p className="text-[14px] font-normal text-[#065f46]">Sure!</p>
             </div>
           </div>
         </div>
 
         {/* Chat Input */}
-        <div className="px-10 py-8 bg-white border-t border-gray-50">
-          <div className="flex items-center gap-5 bg-gray-50 px-6 py-3 rounded-[24px] focus-within:bg-white focus-within:ring-4 focus-within:ring-[#A82228]/10 border border-transparent focus-within:border-gray-200 transition-all duration-500 group shadow-inner">
+        <div className="px-6 py-5 bg-white border-t border-gray-50">
+          <div className="flex items-center gap-4 bg-gray-50 px-5 py-2 rounded-2xl focus-within:bg-white focus-within:ring-4 focus-within:ring-[#A82228]/10 border border-transparent focus-within:border-gray-200 transition-all duration-500 group shadow-inner">
             <input 
               type="text" 
-              placeholder="Type your message or ask a question" 
-              className="flex-1 bg-transparent text-[15px] font-bold text-[#1a1a1a] placeholder:text-[#555555]/30 outline-none py-3" 
+              placeholder="Type your message" 
+              className="flex-1 bg-transparent text-[14px] font-normal text-[#1a1a1a] placeholder:text-[#555555]/30 outline-none py-2" 
             />
-            <div className="flex items-center gap-3 border-l border-gray-200 pl-6">
-              <button className="p-3 text-[#555555]/40 hover:text-[#1a1a1a] hover:bg-white hover:shadow-md rounded-2xl transition-all duration-300">
-                <Paperclip size={22} strokeWidth={3} />
+            <div className="flex items-center gap-2.5 border-l border-gray-200 pl-5">
+              <button className="p-2.5 text-[#555555]/40 hover:text-[#1a1a1a] hover:bg-white hover:shadow-md rounded-xl transition-all duration-300">
+                <Paperclip size={18} strokeWidth={3} />
               </button>
-              <button className="p-4 bg-brand-gradient text-white rounded-2xl hover:brightness-110 shadow-xl shadow-[#A82228]/20 transition-all duration-300 hover:scale-105 active:scale-95">
-                <Send size={20} strokeWidth={3} />
+              <button className="p-3 bg-brand-gradient text-white rounded-xl hover:brightness-110 shadow-xl shadow-[#A82228]/20 transition-all duration-300 hover:scale-105 active:scale-95">
+                <Send size={16} strokeWidth={3} />
               </button>
             </div>
           </div>

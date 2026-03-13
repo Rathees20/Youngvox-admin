@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex min-h-screen w-full bg-[#f7f7f8] selection:bg-primary/10">
       {/* Sidebar - Fixed width */}
-      <aside className="w-[280px] min-w-[280px] h-screen sticky top-0 flex-shrink-0 z-50 border-r border-[#eeeeee] bg-white">
+      <aside className="w-[260px] min-w-[260px] h-screen sticky top-0 flex-shrink-0 z-50 border-r border-[#eeeeee] bg-white">
         <Sidebar />
       </aside>
 

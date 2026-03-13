@@ -13,76 +13,76 @@ const Members = () => {
   ];
 
   return (
-    <div className="p-8 max-w-7xl mx-auto space-y-8 animate-in fade-in duration-700">
+    <div className="p-4 max-w-7xl mx-auto space-y-4 animate-in fade-in duration-700">
       {/* Header */}
       <div className="flex flex-col gap-1">
-        <h2 className="text-[24px] font-black text-[#1a1a1a] tracking-tight">Chapter Directory</h2>
-        <p className="text-[14px] font-semibold text-[#555555] opacity-60">Manage and monitor your chapter members</p>
+        <h2 className="text-[24px] font-normal text-[#1a1a1a] tracking-tight">Chapter Directory</h2>
+        <p className="text-[14px] font-normal text-[#555555] opacity-60">Manage and monitor your chapter members</p>
       </div>
 
       {/* Search and Filters */}
-      <div className="bg-white rounded-[24px] p-6 shadow-sm border border-[#eeeeee] flex flex-col md:flex-row gap-4">
+      <div className="bg-white rounded-2xl p-4 shadow-sm border border-[#eeeeee] flex flex-col md:flex-row gap-3">
         <div className="flex-1 relative">
-          <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-[#555555] opacity-40" size={20} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40" size={18} />
           <input 
             type="text" 
             placeholder="Search by name, email, chapter, or role..." 
-            className="w-full bg-[#f4f4f5]/60 border border-transparent focus:border-[#eeeeee] focus:bg-white rounded-2xl py-4 pl-14 pr-6 text-[14px] font-bold text-[#1a1a1a] outline-none transition-all placeholder:text-[#555555]/40"
+            className="w-full bg-[#f4f4f5]/60 border border-transparent focus:border-[#eeeeee] focus:bg-white rounded-xl py-2.5 pl-11 pr-5 text-[13px] font-normal text-[#1a1a1a] outline-none transition-all placeholder:text-[#555555]/40"
           />
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-3">
           <div className="relative group">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40">
-              <Filter size={16} />
+              <Filter size={14} />
             </div>
-            <select className="appearance-none bg-[#f4f4f5]/60 hover:bg-white border border-transparent hover:border-[#eeeeee] rounded-2xl py-4 pl-12 pr-12 text-[14px] font-black text-[#1a1a1a] outline-none transition-all cursor-pointer">
+            <select className="appearance-none bg-[#f4f4f5]/60 hover:bg-white border border-transparent hover:border-[#eeeeee] rounded-xl py-2.5 pl-10 pr-10 text-[13px] font-normal text-[#1a1a1a] outline-none transition-all cursor-pointer min-w-[140px]">
               <option>All Roles</option>
             </select>
-            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40 pointer-events-none" size={16} />
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#555555] opacity-40 pointer-events-none" size={14} />
           </div>
           <div className="relative group">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40">
-              <Filter size={16} />
+              <Filter size={14} />
             </div>
-            <select className="appearance-none bg-[#f4f4f5]/60 hover:bg-white border border-transparent hover:border-[#eeeeee] rounded-2xl py-4 pl-12 pr-12 text-[14px] font-black text-[#1a1a1a] outline-none transition-all cursor-pointer">
+            <select className="appearance-none bg-[#f4f4f5]/60 hover:bg-white border border-transparent hover:border-[#eeeeee] rounded-xl py-2.5 pl-10 pr-10 text-[13px] font-normal text-[#1a1a1a] outline-none transition-all cursor-pointer min-w-[140px]">
               <option>All Status</option>
             </select>
-            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#555555] opacity-40 pointer-events-none" size={16} />
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#555555] opacity-40 pointer-events-none" size={14} />
           </div>
         </div>
       </div>
 
       {/* Members Table */}
-      <div className="bg-white rounded-[32px] overflow-hidden shadow-sm border border-[#eeeeee]">
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#eeeeee]">
         <table className="w-full border-collapse">
           <thead>
             <tr className="border-b border-gray-50 bg-gray-50/30">
-              <th className="px-8 py-5 text-left text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Member</th>
-              <th className="px-8 py-5 text-left text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Role</th>
-              <th className="px-8 py-5 text-left text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Status</th>
-              <th className="px-8 py-5 text-left text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Performance</th>
-              <th className="px-8 py-5 text-right text-[11px] font-black text-[#555555] opacity-40 uppercase tracking-wider">Actions</th>
+              <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Member</th>
+              <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Role</th>
+              <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Status</th>
+              <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Performance</th>
+              <th className="px-5 py-3 text-right text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-50">
             {members.map((member) => (
               <tr key={member.id} className="hover:bg-gray-50/50 transition-colors group">
-                <td className="px-8 py-5">
+                <td className="px-5 py-3">
                   <div className="flex items-center gap-4">
-                    <div className="w-11 h-11 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[13px] font-black shadow-lg shadow-[#A82228]/10">
+                    <div className="w-11 h-11 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[13px] font-normal shadow-lg shadow-[#A82228]/10">
                       {member.id}
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[14px] font-black text-[#1a1a1a] leading-tight mb-0.5">{member.name}</span>
-                      <span className="text-[12px] font-bold text-[#555555] opacity-50">{member.email}</span>
+                      <span className="text-[14px] font-normal text-[#1a1a1a] leading-tight mb-0.5">{member.name}</span>
+                      <span className="text-[12px] font-normal text-[#555555] opacity-50">{member.email}</span>
                     </div>
                   </div>
                 </td>
-                <td className="px-8 py-5">
-                  <span className="text-[14px] font-bold text-[#555555]">{member.role}</span>
+                <td className="px-5 py-3">
+                  <span className="text-[14px] font-normal text-[#555555]">{member.role}</span>
                 </td>
-                <td className="px-8 py-5">
-                  <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                <td className="px-5 py-3">
+                  <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-normal uppercase tracking-wider ${
                     member.status === 'active' 
                       ? 'bg-[#e7f6ed] text-[#1caf5f]' 
                       : 'bg-[#fff9e6] text-[#f59e0b]'
@@ -90,10 +90,10 @@ const Members = () => {
                     {member.status}
                   </span>
                 </td>
-                <td className="px-8 py-5">
+                <td className="px-5 py-3">
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[12px] font-black text-[#1a1a1a]">{member.performance}%</span>
+                      <span className="text-[12px] font-normal text-[#1a1a1a]">{member.performance}%</span>
                     </div>
                     <div className="w-32 h-2 bg-gray-100/80 rounded-full overflow-hidden">
                       <div 

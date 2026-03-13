@@ -27,20 +27,20 @@ const Sidebar = () => {
   return (
     <div className="flex flex-col h-full bg-white select-none">
       {/* Logo Section */}
-      <div className="p-8">
-        <div className="flex items-center gap-4">
-          <div className="w-[50px] h-[50px] bg-brand-gradient rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-[0_8px_16px_rgba(168,34,40,0.2)]">
+      <div className="p-6">
+        <div className="flex items-center gap-3">
+          <div className="w-[40px] h-[40px] bg-brand-gradient rounded-lg flex items-center justify-center text-white font-normal text-xl shadow-[0_8px_16px_rgba(168,34,40,0.2)]">
             YV
           </div>
           <div className="flex flex-col">
-            <h1 className="text-[17px] font-[900] text-[#1a1a1a] tracking-tight leading-none mb-1.5">YoungVox</h1>
-            <p className="text-[10px] font-bold text-[#555555] uppercase tracking-widest leading-none opacity-60">Mentor Portal</p>
+            <h1 className="text-[15px] font-normal text-[#1a1a1a] tracking-tight leading-none mb-1">YoungVox</h1>
+            <p className="text-[10px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Mentor Portal</p>
           </div>
         </div>
       </div>
       
       {/* Navigation */}
-      <nav className="flex-1 px-5 py-6 space-y-1.5 overflow-y-auto custom-scrollbar">
+      <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto custom-scrollbar">
         {menuItems.map((item) => {
           const isActive = location.pathname === item.path;
           return (
@@ -48,7 +48,7 @@ const Sidebar = () => {
               key={item.path}
               to={item.path}
               className={cn(
-                "flex items-center justify-between gap-3 px-5 py-4 rounded-2xl text-[14px] font-extrabold transition-all duration-300",
+                "flex items-center justify-between gap-3 px-4 py-3 rounded-xl text-[13px] font-normal transition-all duration-300",
                 isActive
                   ? "bg-brand-gradient text-white shadow-2xl shadow-[#A82228]/30 scale-[1.02]"
                   : "text-[#555555] hover:bg-gray-50 hover:text-[#1a1a1a]"
@@ -60,7 +60,7 @@ const Sidebar = () => {
               </div>
               {item.badge && (
                 <span className={cn(
-                  "text-[10px] font-black rounded-full h-5 w-5 flex items-center justify-center transition-all",
+                  "text-[10px] font-normal rounded-full h-5 w-5 flex items-center justify-center transition-all",
                   isActive ? "bg-white text-[#A82228]" : "bg-brand-gradient text-white"
                 )}>
                   {item.badge}
@@ -72,23 +72,23 @@ const Sidebar = () => {
       </nav>
 
       {/* User Card */}
-      <div className="p-6 mt-auto border-t border-gray-50 flex flex-col gap-4">
-        <div className="flex items-center justify-between gap-4 p-4 rounded-[20px] bg-gray-50/80 border border-gray-100/50 group hover:bg-white hover:shadow-xl hover:shadow-dark/5 transition-all duration-500">
-          <div className="flex items-center gap-4 min-w-0">
-            <div className="w-12 h-12 rounded-full bg-[#c72030] flex items-center justify-center text-white font-black text-sm shadow-lg shadow-[#c72030]/20 flex-shrink-0">
+      <div className="p-5 mt-auto border-t border-gray-50 flex flex-col gap-3">
+        <div className="flex items-center justify-between gap-3 p-3 rounded-[16px] bg-gray-50/80 border border-gray-100/50 group hover:bg-white hover:shadow-xl hover:shadow-dark/5 transition-all duration-500">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-10 h-10 rounded-full bg-brand-gradient flex items-center justify-center text-white font-normal text-xs shadow-lg shadow-[#A82228]/20 flex-shrink-0">
               JD
             </div>
             <div className="flex flex-col min-w-0">
-              <p className="text-[14px] font-black text-[#1a1a1a] truncate leading-tight mb-1">Jane Doe</p>
-              <p className="text-[10px] font-black text-[#555555] truncate uppercase tracking-tighter opacity-50">Senior Mentor</p>
+              <p className="text-[13px] font-normal text-[#1a1a1a] truncate leading-tight mb-0.5">Jane Doe</p>
+              <p className="text-[9px] font-normal text-[#555555] truncate uppercase tracking-tighter opacity-50">Senior Mentor</p>
             </div>
           </div>
           <button 
             onClick={handleLogout}
-            className="p-3 bg-white text-[#c72030] hover:bg-red-50 rounded-xl transition-all duration-300 border border-transparent hover:border-red-100 shadow-sm"
+            className="p-2.5 bg-white text-[#A82228] hover:bg-red-50 rounded-lg transition-all duration-300 border border-transparent hover:border-red-100 shadow-sm"
             title="Logout"
           >
-            <LogOut size={18} strokeWidth={3} />
+            <LogOut size={16} strokeWidth={3} />
           </button>
         </div>
       </div>
