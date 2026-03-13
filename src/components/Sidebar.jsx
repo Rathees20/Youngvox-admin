@@ -2,6 +2,7 @@ import React from 'react';
 import { LayoutDashboard, User, Users, FileText, CheckSquare, BarChart2, Heart, Box, Calendar, Settings, LogOut, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '../utils/cn';
+import logo from '../assets/logo.png';
 
 const Sidebar = ({ onClose }) => {
   const location = useLocation();
@@ -30,12 +31,14 @@ const Sidebar = ({ onClose }) => {
       {/* Logo Section */}
       <div className="p-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-[40px] h-[40px] bg-brand-gradient rounded-lg flex items-center justify-center text-white font-normal text-xl shadow-[0_8px_16px_rgba(168,34,40,0.2)]">
-            YV
-          </div>
+          <img 
+            src={logo} 
+            alt="YoungVox Logo" 
+            className="w-[40px] h-[40px] object-contain rounded-lg shadow-[0_4px_12px_rgba(168,34,40,0.1)]"
+          />
           <div className="flex flex-col">
-            <h1 className="text-[15px] font-normal text-[#1a1a1a] tracking-tight leading-none mb-1">YoungVox</h1>
-            <p className="text-[10px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Mentor Portal</p>
+            <h1 className="text-[17px] font-normal text-[#1a1a1a] tracking-wide leading-none mb-1">YoungVox</h1>
+            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Mentor Portal</p>
           </div>
         </div>
         <button 
