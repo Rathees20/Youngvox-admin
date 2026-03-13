@@ -12,51 +12,42 @@ const Profile = () => {
 
       {/* Hero Banner Section */}
       <div className="relative">
-        <div className="h-24 bg-brand-gradient rounded-2xl w-full"></div>
-        <div className="px-6 -mt-10 pb-1">
-          <div className="bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] p-6 flex flex-col md:flex-row items-center md:items-start justify-between gap-5 border border-white">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <div className="h-20 md:h-24 bg-brand-gradient rounded-2xl w-full"></div>
+        <div className="px-3 md:px-6 -mt-10 pb-1">
+          <div className="bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start justify-between gap-5 border border-white">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
               {/* Avatar */}
-              <div className="w-20 h-20 rounded-full bg-brand-gradient flex items-center justify-center text-white text-2xl font-normal shadow-2xl shadow-[#A82228]/20 border-[4px] border-white">
+              <div className="w-20 h-20 rounded-full bg-brand-gradient flex items-center justify-center text-white text-2xl font-normal shadow-2xl shadow-[#A82228]/20 border-[4px] border-white shrink-0">
                 JD
               </div>
-              <div className="flex flex-col text-center md:text-left pt-6">
+              <div className="flex flex-col text-center md:text-left pt-2 md:pt-6">
                 <div className="flex flex-col md:flex-row items-center gap-3 mb-2">
-                  <h3 className="text-2xl font-normal text-[#1a1a1a] tracking-tight">Jane Doe</h3>
+                  <h3 className="text-xl md:text-2xl font-normal text-[#1a1a1a] tracking-tight">Jane Doe</h3>
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#e7f6ed] text-[#1caf5f] text-[10px] font-normal px-3 py-1 rounded-full uppercase tracking-wider">Active</span>
-                    <span className="bg-gray-50 text-[#555555] text-[10px] font-normal px-3 py-1 rounded-full uppercase tracking-wider border border-gray-100">YV-TM-2024-0847</span>
+                    <span className="bg-[#e7f6ed] text-[#1caf5f] text-[9px] md:text-[10px] font-normal px-2.5 py-1 rounded-full uppercase tracking-wider">Active</span>
+                    <span className="bg-gray-50 text-[#555555] text-[9px] md:text-[10px] font-normal px-2.5 py-1 rounded-full uppercase tracking-wider border border-gray-100">YV-TM-24</span>
                   </div>
                 </div>
-                <p className="text-[14px] font-normal text-[#555555] opacity-70 mb-4">Senior Teacher Mentor</p>
+                <p className="text-[13px] md:text-[14px] font-normal text-[#555555] opacity-70 mb-4">Senior Teacher Mentor</p>
                 
                 {/* Contact Quick Info */}
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
                   <div className="flex items-center gap-3 bg-gray-50/80 px-3.5 py-2.5 rounded-xl border border-gray-100">
-                    <div className="w-9 h-9 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-[#555555] shadow-sm">
-                      <Mail size={16} strokeWidth={2.5} />
+                    <div className="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-[#555555] shadow-sm">
+                      <Mail size={14} strokeWidth={2.5} />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[9px] font-normal text-[#555555] opacity-50 uppercase tracking-tighter">Email</span>
-                      <span className="text-[12px] font-normal text-[#1a1a1a]">jane.doe@greenwood.edu</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 bg-gray-50/80 px-4 py-3 rounded-2xl border border-gray-100">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-gray-100 flex items-center justify-center text-[#555555] shadow-sm">
-                      <Phone size={18} strokeWidth={2.5} />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-normal text-[#555555] opacity-50 uppercase tracking-tighter">Contact</span>
-                      <span className="text-[13px] font-normal text-[#1a1a1a]">+1 (555) 123-4567</span>
+                      <span className="text-[8px] font-normal text-[#555555] opacity-50 uppercase tracking-tighter">Email</span>
+                      <span className="text-[11px] font-normal text-[#1a1a1a] truncate max-w-[120px] md:max-w-none">jane.doe@greenwood.edu</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 bg-gray-50/80 px-3.5 py-2.5 rounded-xl border border-gray-100">
-                    <div className="w-9 h-9 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-[#555555] shadow-sm">
-                      <Briefcase size={16} strokeWidth={2.5} />
+                    <div className="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-[#555555] shadow-sm">
+                      <Phone size={14} strokeWidth={2.5} />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-[9px] font-normal text-[#555555] opacity-50 uppercase tracking-tighter">Experience</span>
-                      <span className="text-[12px] font-normal text-[#1a1a1a]">12 years</span>
+                      <span className="text-[8px] font-normal text-[#555555] opacity-50 uppercase tracking-tighter">Contact</span>
+                      <span className="text-[11px] font-normal text-[#1a1a1a]">+1 (555) 123-4567</span>
                     </div>
                   </div>
                 </div>
@@ -64,15 +55,15 @@ const Profile = () => {
             </div>
 
             {/* Overall Ranking Card */}
-            <div className="bg-[#fff9f0] border border-[#ffecce] rounded-2xl p-4 flex items-center gap-4 self-start md:mt-4">
-              <div className="w-12 h-12 rounded-xl bg-[#ff9900] flex items-center justify-center text-white shadow-lg shadow-[#ff9900]/20">
-                <Trophy size={24} strokeWidth={2.5} />
+            <div className="bg-[#fff9f0] border border-[#ffecce] rounded-2xl p-4 flex items-center gap-4 self-center md:self-start md:mt-4">
+              <div className="w-10 h-10 rounded-xl bg-[#ff9900] flex items-center justify-center text-white shadow-lg shadow-[#ff9900]/20">
+                <Trophy size={20} strokeWidth={2.5} />
               </div>
               <div className="flex flex-col">
-                <div className="flex items-end gap-1.5">
-                  <span className="text-3xl font-normal text-[#1a1a1a]">#3</span>
+                <div className="flex items-end gap-1.5 leading-none">
+                  <span className="text-2xl font-normal text-[#1a1a1a]">#3</span>
                 </div>
-                <span className="text-[12px] font-normal text-[#555555] opacity-60">of 50 mentors</span>
+                <span className="text-[10px] md:text-[12px] font-normal text-[#555555] opacity-60">of 50 mentors</span>
               </div>
             </div>
           </div>
@@ -80,7 +71,7 @@ const Profile = () => {
       </div>
 
       {/* Personal and Professional Info Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-3 md:px-6">
         {/* Personal Information */}
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#eeeeee] space-y-6">
           <div className="flex items-center gap-3">

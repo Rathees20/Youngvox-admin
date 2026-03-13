@@ -51,14 +51,14 @@ const Dashboard = () => {
   return (
     <div className="p-6 space-y-6 bg-[#f7f7f8] min-h-screen max-w-[1600px] mx-auto">
       {/* Hero Banner */}
-      <div className="bg-brand-gradient text-white p-6 rounded-2xl shadow-[0_20px_50px_rgba(168,34,40,0.2)] relative overflow-hidden group border border-white/5">
+      <div className="bg-brand-gradient text-white p-6 md:p-8 rounded-2xl shadow-[0_20px_50px_rgba(168,34,40,0.2)] relative overflow-hidden group border border-white/5">
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2.5 mb-6 bg-white/10 px-5 py-2 rounded-full backdrop-blur-md border border-white/20 flex-nowrap">
-            <span className="text-[11px] font-normal uppercase tracking-[0.15em] text-white drop-shadow-sm">Outstanding Performance 🏆</span>
+          <div className="inline-flex items-center gap-2.5 mb-6 bg-white/10 px-5 py-2 rounded-full backdrop-blur-md border border-white/20 flex-nowrap shrink-0">
+            <span className="text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] text-white drop-shadow-sm truncate">Outstanding Performance 🏆</span>
           </div>
-          <h2 className="text-3xl font-normal mb-4 tracking-tighter group-hover:translate-x-2 transition-transform duration-700 ease-out">You're making an incredible impact!</h2>
-          <p className="text-white/70 text-[16px] font-normal max-w-3xl leading-relaxed">
-            Your chapters have completed 127 activities this month. Keep up the amazing work and continue empowering students across all platforms!
+          <h2 className="text-2xl md:text-3xl font-normal mb-4 tracking-tighter group-hover:translate-x-2 transition-transform duration-700 ease-out leading-tight">You're making an incredible impact!</h2>
+          <p className="text-white/70 text-[14px] md:text-[16px] font-normal max-w-3xl leading-relaxed">
+            Your chapters have completed 127 activities this month. Keep up the amazing work and continue empowering students!
           </p>
         </div>
         {/* Visual Decor */}

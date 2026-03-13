@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown, Eye, CheckCircle2, MoreHorizontal, Calendar, User, Filter, BarChart3 } from 'lucide-react';
+import { ChevronDown, Eye, CheckCircle2, MoreHorizontal, Calendar, Filter } from 'lucide-react';
 
 const Reports = () => {
   const reportCards = [
@@ -163,7 +163,7 @@ const Reports = () => {
 
       {/* Progress Chart Section */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#eeeeee] space-y-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex flex-col gap-1">
                 <h4 className="text-[16px] font-normal text-[#1a1a1a]">Monthly completion progress bar</h4>
                 <p className="text-[12px] font-normal text-[#555555] opacity-40 uppercase tracking-widest">Ratio of planned activities vs submitted reports</p>
@@ -183,7 +183,8 @@ const Reports = () => {
         </div>
 
         {/* Custom Bar Chart */}
-        <div className="relative h-[300px] w-full pt-8">
+        <div className="overflow-x-auto pb-4 custom-scrollbar">
+          <div className="relative h-[300px] min-w-[600px] w-full pt-8">
             {/* Y-Axis Labels */}
             <div className="absolute left-0 top-10 h-[250px] flex flex-col justify-between text-[11px] font-normal text-[#555555] opacity-30 select-none pb-2">
                 <span>100</span>
@@ -218,6 +219,7 @@ const Reports = () => {
                     ))}
                 </div>
             </div>
+          </div>
         </div>
       </div>
     </div>

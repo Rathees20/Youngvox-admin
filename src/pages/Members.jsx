@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, ChevronDown, MoreVertical, Filter } from 'lucide-react';
+import { Search, ChevronDown, Filter } from 'lucide-react';
 
 const Members = () => {
   const members = [
@@ -54,64 +54,66 @@ const Members = () => {
 
       {/* Members Table */}
       <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#eeeeee]">
-        <table className="w-full border-collapse">
-          <thead>
-            <tr className="border-b border-gray-50 bg-gray-50/30">
-              <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Member</th>
-              <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Role</th>
-              <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Status</th>
-              <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Performance</th>
-              <th className="px-5 py-3 text-right text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-50">
-            {members.map((member) => (
-              <tr key={member.id} className="hover:bg-gray-50/50 transition-colors group">
-                <td className="px-5 py-3">
-                  <div className="flex items-center gap-4">
-                    <div className="w-11 h-11 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[13px] font-normal shadow-lg shadow-[#A82228]/10">
-                      {member.id}
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[14px] font-normal text-[#1a1a1a] leading-tight mb-0.5">{member.name}</span>
-                      <span className="text-[12px] font-normal text-[#555555] opacity-50">{member.email}</span>
-                    </div>
-                  </div>
-                </td>
-                <td className="px-5 py-3">
-                  <span className="text-[14px] font-normal text-[#555555]">{member.role}</span>
-                </td>
-                <td className="px-5 py-3">
-                  <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-normal uppercase tracking-wider ${
-                    member.status === 'active' 
-                      ? 'bg-[#e7f6ed] text-[#1caf5f]' 
-                      : 'bg-[#fff9e6] text-[#f59e0b]'
-                  }`}>
-                    {member.status}
-                  </span>
-                </td>
-                <td className="px-5 py-3">
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[12px] font-normal text-[#1a1a1a]">{member.performance}%</span>
-                    </div>
-                    <div className="w-32 h-2 bg-gray-100/80 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full rounded-full transition-all duration-1000" 
-                        style={{ width: `${member.performance}%`, backgroundColor: member.color }}
-                      ></div>
-                    </div>
-                  </div>
-                </td>
-                <td className="px-8 py-5 text-right">
-                  <button className="p-2 hover:bg-white hover:shadow-lg rounded-xl transition-all text-[#555555] opacity-40 hover:opacity-100">
-                    <ChevronDown size={20} />
-                  </button>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse min-w-[800px] md:min-w-full">
+            <thead>
+              <tr className="border-b border-gray-50 bg-gray-50/30">
+                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Member</th>
+                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Role</th>
+                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Status</th>
+                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Performance</th>
+                <th className="px-5 py-3 text-right text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-50">
+              {members.map((member) => (
+                <tr key={member.id} className="hover:bg-gray-50/50 transition-colors group">
+                  <td className="px-5 py-3">
+                    <div className="flex items-center gap-4">
+                      <div className="w-11 h-11 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[13px] font-normal shadow-lg shadow-[#A82228]/10">
+                        {member.id}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[14px] font-normal text-[#1a1a1a] leading-tight mb-0.5">{member.name}</span>
+                        <span className="text-[12px] font-normal text-[#555555] opacity-50">{member.email}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-5 py-3">
+                    <span className="text-[14px] font-normal text-[#555555]">{member.role}</span>
+                  </td>
+                  <td className="px-5 py-3">
+                    <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-normal uppercase tracking-wider ${
+                      member.status === 'active' 
+                        ? 'bg-[#e7f6ed] text-[#1caf5f]' 
+                        : 'bg-[#fff9e6] text-[#f59e0b]'
+                    }`}>
+                      {member.status}
+                    </span>
+                  </td>
+                  <td className="px-5 py-3">
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[12px] font-normal text-[#1a1a1a]">{member.performance}%</span>
+                      </div>
+                      <div className="w-32 h-2 bg-gray-100/80 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full rounded-full transition-all duration-1000" 
+                          style={{ width: `${member.performance}%`, backgroundColor: member.color }}
+                        ></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-8 py-5 text-right">
+                    <button className="p-2 hover:bg-white hover:shadow-lg rounded-xl transition-all text-[#555555] opacity-40 hover:opacity-100">
+                      <ChevronDown size={20} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

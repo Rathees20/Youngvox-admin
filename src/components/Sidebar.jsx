@@ -1,8 +1,9 @@
-import { LayoutDashboard, User, Users, FileText, CheckSquare, BarChart2, Heart, Box, Calendar, Settings, LogOut } from 'lucide-react';
+import React from 'react';
+import { LayoutDashboard, User, Users, FileText, CheckSquare, BarChart2, Heart, Box, Calendar, Settings, LogOut, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '../utils/cn';
 
-const Sidebar = () => {
+const Sidebar = ({ onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -14,7 +15,7 @@ const Sidebar = () => {
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
     { icon: User, label: 'Profile', path: '/profile' },
-    { icon: Users, label: 'Chapter Directory', path: '/members' },
+    { icon: Users, label: 'Members', path: '/members' },
     { icon: FileText, label: 'Reports', path: '/reports', badge: 3 },
     { icon: CheckSquare, label: 'Assessments', path: '/assessments', badge: 2 },
     { icon: BarChart2, label: 'Analytics', path: '/analytics' },
@@ -27,7 +28,7 @@ const Sidebar = () => {
   return (
     <div className="flex flex-col h-full bg-white select-none">
       {/* Logo Section */}
-      <div className="p-6">
+      <div className="p-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-[40px] h-[40px] bg-brand-gradient rounded-lg flex items-center justify-center text-white font-normal text-xl shadow-[0_8px_16px_rgba(168,34,40,0.2)]">
             YV
@@ -37,6 +38,12 @@ const Sidebar = () => {
             <p className="text-[10px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Mentor Portal</p>
           </div>
         </div>
+        <button 
+          onClick={onClose}
+          className="md:hidden p-2 hover:bg-gray-50 rounded-xl text-[#555555] transition-all"
+        >
+          <X size={20} strokeWidth={3} />
+        </button>
       </div>
       
       {/* Navigation */}
@@ -47,6 +54,7 @@ const Sidebar = () => {
             <Link
               key={item.path}
               to={item.path}
+              onClick={onClose}
               className={cn(
                 "flex items-center justify-between gap-3 px-4 py-3 rounded-xl text-[13px] font-normal transition-all duration-300",
                 isActive

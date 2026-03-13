@@ -103,7 +103,7 @@ const Resources = () => {
       {/* Filter Bar */}
       <div className="bg-white rounded-2xl p-3 shadow-sm border border-[#eeeeee] flex flex-wrap gap-3">
         {['All Wing', 'Activity', 'Month'].map((filter) => (
-          <div key={filter} className="relative min-w-[160px]">
+          <div key={filter} className="relative flex-1 min-w-[120px] md:min-w-[160px]">
             <select className="w-full appearance-none bg-[#f4f4f5]/60 hover:bg-white border border-transparent hover:border-[#eeeeee] rounded-xl py-2 px-5 text-[12px] font-normal text-[#1a1a1a] outline-none transition-all cursor-pointer">
               <option>{filter}</option>
             </select>

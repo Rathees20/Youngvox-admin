@@ -45,9 +45,9 @@ const Events = () => {
         <div className="flex items-center gap-2 text-[#1a1a1a]">
           <h3 className="text-[14px] font-normal">Event Filters</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {['All Wings', 'All Activities', 'All Months'].map((filter) => (
-            <div key={filter} className="relative">
+            <div key={filter} className="relative col-span-2 md:col-span-1">
               <select className="w-full appearance-none bg-[#f4f4f5]/60 hover:bg-white border border-transparent hover:border-[#eeeeee] rounded-xl py-2.5 px-5 text-[12px] font-normal text-[#1a1a1a] outline-none transition-all cursor-pointer">
                 <option>{filter}</option>
               </select>
@@ -106,43 +106,38 @@ const Events = () => {
       </div>
 
       {/* Featured Event Section */}
-      <div className="bg-[#fff1f2] rounded-3xl p-6 border border-[#ffecce]/30 flex flex-col lg:flex-row gap-8 items-center border border-indigo-200/50">
-        <div className="lg:w-[45%] h-[280px] rounded-2xl overflow-hidden shadow-2xl relative group">
+      <div className="bg-[#fff1f2] rounded-3xl p-6 md:p-8 flex flex-col lg:flex-row gap-6 md:gap-10 items-center border border-red-100/50">
+        <div className="w-full lg:w-[45%] h-[200px] md:h-[300px] rounded-2xl overflow-hidden shadow-2xl relative group shrink-0">
           <img src="/artifacts/featured_training_banner.png" alt="Featured Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
         </div>
         
-        <div className="flex-1 space-y-5">
-          <div className="space-y-1">
-            <h3 className="text-[18px] font-normal text-[#1a1a1a]">Upcoming YoungVox Event</h3>
-            <span className="inline-block bg-[#A82228] text-white text-[10px] font-normal px-3 py-1 rounded-md uppercase tracking-widest">
+        <div className="flex-1 space-y-4 md:space-y-6">
+          <div className="space-y-2">
+            <h3 className="text-[16px] md:text-[18px] font-normal text-[#1a1a1a]">Upcoming YoungVox Event</h3>
+            <span className="inline-block bg-[#A82228] text-white text-[9px] md:text-[10px] font-normal px-3 py-1.5 rounded-md uppercase tracking-widest shadow-lg shadow-[#A82228]/20">
               Upcoming Training
             </span>
           </div>
           
-          <div className="space-y-2">
-            <h4 className="text-[22px] font-normal text-[#1a1a1a] tracking-tight">Advanced Mentor Training Workshop</h4>
-            <div className="flex flex-wrap gap-6 text-[13px] font-normal text-[#555555]">
+          <div className="space-y-3">
+            <h4 className="text-[20px] md:text-[24px] font-normal text-[#1a1a1a] tracking-tight leading-tight">Advanced Mentor Training Workshop</h4>
+            <div className="flex flex-wrap gap-4 md:gap-8 text-[12px] md:text-[13px] font-normal text-[#555555]">
               <div className="flex items-center gap-2">
-                <Calendar size={16} className="text-[#A82228] opacity-60" />
-                February 10, 2026
+                <Calendar size={15} className="text-[#A82228] opacity-60" />
+                Feb 10, 2026
               </div>
               <div className="flex items-center gap-2">
-                <Clock size={16} className="text-[#A82228] opacity-60" />
+                <Clock size={15} className="text-[#A82228] opacity-60" />
                 2:00 PM - 5:00 PM
               </div>
             </div>
           </div>
 
-          <p className="text-[14px] font-normal text-[#555555] leading-relaxed max-w-2xl opacity-80">
-            Join us for an intensive training session covering advanced chapter management techniques, student engagement strategies, and effective report writing. Limited slots available!
+          <p className="text-[13px] md:text-[14px] font-normal text-[#555555] leading-relaxed max-w-2xl opacity-80">
+            Join our intensive session covering advanced chapter management and student engagement strategies. Slots are limited!
           </p>
 
-          <div className="flex items-center gap-3 text-[13px] font-normal text-[#555555] opacity-70">
-            <Users size={18} className="text-[#A82228]" />
-            Facilitator: Dr. Maria Rodriguez, Education Specialist
-          </div>
-
-          <button className="bg-[#A82228] text-white px-8 py-3 rounded-xl text-[13px] font-normal shadow-lg shadow-[#A82228]/20 hover:brightness-110 transition-all">
+          <button className="w-full md:w-fit bg-[#A82228] text-white px-8 py-3.5 rounded-xl text-[13px] font-normal shadow-lg shadow-[#A82228]/20 hover:brightness-110 transition-all active:scale-95">
             Join the event
           </button>
         </div>
