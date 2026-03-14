@@ -50,6 +50,15 @@ const Profile = () => {
                       <span className="text-[11px] font-normal text-[#1a1a1a]">+1 (555) 123-4567</span>
                     </div>
                   </div>
+                  <div className="flex items-center gap-3 bg-gray-50/80 px-3.5 py-2.5 rounded-xl border border-gray-100">
+                    <div className="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center text-[#555555] shadow-sm">
+                      <Briefcase size={14} strokeWidth={2.5} />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[8px] font-normal text-[#555555] opacity-50 uppercase tracking-tighter">Experience</span>
+                      <span className="text-[11px] font-normal text-[#1a1a1a]">12 Years</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -101,7 +110,7 @@ const Profile = () => {
               <div className="flex flex-wrap gap-2">
                 {['English', 'Spanish', 'French'].map(lang => (
                   <span key={lang} className="bg-gray-50 border border-gray-100 text-[#555555] text-[12px] font-normal px-4 py-2 rounded-xl flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
+                    <img src="/icon/Known.png" alt="Language" className="w-[14px] h-[14px]" />
                     {lang}
                   </span>
                 ))}
