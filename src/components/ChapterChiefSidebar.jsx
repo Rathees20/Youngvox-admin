@@ -16,14 +16,14 @@ const ChapterChiefSidebar = ({ onClose }) => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/chapter-chief-dashboard' },
-    { icon: User, label: 'Profile', path: '/profile' }, // Common pages for now
-    { icon: Users, label: 'Members', path: '/members' },
-    { icon: FileText, label: 'Reports', path: '/reports', badge: '3' },
+    { icon: User, label: 'Profile', path: '/chapter-chief/profile' },
+    { icon: FileText, label: 'Chapter Directory', path: '/chapter-chief/directory' },
+    { icon: FileText, label: 'Reports', path: '/chapter-chief/reports', badge: '3' },
     { icon: CheckSquare, label: 'Assessments', path: '/assessments', badge: '2' },
-    { icon: BarChart2, label: 'Analytics', path: '/analytics' },
+    { icon: BarChart2, label: 'Analytics', path: '/chapter-chief/analytics' },
     { icon: Heart, label: 'Chapter Health', path: '/chapter-health' },
-    { icon: Box, label: 'Resources', path: '/resources' },
-    { icon: Calendar, label: 'Events', path: '/events' },
+    { icon: Box, label: 'Resources', path: '/chapter-chief/resources' },
+    { icon: Calendar, label: 'Events', path: '/chapter-chief/events' },
     { icon: Settings, label: 'Settings', path: '/settings' },
   ];
 

@@ -5,6 +5,12 @@ import Resources from './pages/Resources';
 import Events from './pages/Events';
 import Analytics from './pages/Analytics';
 import ChapterChiefDashboard from './pages/ChapterChiefDashboard';
+import ChapterChiefProfile from './pages/ChapterChiefProfile';
+import ChapterDirectory from './pages/ChapterDirectory';
+import ChapterReports from './pages/ChapterReports';
+import ChapterEvents from './pages/ChapterEvents';
+import ChapterAnalytics from './pages/ChapterAnalytics';
+import ChapterResources from './pages/ChapterResources';
 
 import Layout from './layouts/Layout';
 import ChapterChiefLayout from './layouts/ChapterChiefLayout';
@@ -15,7 +21,6 @@ import Members from './pages/Members';
 import Reports from './pages/Reports';
 
 import Login from './pages/Login';
-import ChapterChiefLogin from './pages/ChapterChiefLogin';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -23,19 +28,67 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/chapter-chief-login" element={<ChapterChiefLogin />} />
+        <Route path="/chapter-chief-login" element={<Navigate to="/login" replace />} />
         {/* Protected Area */}
         <Route
           path="/*"
           element={
             <ProtectedRoute>
               <Routes>
-                {/* Chapter Chief Dashboard - Independent Layout */}
+                {/* Chapter Chief Routes - Independent Layout */}
                 <Route
                   path="/chapter-chief-dashboard"
                   element={
                     <ChapterChiefLayout>
                       <ChapterChiefDashboard />
+                    </ChapterChiefLayout>
+                  }
+                />
+                <Route
+                  path="/chapter-chief/profile"
+                  element={
+                    <ChapterChiefLayout>
+                      <ChapterChiefProfile />
+                    </ChapterChiefLayout>
+                  }
+                />
+                <Route
+                  path="/chapter-chief/directory"
+                  element={
+                    <ChapterChiefLayout>
+                      <ChapterDirectory />
+                    </ChapterChiefLayout>
+                  }
+                />
+                <Route
+                  path="/chapter-chief/reports"
+                  element={
+                    <ChapterChiefLayout>
+                      <ChapterReports />
+                    </ChapterChiefLayout>
+                  }
+                />
+                <Route
+                  path="/chapter-chief/events"
+                  element={
+                    <ChapterChiefLayout>
+                      <ChapterEvents />
+                    </ChapterChiefLayout>
+                  }
+                />
+                <Route
+                  path="/chapter-chief/analytics"
+                  element={
+                    <ChapterChiefLayout>
+                      <ChapterAnalytics />
+                    </ChapterChiefLayout>
+                  }
+                />
+                <Route
+                  path="/chapter-chief/resources"
+                  element={
+                    <ChapterChiefLayout>
+                      <ChapterResources />
                     </ChapterChiefLayout>
                   }
                 />
