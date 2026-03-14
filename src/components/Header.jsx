@@ -2,6 +2,10 @@ import React from 'react';
 import { Bell, Menu } from 'lucide-react';
 
 const Header = ({ onMenuClick }) => {
+  const userRole = localStorage.getItem('userRole');
+  const userName = userRole === 'chapter-chief' ? 'Sarah Chen' : 'Jane Doe';
+  const userRoleLabel = userRole === 'chapter-chief' ? 'Chapter Chief Control' : 'Chapter update dashboard';
+
   return (
     <header className="h-[70px] bg-white flex items-center justify-between px-4 md:px-8 sticky top-0 z-40 border-b border-[#f3f4f6]">
       <div className="flex items-center gap-4 md:gap-6">
@@ -12,8 +16,8 @@ const Header = ({ onMenuClick }) => {
           <Menu size={24} strokeWidth={2.5} />
         </button>
         <div className="flex flex-col">
-          <h2 className="text-[14px] md:text-[16px] font-normal text-[#1a1a1a] tracking-tight leading-none mb-1 md:mb-2 capitalize">Welcome back, Jane! 👋</h2>
-          <p className="text-[10px] md:text-[12px] font-normal text-[#555555] leading-none opacity-40">Chapter update dashboard</p>
+          <h2 className="text-[14px] md:text-[16px] font-normal text-[#1a1a1a] tracking-tight leading-none mb-1 md:mb-2 capitalize">Welcome back, {userName}! 👋</h2>
+          <p className="text-[10px] md:text-[12px] font-normal text-[#555555] leading-none opacity-40">{userRoleLabel}</p>
         </div>
       </div>
 
