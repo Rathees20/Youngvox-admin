@@ -1,45 +1,50 @@
 import React from 'react';
 import { Users, Activity, CheckCircle, Star, MessageSquare, Paperclip, Send } from 'lucide-react';
 
-const StatCard = ({ icon, label, value, change, bgColor, percentage }) => (
-  <div className={`p-4 rounded-2xl shadow-sm ${bgColor} relative overflow-hidden group hover:shadow-2xl transition-all duration-700 h-full min-w-[180px]`}>
-    <div className="flex items-center justify-between mb-4">
-      <div className="p-2.5 rounded-xl bg-white/20 text-white backdrop-blur-md border border-white/10">
-        {React.cloneElement(icon, { size: 18, strokeWidth: 3 })}
+const StatCard = ({ icon, emojiIcon, label, value, change, bgColor, barColor, percentage }) => (
+  <div className="bg-white rounded-[20px] shadow-sm p-1.5 flex flex-col h-full min-w-[200px]">
+    <div className={`p-4 rounded-[16px] ${bgColor} relative overflow-hidden flex-1 group hover:shadow-md transition-shadow duration-300`}>
+      <div className="flex items-center justify-between mb-6">
+        <div className="text-white">
+          {React.cloneElement(icon, { size: 24, strokeWidth: 2 })}
+        </div>
+        <div className="text-[20px] leading-none select-none drop-shadow-sm">
+          {emojiIcon}
+        </div>
       </div>
-      <div className="text-[11px] font-normal bg-white/20 text-white px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10 uppercase tracking-tighter">
-        {change}
+      
+      <div className="mt-auto relative z-10 flex flex-col gap-1">
+        <p className="text-white/90 text-[12px] font-medium tracking-wide">{label}</p>
+        <div className="flex items-end justify-between">
+          <p className="text-white text-3xl font-bold tracking-tight leading-none">{value}</p>
+          <div className="text-[11px] font-semibold bg-white/20 text-white px-2.5 py-1 rounded-full backdrop-blur-sm">
+            {change}
+          </div>
+        </div>
       </div>
+      
+      {/* Background Decorative Gradient */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none rounded-[16px]"></div>
     </div>
-    <div className="relative z-10">
-      <p className="text-white/60 text-[11px] font-normal uppercase tracking-[0.1em] mb-1.5">{label}</p>
-      <p className="text-white text-3xl font-normal tracking-tight">{value}</p>
-    </div>
-    <div className="mt-4 relative z-10">
-      <div className="flex justify-between items-center mb-2">
-        <p className="text-[10px] text-white/50 font-normal uppercase tracking-tighter">Performance Level</p>
-        <span className="text-[10px] text-white font-normal">{percentage}%</span>
-      </div>
-      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm border border-white/5">
+    
+    <div className="px-3 py-3 flex items-center justify-between bg-white rounded-b-[20px]">
+      <span className="text-[10px] text-gray-400 font-medium">vs. last month</span>
+      <div className="h-1.5 bg-gray-100 rounded-full w-24 overflow-hidden">
         <div 
-          className="h-full bg-white rounded-full transition-all duration-[1500ms] ease-out shadow-[0_0_15px_rgba(255,255,255,0.8)]" 
+          className={`h-full ${barColor} rounded-full transition-all duration-1000`}
           style={{ width: `${percentage}%` }}
         ></div>
       </div>
-    </div>
-    {/* Background Decorative Icon */}
-    <div className="absolute -right-6 -bottom-6 text-white/5 rotate-[15deg] group-hover:rotate-0 group-hover:scale-125 transition-all duration-1000 ease-in-out pointer-events-none">
-      {React.cloneElement(icon, { size: 120 })}
     </div>
   </div>
 );
 
 const Dashboard = () => {
   const stats = [
-    { icon: <Users />, label: 'Student Benefited', value: '236', change: '+12%', percentage: 65, bgColor: 'bg-blue-600' },
-    { icon: <Activity />, label: 'Activity Pending', value: '3', change: '-40%', percentage: 35, bgColor: 'bg-orange-500' },
-    { icon: <CheckCircle />, label: 'Chapter Success', value: '94%', change: '+12%', percentage: 94, bgColor: 'bg-emerald-500' },
-    { icon: <Star />, label: 'Mentor Ranking', value: '#3', change: '+0.3', percentage: 75, bgColor: 'bg-orange-600' },
+    { icon: <Users />, emojiIcon: '🎉', label: 'Student Benefited', value: '236', change: '+12%', percentage: 65, bgColor: 'bg-[#2B70FF]', barColor: 'bg-[#2B70FF]' },
+    { icon: <Activity />, emojiIcon: '⚡', label: 'Activity Pending', value: '3', change: '-40%', percentage: 35, bgColor: 'bg-[#F7941E]', barColor: 'bg-[#F7941E]' },
+    { icon: <CheckCircle />, emojiIcon: '🚀', label: 'Chapter Success', value: '94%', change: '+5%', percentage: 94, bgColor: 'bg-[#00C853]', barColor: 'bg-[#00C853]' },
+    { icon: <Star />, emojiIcon: '⭐', label: 'Mentor Ranking', value: '#3', change: '+0.3', percentage: 75, bgColor: 'bg-[#FF5722]', barColor: 'bg-[#FF5722]' },
   ];
 
   const events = [
@@ -51,19 +56,16 @@ const Dashboard = () => {
   return (
     <div className="p-6 space-y-6 bg-[#f7f7f8] min-h-screen max-w-[1600px] mx-auto">
       {/* Hero Banner */}
-      <div className="bg-brand-gradient text-white p-6 md:p-8 rounded-2xl shadow-[0_20px_50px_rgba(168,34,40,0.2)] relative overflow-hidden group border border-white/5">
-        <div className="relative z-10">
-          <div className="inline-flex items-center gap-2.5 mb-6 bg-white/10 px-5 py-2 rounded-full backdrop-blur-md border border-white/20 flex-nowrap shrink-0">
-            <span className="text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] text-white drop-shadow-sm truncate">Outstanding Performance 🏆</span>
+      <div className="bg-[#9B2B2B] text-white p-6 md:p-8 rounded-[16px] shadow-sm relative overflow-hidden">
+        <div className="relative z-10 space-y-4">
+          <div className="inline-flex items-center gap-2 mb-2 bg-white/10 px-3 py-1.5 rounded-full border border-white/20">
+            <span className="text-[11px] font-medium text-white/90">Outstanding Performance 🏆</span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-normal mb-4 tracking-tighter group-hover:translate-x-2 transition-transform duration-700 ease-out leading-tight">You're making an incredible impact!</h2>
-          <p className="text-white/70 text-[14px] md:text-[16px] font-normal max-w-3xl leading-relaxed">
-            Your chapters have completed 127 activities this month. Keep up the amazing work and continue empowering students!
+          <h2 className="text-xl md:text-[22px] font-normal tracking-wide text-white">You're making an incredible impact!</h2>
+          <p className="text-white/80 text-[13px] md:text-[14px] font-light max-w-3xl">
+            Your chapters have completed 127 activities this month. Keep up the amazing work!
           </p>
         </div>
-        {/* Visual Decor */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full -mr-40 -mt-40 blur-[100px] group-hover:bg-white/10 transition-colors duration-[2000ms]"></div>
-        <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-black/5 rounded-full blur-[80px]"></div>
       </div>
 
       {/* Stats Cards Row */}
@@ -73,36 +75,34 @@ const Dashboard = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Main Illustration Section */}
-        <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-2xl shadow-dark/5 aspect-[16/10] border border-white bg-white group">
+        <div className="rounded-[16px] overflow-hidden shadow-sm relative group bg-white border border-gray-100 min-h-[350px]">
           <img 
-            src="https://images.unsplash.com/photo-1523050853064-886ec33f8288?q=80&w=2400&auto=format&fit=crop" 
+            src="/images/images teachers/dashboard.png"
             alt="Students cheering" 
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3000ms] ease-out opacity-90 group-hover:opacity-100"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
           />
+          {/* Bottom Gradient overlay */}
+          <div className="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-[#7a2024]/90 via-[#7a2024]/40 to-transparent pointer-events-none mix-blend-multiply"></div>
         </div>
 
         {/* Side Content Section: Upcoming Events */}
-        <div className="lg:col-span-2 bg-white p-6 rounded-2xl shadow-2xl shadow-dark/5 border border-gray-100/50">
-          <h3 className="text-[16px] font-normal text-[#1a1a1a] mb-6 flex items-center justify-between tracking-tight">
-            Upcoming Events
-            <div className="flex gap-1.5">
-              <span className="w-2 h-2 bg-[#A82228] rounded-full animate-bounce"></span>
-              <span className="w-2 h-2 bg-[#A82228]/40 rounded-full animate-bounce [animation-delay:0.2s]"></span>
-            </div>
-          </h3>
-          <div className="space-y-8">
+        <div className="bg-white p-5 rounded-[16px] shadow-sm border border-gray-100">
+          <div className="flex items-center justify-between mb-5">
+            <h3 className="text-[16px] font-bold text-[#1a1a1a]">Upcoming Events</h3>
+          </div>
+          <div className="space-y-3">
             {events.map((event, index) => (
-              <div key={index} className="flex gap-4 group cursor-pointer items-start">
-                <div className="w-[80px] h-[80px] rounded-xl overflow-hidden shadow-md flex-shrink-0 border-4 border-gray-50 group-hover:border-[#A82228]/10 transition-colors duration-500">
-                  <img src={event.img} alt="Event" className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-1000" />
+              <div key={index} className="flex gap-4 p-3 bg-[#FAFAFB] rounded-[16px] items-center hover:bg-gray-50 transition-colors">
+                <div className="w-[100px] h-[75px] rounded-[10px] overflow-hidden flex-shrink-0 bg-white shadow-sm border border-gray-100">
+                  <img src={event.img} alt="Event" className="w-full h-full object-cover" />
                 </div>
-                <div className="flex-1 min-w-0 pt-1">
-                  <p className="text-[13px] font-normal text-[#1a1a1a] leading-snug mb-3 group-hover:text-[#A82228] transition-colors line-clamp-2 tracking-tight">{event.title}</p>
-                  <div className="flex gap-3">
-                    <button className="text-[10px] font-normal text-[#A82228] bg-[#A82228]/5 hover:bg-[#A82228] hover:text-white px-3 py-1.5 rounded-lg transition-all duration-300 transform active:scale-95 shadow-sm">Join Event</button>
-                    <button className="text-[10px] font-normal text-[#555555] opacity-60 hover:opacity-100 px-3 py-1.5 rounded-lg transition-all border border-gray-100 hover:bg-gray-50">Report</button>
+                <div className="flex-1 min-w-0 flex flex-col justify-center">
+                  <p className="text-[13px] font-bold text-[#1a1a1a] leading-snug mb-3 line-clamp-2">{event.title}</p>
+                  <div className="flex gap-2">
+                    <button className="text-[10px] font-medium text-[#2B70FF] bg-[#EAF1FF] hover:bg-[#D6E4FF] px-4 py-1.5 rounded-full transition-colors whitespace-nowrap">Join the event!</button>
+                    <button className="text-[10px] font-medium text-[#2B70FF] bg-white border border-[#D6E4FF] hover:bg-gray-50 px-4 py-1.5 rounded-full transition-colors whitespace-nowrap">Submit report</button>
                   </div>
                 </div>
               </div>

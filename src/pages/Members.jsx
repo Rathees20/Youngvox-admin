@@ -1,7 +1,9 @@
-import React from 'react';
-import { Search, ChevronDown, Filter } from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, ChevronDown, ChevronUp, Filter, Mail, Phone, Activity } from 'lucide-react';
 
 const Members = () => {
+  const [expandedRow, setExpandedRow] = useState(null);
+
   const members = [
     { id: 'AJ', name: 'Alice Johnson', email: 'alice.j@school.edu', role: 'Chapter Chief', status: 'active', performance: 95, color: '#1caf5f' },
     { id: 'BM', name: 'Bob Martinez', email: 'bob.m@school.edu', role: 'Secretary', status: 'active', performance: 88, color: '#f59e0b' },
@@ -11,6 +13,14 @@ const Members = () => {
     { id: 'FT', name: 'Frank Thompson', email: 'frank.t@school.edu', role: 'Wing Leader - Child Rights & Social Justice', status: 'active', performance: 85, color: '#f59e0b' },
     { id: 'GL', name: 'Grace Lee', email: 'grace.l@school.edu', role: 'Wing Leader - Community Outreach and Service', status: 'active', performance: 94, color: '#1caf5f' },
   ];
+
+  const toggleRow = (id) => {
+    if (expandedRow === id) {
+      setExpandedRow(null);
+    } else {
+      setExpandedRow(id);
+    }
+  };
 
   return (
     <div className="p-4 max-w-7xl mx-auto space-y-4 animate-in fade-in duration-700">
@@ -58,58 +68,116 @@ const Members = () => {
           <table className="w-full border-collapse min-w-[800px] md:min-w-full">
             <thead>
               <tr className="border-b border-gray-50 bg-gray-50/30">
-                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Member</th>
-                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Role</th>
-                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Status</th>
-                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Performance</th>
-                <th className="px-5 py-3 text-right text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider">Actions</th>
+                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider w-[25%]">Member</th>
+                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider w-[25%]">Role</th>
+                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider w-[15%]">Status</th>
+                <th className="px-5 py-3 text-left text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider w-[25%]">Performance</th>
+                <th className="px-5 py-3 text-right text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider w-[10%]">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
               {members.map((member) => (
-                <tr key={member.id} className="hover:bg-gray-50/50 transition-colors group">
-                  <td className="px-5 py-3">
-                    <div className="flex items-center gap-4">
-                      <div className="w-11 h-11 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[13px] font-normal shadow-lg shadow-[#A82228]/10">
-                        {member.id}
+                <React.Fragment key={member.id}>
+                  <tr 
+                    onClick={() => toggleRow(member.id)}
+                    className={`transition-colors group cursor-pointer ${expandedRow === member.id ? 'bg-gray-50/50 relative z-10' : 'hover:bg-gray-50/50'}`}
+                  >
+                    <td className="px-5 py-3">
+                      <div className="flex items-center gap-4">
+                        <div className="w-11 h-11 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[13px] font-normal shadow-lg shadow-[#A82228]/10">
+                          {member.id}
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-[14px] font-normal text-[#1a1a1a] leading-tight mb-0.5">{member.name}</span>
+                          <span className="text-[12px] font-normal text-[#555555] opacity-50">{member.email}</span>
+                        </div>
                       </div>
-                      <div className="flex flex-col">
-                        <span className="text-[14px] font-normal text-[#1a1a1a] leading-tight mb-0.5">{member.name}</span>
-                        <span className="text-[12px] font-normal text-[#555555] opacity-50">{member.email}</span>
+                    </td>
+                    <td className="px-5 py-3">
+                      <span className="text-[14px] font-normal text-[#555555]">{member.role}</span>
+                    </td>
+                    <td className="px-5 py-3">
+                      <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-normal uppercase tracking-wider ${
+                        member.status === 'active' 
+                          ? 'bg-[#e7f6ed] text-[#1caf5f]' 
+                          : 'bg-[#fff9e6] text-[#f59e0b]'
+                      }`}>
+                        {member.status}
+                      </span>
+                    </td>
+                    <td className="px-5 py-3">
+                      <div className="flex flex-col gap-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[12px] font-normal text-[#1a1a1a]">{member.performance}%</span>
+                        </div>
+                        <div className="w-32 h-2 bg-gray-100/80 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full rounded-full transition-all duration-1000" 
+                            style={{ width: `${member.performance}%`, backgroundColor: member.color }}
+                          ></div>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-5 py-3">
-                    <span className="text-[14px] font-normal text-[#555555]">{member.role}</span>
-                  </td>
-                  <td className="px-5 py-3">
-                    <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] font-normal uppercase tracking-wider ${
-                      member.status === 'active' 
-                        ? 'bg-[#e7f6ed] text-[#1caf5f]' 
-                        : 'bg-[#fff9e6] text-[#f59e0b]'
-                    }`}>
-                      {member.status}
-                    </span>
-                  </td>
-                  <td className="px-5 py-3">
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[12px] font-normal text-[#1a1a1a]">{member.performance}%</span>
-                      </div>
-                      <div className="w-32 h-2 bg-gray-100/80 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full rounded-full transition-all duration-1000" 
-                          style={{ width: `${member.performance}%`, backgroundColor: member.color }}
-                        ></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-8 py-5 text-right">
-                    <button className="p-2 hover:bg-white hover:shadow-lg rounded-xl transition-all text-[#555555] opacity-40 hover:opacity-100">
-                      <ChevronDown size={20} />
-                    </button>
-                  </td>
-                </tr>
+                    </td>
+                    <td className="px-8 py-5 text-right">
+                      <button className="p-2 hover:bg-white hover:shadow-lg rounded-xl transition-all text-[#555555] opacity-40 hover:opacity-100">
+                        {expandedRow === member.id ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                      </button>
+                    </td>
+                  </tr>
+                  
+                  {/* Expanded Row Content */}
+                  {expandedRow === member.id && (
+                    <tr className="bg-gray-50/30">
+                      <td colSpan="5" className="px-5 py-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                          {/* Contact Information */}
+                          <div className="space-y-4">
+                            <h4 className="text-[13px] font-normal text-[#1a1a1a] mb-2">Contact Information</h4>
+                            <div className="flex items-center gap-3">
+                              <Mail size={14} className="text-[#555555] opacity-40" />
+                              <span className="text-[13px] font-normal text-[#555555]">{member.email}</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                              <Phone size={14} className="text-[#555555] opacity-40" />
+                              <span className="text-[13px] font-normal text-[#555555]">(555) 123-4567</span>
+                            </div>
+                          </div>
+
+                          {/* Activity Summary */}
+                          <div className="space-y-4">
+                            <h4 className="text-[13px] font-normal text-[#1a1a1a] mb-2">Activity Summary</h4>
+                            <div className="flex items-center justify-between">
+                              <span className="text-[13px] font-normal text-[#555555]">Activities Completed</span>
+                              <span className="bg-[#e0f0ff] text-[#3b82f6] text-[10px] font-normal px-2.5 py-1 rounded-md">12</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-[13px] font-normal text-[#555555]">Reports Submitted</span>
+                              <span className="bg-[#e7f6ed] text-[#1caf5f] text-[10px] font-normal px-2.5 py-1 rounded-md">8</span>
+                            </div>
+                            <div className="text-right">
+                              <span className="text-[11px] font-normal text-[#555555] opacity-60">2 hours ago</span>
+                            </div>
+                          </div>
+
+                          {/* Quick Actions */}
+                          <div className="space-y-4">
+                            <h4 className="text-[13px] font-normal text-[#1a1a1a] mb-2">Quick Actions</h4>
+                            <div className="space-y-2">
+                              <button className="w-full flex items-center justify-start gap-3 bg-white border border-[#eeeeee] px-4 py-2 rounded-xl hover:bg-gray-50 transition-all text-[13px] font-normal text-[#1a1a1a]">
+                                <Activity size={16} className="text-[#555555] opacity-60" />
+                                View Activity Log
+                              </button>
+                              <button className="w-full flex items-center justify-start gap-3 bg-white border border-[#eeeeee] px-4 py-2 rounded-xl hover:bg-gray-50 transition-all text-[13px] font-normal text-[#1a1a1a]">
+                                <Activity size={16} className="text-[#555555] opacity-60" />
+                                View Full profile
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </React.Fragment>
               ))}
             </tbody>
           </table>
