@@ -1,7 +1,49 @@
-import React from 'react';
-import { ChevronDown, Download, FileText, Search, Filter, HelpCircle, Bell } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronDown, Download, FileText, Search, Filter, HelpCircle, Bell, X, MessageSquare, BookOpen, Clock, GraduationCap } from 'lucide-react';
 
 const Resources = () => {
+  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
+  const [isUpdatesModalOpen, setIsUpdatesModalOpen] = useState(false);
+
+  const notifications = [
+    {
+      id: 1,
+      title: 'New Pre-Assessment Templates added for all wings',
+      time: '2 hours ago',
+      icon: BookOpen,
+      iconColor: '#A82228',
+      isNew: true,
+      bgColor: 'bg-[#f0f7ff]'
+    },
+    {
+      id: 2,
+      title: 'Updated Chapter Formation Guidelines v2.0',
+      time: '1 day ago',
+      icon: FileText,
+      iconColor: '#3b82f6',
+      isNew: true,
+      bgColor: 'bg-[#f0f7ff]'
+    },
+    {
+      id: 3,
+      title: 'Monthly report submission deadline: Jan 31, 2026',
+      time: '2 days ago',
+      icon: Clock,
+      iconColor: '#f59e0b',
+      isNew: false,
+      bgColor: 'bg-white'
+    },
+    {
+      id: 4,
+      title: 'New training webinar scheduled for Feb 5, 2026',
+      time: '3 days ago',
+      icon: GraduationCap,
+      iconColor: '#10b981',
+      isNew: false,
+      bgColor: 'bg-white'
+    }
+  ];
+
   const resourceLibrary = [
     {
       title: 'Career Bingo',
@@ -88,13 +130,19 @@ const Resources = () => {
           <p className="text-[14px] font-normal text-[#555555] opacity-60">Access all your activity templates and guidelines</p>
         </div>
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 bg-white border border-[#eeeeee] px-4 py-2 rounded-xl text-[13px] font-normal text-[#1a1a1a] shadow-sm">
+          <button 
+            onClick={() => setIsUpdatesModalOpen(true)}
+            className="flex items-center gap-2 bg-white border border-[#eeeeee] px-4 py-2 rounded-xl text-[13px] font-normal text-[#1a1a1a] shadow-sm hover:bg-gray-50 transition-all"
+          >
             <Bell size={18} className="text-[#A82228]" />
             Updates
             <span className="bg-[#A82228] text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full">2</span>
           </button>
-          <button className="flex items-center gap-2 bg-[#A82228] text-white px-4 py-2 rounded-xl text-[13px] font-normal shadow-lg shadow-[#A82228]/20">
-            <HelpCircle size={18} />
+          <button 
+            onClick={() => setIsHelpModalOpen(true)}
+            className="flex items-center gap-2 bg-[#A82228] text-white px-4 py-2 rounded-xl text-[13px] font-normal shadow-lg shadow-[#A82228]/20 hover:opacity-90 transition-all"
+          >
+            <img src="/icon/help desk.png" alt="Help Desk" className="w-4 h-4 brightness-0 invert" />
             Help Desk
           </button>
         </div>
@@ -151,8 +199,8 @@ const Resources = () => {
       {/* Manuals Section */}
       <div className="bg-[#fff1f2] rounded-3xl p-8 space-y-6">
         <div className="flex items-center gap-3">
-          <div className="bg-[#A82228] text-white p-2 rounded-lg">
-            <FileText size={18} />
+          <div className="bg-[#A82228] text-white p-2 rounded-lg flex items-center justify-center">
+            <img src="/icon/manuals.png" alt="Manuals" className="w-5 h-5 brightness-0 invert" />
           </div>
           <h3 className="text-[18px] font-normal text-[#1a1a1a]">Manuals</h3>
         </div>
@@ -188,6 +236,142 @@ const Resources = () => {
           ))}
         </div>
       </div>
+
+      {/* Help Desk Modal */}
+      {isHelpModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm animate-in fade-in duration-300"
+            onClick={() => setIsHelpModalOpen(false)}
+          />
+          <div className="bg-white rounded-[32px] w-full max-w-[420px] p-7 shadow-2xl relative z-10 animate-in zoom-in-95 duration-300">
+            {/* Close Button */}
+            <button 
+              onClick={() => setIsHelpModalOpen(false)}
+              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Modal Header */}
+            <div className="space-y-1 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="text-[#A82228]">
+                   <MessageSquare size={24} strokeWidth={2.5} />
+                </div>
+                <h3 className="text-[22px] font-semibold text-[#1a1a1a]">Help Desk</h3>
+              </div>
+              <p className="text-[14px] text-[#555555] opacity-70">
+                Send us your query and our team will respond shortly
+              </p>
+            </div>
+
+            {/* Form */}
+            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <div className="space-y-2">
+                <label className="text-[14px] font-semibold text-[#1a1a1a] block">Subject</label>
+                <input 
+                  type="text" 
+                  placeholder="Brief description of your issue"
+                  className="w-full bg-[#f4f4f5]/60 border-none rounded-2xl py-4 px-5 text-[14px] text-[#1a1a1a] placeholder:text-[#555555]/40 outline-none focus:ring-2 focus:ring-[#A82228]/10 transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[14px] font-semibold text-[#1a1a1a] block">Message</label>
+                <textarea 
+                  rows={4}
+                  placeholder="Describe your issue or question in detail..."
+                  className="w-full bg-[#f4f4f5]/60 border-none rounded-2xl py-4 px-5 text-[14px] text-[#1a1a1a] placeholder:text-[#555555]/40 outline-none focus:ring-2 focus:ring-[#A82228]/10 transition-all resize-none"
+                />
+              </div>
+
+              <button 
+                type="submit"
+                className="bg-[#A82228] text-white w-full md:w-fit px-10 py-3.5 rounded-xl text-[14px] font-semibold shadow-lg shadow-[#A82228]/20 hover:opacity-90 transition-all mt-2"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Updates & Notifications Modal */}
+      {isUpdatesModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm animate-in fade-in duration-300"
+            onClick={() => setIsUpdatesModalOpen(false)}
+          />
+          <div className="bg-white rounded-[32px] w-full max-w-[440px] p-5 shadow-2xl relative z-10 animate-in zoom-in-95 duration-300">
+            {/* Close Button */}
+            <button 
+              onClick={() => setIsUpdatesModalOpen(false)}
+              className="absolute top-5 right-5 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Modal Header */}
+            <div className="space-y-1 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="text-[#A82228]">
+                   <Bell size={24} strokeWidth={2.5} />
+                </div>
+                <h3 className="text-[20px] font-bold text-[#1a1a1a]">Updates & Notifications</h3>
+              </div>
+              <p className="text-[13px] text-[#555555] opacity-70">
+                Stay updated with new resources, guideline changes, and important reminders
+              </p>
+            </div>
+
+            {/* Notifications List */}
+            <div className="space-y-3 mb-6 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+              {notifications.map((notif) => (
+                <div 
+                  key={notif.id} 
+                  className={`${notif.bgColor} border border-[#e5f0ff] rounded-2xl p-4 flex gap-4 relative group hover:shadow-md transition-all`}
+                >
+                  <div className="flex-shrink-0 mt-1">
+                    <notif.icon size={20} style={{ color: notif.iconColor }} />
+                  </div>
+                  <div className="flex flex-col gap-1 pr-12">
+                     <p className="text-[14px] font-medium text-[#1a1a1a] leading-tight">
+                        {notif.title}
+                     </p>
+                     <span className="text-[12px] text-[#555555] opacity-50">
+                        {notif.time}
+                     </span>
+                  </div>
+                  {notif.isNew && (
+                    <div className="absolute top-5 right-5">
+                       <span className="bg-[#A82228] text-white text-[10px] font-bold px-3 py-1 rounded-lg uppercase tracking-wider">
+                          New
+                       </span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Footer Actions */}
+            <div className="flex items-center justify-end gap-3 pt-2">
+              <button 
+                onClick={() => setIsUpdatesModalOpen(false)}
+                className="px-8 py-3 rounded-xl text-[14px] font-semibold text-[#1a1a1a] border border-[#eeeeee] hover:bg-gray-50 transition-all"
+              >
+                Close
+              </button>
+              <button 
+                className="bg-[#A82228] text-white px-8 py-3 rounded-xl text-[14px] font-semibold shadow-lg shadow-[#A82228]/20 hover:opacity-90 transition-all"
+              >
+                Mark All as Read
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
