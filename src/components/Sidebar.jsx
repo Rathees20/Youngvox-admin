@@ -20,7 +20,6 @@ const Sidebar = ({ onClose }) => {
     { icon: FileText, label: 'Reports', path: '/reports' },
     { icon: CheckSquare, label: 'Assessments', path: '/assessments' },
     { icon: BarChart2, label: 'Analytics', path: '/analytics' },
-    { icon: Heart, label: 'Chapter Health', path: '/chapter-health' },
     { icon: Box, label: 'Resources', path: '/resources' },
     { icon: Calendar, label: 'Events', path: '/events' },
     { icon: Settings, label: 'Settings', path: '/settings' },

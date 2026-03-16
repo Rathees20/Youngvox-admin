@@ -1,7 +1,9 @@
-import React from 'react';
-import { ChevronDown, Download, FileText, Search, Filter, HelpCircle, Bell } from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronDown, Download, FileText, Search, Filter, HelpCircle, Bell, X, MessageSquare } from 'lucide-react';
 
 const Resources = () => {
+  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
+
   const resourceLibrary = [
     {
       title: 'Career Bingo',
@@ -93,8 +95,11 @@ const Resources = () => {
             Updates
             <span className="bg-[#A82228] text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full">2</span>
           </button>
-          <button className="flex items-center gap-2 bg-[#A82228] text-white px-4 py-2 rounded-xl text-[13px] font-normal shadow-lg shadow-[#A82228]/20">
-            <HelpCircle size={18} />
+          <button 
+            onClick={() => setIsHelpModalOpen(true)}
+            className="flex items-center gap-2 bg-[#A82228] text-white px-4 py-2 rounded-xl text-[13px] font-normal shadow-lg shadow-[#A82228]/20 hover:opacity-90 transition-all"
+          >
+            <img src="/icon/help desk.png" alt="Help Desk" className="w-4 h-4 brightness-0 invert" />
             Help Desk
           </button>
         </div>
@@ -151,8 +156,8 @@ const Resources = () => {
       {/* Manuals Section */}
       <div className="bg-[#fff1f2] rounded-3xl p-8 space-y-6">
         <div className="flex items-center gap-3">
-          <div className="bg-[#A82228] text-white p-2 rounded-lg">
-            <FileText size={18} />
+          <div className="bg-[#A82228] text-white p-2 rounded-lg flex items-center justify-center">
+            <img src="/icon/manuals.png" alt="Manuals" className="w-5 h-5 brightness-0 invert" />
           </div>
           <h3 className="text-[18px] font-normal text-[#1a1a1a]">Manuals</h3>
         </div>
@@ -188,6 +193,66 @@ const Resources = () => {
           ))}
         </div>
       </div>
+
+      {/* Help Desk Modal */}
+      {isHelpModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm animate-in fade-in duration-300"
+            onClick={() => setIsHelpModalOpen(false)}
+          />
+          <div className="bg-white rounded-[32px] w-full max-w-[420px] p-7 shadow-2xl relative z-10 animate-in zoom-in-95 duration-300">
+            {/* Close Button */}
+            <button 
+              onClick={() => setIsHelpModalOpen(false)}
+              className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Modal Header */}
+            <div className="space-y-1 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="text-[#A82228]">
+                   <MessageSquare size={24} strokeWidth={2.5} />
+                </div>
+                <h3 className="text-[22px] font-semibold text-[#1a1a1a]">Help Desk</h3>
+              </div>
+              <p className="text-[14px] text-[#555555] opacity-70">
+                Send us your query and our team will respond shortly
+              </p>
+            </div>
+
+            {/* Form */}
+            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <div className="space-y-2">
+                <label className="text-[14px] font-semibold text-[#1a1a1a] block">Subject</label>
+                <input 
+                  type="text" 
+                  placeholder="Brief description of your issue"
+                  className="w-full bg-[#f4f4f5]/60 border-none rounded-2xl py-4 px-5 text-[14px] text-[#1a1a1a] placeholder:text-[#555555]/40 outline-none focus:ring-2 focus:ring-[#A82228]/10 transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[14px] font-semibold text-[#1a1a1a] block">Message</label>
+                <textarea 
+                  rows={4}
+                  placeholder="Describe your issue or question in detail..."
+                  className="w-full bg-[#f4f4f5]/60 border-none rounded-2xl py-4 px-5 text-[14px] text-[#1a1a1a] placeholder:text-[#555555]/40 outline-none focus:ring-2 focus:ring-[#A82228]/10 transition-all resize-none"
+                />
+              </div>
+
+              <button 
+                type="submit"
+                className="bg-[#A82228] text-white w-full md:w-fit px-10 py-3.5 rounded-xl text-[14px] font-semibold shadow-lg shadow-[#A82228]/20 hover:opacity-90 transition-all mt-2"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

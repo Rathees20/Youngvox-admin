@@ -8,7 +8,7 @@ const Events = () => {
       category: 'Academic & Career Guidance',
       deadline: '1/15/2026',
       time: '5:00 AM',
-      image: '/artifacts/career_counseling_card.png',
+      image: '/images/Image (Training Event).png',
       status: 'Upcoming',
       type: 'Monthly Event'
     },
@@ -17,7 +17,7 @@ const Events = () => {
       category: 'Academic & Career Guidance',
       deadline: '1/15/2026',
       time: '5:00 AM',
-      image: '/artifacts/career_counseling_card.png',
+      image: '/images/Image (Training Event).png',
       status: 'Upcoming',
       type: 'Monthly Event'
     },
@@ -26,7 +26,7 @@ const Events = () => {
       category: 'Academic & Career Guidance',
       deadline: '1/15/2026',
       time: '5:00 AM',
-      image: '/artifacts/career_counseling_card.png',
+      image: '/images/Image (Training Event).png',
       status: 'Upcoming',
       type: 'Monthly Event'
     }
@@ -106,9 +106,9 @@ const Events = () => {
       </div>
 
       {/* Featured Event Section */}
-      <div className="bg-[#fff1f2] rounded-3xl p-6 md:p-8 flex flex-col lg:flex-row gap-6 md:gap-10 items-center border border-red-100/50">
+      <div className="bg-[#fff1f2] rounded-3xl p-6 md:p-8 flex flex-col lg:flex-row gap-6 md:gap-10 items-center border border-red-100/50 border-l-[8px] border-l-[#3b82f6]">
         <div className="w-full lg:w-[45%] h-[200px] md:h-[300px] rounded-2xl overflow-hidden shadow-2xl relative group shrink-0">
-          <img src="/artifacts/featured_training_banner.png" alt="Featured Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+          <img src="/images/Image (Training Event).png" alt="Featured Event" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
         </div>
         
         <div className="flex-1 space-y-4 md:space-y-6">
@@ -124,7 +124,7 @@ const Events = () => {
             <div className="flex flex-wrap gap-4 md:gap-8 text-[12px] md:text-[13px] font-normal text-[#555555]">
               <div className="flex items-center gap-2">
                 <Calendar size={15} className="text-[#A82228] opacity-60" />
-                Feb 10, 2026
+                February 10, 2026
               </div>
               <div className="flex items-center gap-2">
                 <Clock size={15} className="text-[#A82228] opacity-60" />
@@ -134,8 +134,13 @@ const Events = () => {
           </div>
 
           <p className="text-[13px] md:text-[14px] font-normal text-[#555555] leading-relaxed max-w-2xl opacity-80">
-            Join our intensive session covering advanced chapter management and student engagement strategies. Slots are limited!
+            Join us for an intensive training session covering advanced chapter management techniques, student engagement strategies, and effective report writing. Limited slots available!
           </p>
+
+          <div className="flex items-center gap-2 text-[13px] md:text-[14px] font-normal text-[#555555]">
+            <Users size={18} className="text-[#A82228] opacity-60" />
+            <span>Facilitator: Dr. Maria Rodriguez, Education Specialist</span>
+          </div>
 
           <button className="w-full md:w-fit bg-[#A82228] text-white px-8 py-3.5 rounded-xl text-[13px] font-normal shadow-lg shadow-[#A82228]/20 hover:brightness-110 transition-all active:scale-95">
             Join the event

@@ -61,10 +61,8 @@ const ChapterAnalytics = () => {
       <div className="bg-white rounded-[40px] p-8 md:p-12 border border-[#eeeeee] shadow-sm space-y-12">
         <div className="flex items-center justify-between flex-wrap gap-8">
           <div className="flex items-center gap-4">
-             <div className="w-10 h-10 rounded-full border-[3px] border-[#A82228] flex items-center justify-center p-1 shrink-0">
-                <div className="w-full h-full rounded-full bg-[#A82228]/10 flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
-                </div>
+             <div className="w-10 h-10 flex items-center justify-center shrink-0">
+                <img src="/icon/assessment.png" alt="Assessment" className="w-full h-full object-contain brightness-0 filter" style={{ filter: 'invert(15%) sepia(95%) saturate(3932%) hue-rotate(346deg) brightness(88%) contrast(92%)' }} />
              </div>
              <h3 className="text-[18px] md:text-[20px] font-black text-[#1a1a1a] tracking-tight">Assessment Analytics (Our School Vs 50 schools average)</h3>
           </div>
@@ -167,10 +165,8 @@ const ChapterAnalytics = () => {
       <div className="bg-white rounded-[40px] p-8 md:p-12 border border-[#eeeeee] shadow-sm space-y-12">
         <div className="flex justify-between items-center flex-wrap gap-8">
            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full border-[3px] border-[#A82228] flex items-center justify-center p-1 shrink-0">
-                 <div className="w-full h-full rounded-full bg-[#A82228]/10 flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
-                 </div>
+              <div className="w-10 h-10 flex items-center justify-center shrink-0">
+                 <img src="/icon/assessment.png" alt="Assessment" className="w-full h-full object-contain brightness-0 filter" style={{ filter: 'invert(15%) sepia(95%) saturate(3932%) hue-rotate(346deg) brightness(88%) contrast(92%)' }} />
               </div>
               <h3 className="text-[18px] md:text-[20px] font-black text-[#1a1a1a] tracking-tight">Our School Insights</h3>
            </div>

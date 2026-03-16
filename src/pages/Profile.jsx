@@ -29,7 +29,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <p className="text-[13px] md:text-[14px] font-normal text-[#555555] opacity-70 mb-4">Senior Teacher Mentor</p>
-                
+
                 {/* Contact Quick Info */}
                 <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4">
                   <div className="flex items-center gap-3 bg-gray-50/80 px-3.5 py-2.5 rounded-xl border border-gray-100">
@@ -87,7 +87,7 @@ const Profile = () => {
             <UserCircle size={20} className="text-[#555555]" />
             <h4 className="text-[15px] font-normal text-[#1a1a1a]">Personal Information</h4>
           </div>
-          
+
           <div className="grid grid-cols-2 gap-y-6">
             <div>
               <p className="text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider mb-1.5">Full Name</p>
@@ -125,7 +125,7 @@ const Profile = () => {
             <Briefcase size={22} className="text-[#555555]" />
             <h4 className="text-[16px] font-normal text-[#1a1a1a]">Professional Information</h4>
           </div>
-          
+
           <div className="space-y-8">
             <div>
               <p className="text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider mb-1.5">School Name</p>
@@ -162,7 +162,7 @@ const Profile = () => {
           <Award size={20} className="text-[#555555]" />
           <h4 className="text-[15px] font-normal text-[#1a1a1a]">Wings Supervised</h4>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-[#f0f7ff] border border-[#d9e9ff] rounded-2xl p-5 flex items-center gap-5 group hover:scale-[1.02] transition-transform duration-500">
             <div className="w-12 h-12 rounded-2xl bg-brand-gradient flex items-center justify-center text-white text-[20px] font-normal shadow-lg shadow-[#A82228]/20">1</div>
@@ -181,27 +181,26 @@ const Profile = () => {
           <Award size={20} className="text-[#555555]" />
           <h4 className="text-[15px] font-normal text-[#1a1a1a]">Certificates & Recognition</h4>
         </div>
-        
+
         <div className="space-y-4">
           {[
             { title: 'YoungVox Mentor Orientation', date: '1/15/2024' },
             { title: 'Child Protection Training', date: '2/10/2024' },
             { title: 'Advanced Leadership Workshop', date: '8/22/2024' },
           ].map((cert, idx) => (
-            <div key={idx} className="bg-gray-50/80 border border-gray-100 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-white hover:shadow-xl hover:shadow-dark/5 transition-all duration-500">
-              <div className="flex items-center gap-6">
-                <div className="w-12 h-12 rounded-full bg-[#1caf5f]/10 flex items-center justify-center text-[#1caf5f]">
-                  <CheckCircle2 size={24} strokeWidth={2.5} />
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-[15px] font-normal text-[#1a1a1a] mb-1">{cert.title}</p>
-                  <p className="text-[12px] font-normal text-[#555555] opacity-50 uppercase tracking-wider flex items-center gap-2">
-                    <Calendar size={12} />
-                    Completed on {cert.date}
+            <div key={idx} className="bg-white border border-[#f0f0f0] rounded-[16px] p-[18px] flex items-center gap-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] mb-3 last:mb-0">
+              <div className="w-[52px] h-[52px] flex flex-shrink-0 items-center justify-center">
+                <img src="/icon/tick.png" alt="Completed" className="w-8 h-8" />
+              </div>
+              <div className="flex flex-col gap-1">
+                <p className="text-[15px] font-normal text-[#1a1a1a]">{cert.title}</p>
+                <div className="flex items-center gap-2">
+                  <Calendar size={13} className="text-[#a0a0a0]" />
+                  <p className="text-[13px] font-medium text-[#c0c0c0] uppercase tracking-wide">
+                    COMPLETED ON {cert.date}
                   </p>
                 </div>
               </div>
-              <span className="bg-[#1caf5f] text-white text-[10px] font-normal px-4 py-2 rounded-full uppercase tracking-widest">Completed</span>
             </div>
           ))}
         </div>
@@ -210,7 +209,7 @@ const Profile = () => {
       {/* Mentor Ranking Section */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-[#eeeeee] mx-6 space-y-6 mb-6">
         <div className="flex items-center gap-3">
-          <TrendingUp size={20} className="text-[#555555]" />
+          <Trophy size={20} className="text-[#555555]" />
           <h4 className="text-[15px] font-normal text-[#1a1a1a]">Mentor Ranking (System-Generated)</h4>
         </div>
 
@@ -242,24 +241,24 @@ const Profile = () => {
                 </div>
               </div>
               <span className="text-[14px] font-normal text-[#555555] opacity-50">out of 50 mentors</span>
-              
+
               <div className="mt-8 pt-8 border-t border-orange-200/50 flex flex-wrap gap-8 justify-center md:justify-start">
                 <div className="space-y-3">
-                    <span className="text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider block">Ranking based on:</span>
-                    <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
-                        <li className="flex items-center gap-2 text-[13px] font-normal text-[#1a1a1a]">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
-                            Timely reviews & feedback
-                        </li>
-                        <li className="flex items-center gap-2 text-[13px] font-normal text-[#1a1a1a]">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
-                            Chapter success
-                        </li>
-                        <li className="flex items-center gap-2 text-[13px] font-normal text-[#1a1a1a]">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
-                            Collaboration & Communication
-                        </li>
-                    </ul>
+                  <span className="text-[11px] font-normal text-[#555555] opacity-40 uppercase tracking-wider block">Ranking based on:</span>
+                  <ul className="grid grid-cols-2 gap-x-8 gap-y-2">
+                    <li className="flex items-center gap-2 text-[13px] font-normal text-[#1a1a1a]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
+                      Timely reviews & feedback
+                    </li>
+                    <li className="flex items-center gap-2 text-[13px] font-normal text-[#1a1a1a]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
+                      Chapter success
+                    </li>
+                    <li className="flex items-center gap-2 text-[13px] font-normal text-[#1a1a1a]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#A82228]" />
+                      Collaboration & Communication
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -279,22 +278,22 @@ const Profile = () => {
 
 // Helper components for Icons used in the list
 const Calendar = ({ size = 16, className = "" }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2.5" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={className}
   >
-    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-    <line x1="16" y1="2" x2="16" y2="6"/>
-    <line x1="8" y1="2" x2="8" y2="6"/>
-    <line x1="3" y1="10" x2="21" y2="10"/>
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+    <line x1="16" y1="2" x2="16" y2="6" />
+    <line x1="8" y1="2" x2="8" y2="6" />
+    <line x1="3" y1="10" x2="21" y2="10" />
   </svg>
 );
 

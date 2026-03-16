@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, ChevronDown, Download, FileText, Filter, Eye, ExternalLink } from 'lucide-react';
+import { Search, ChevronDown, Download, FileText, Filter, Eye, ExternalLink, Clipboard } from 'lucide-react';
 
 const Assessments = () => {
   const insights = [
@@ -113,8 +113,8 @@ const Assessments = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {assessments.map((item, idx) => (
           <div key={idx} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm relative group hover:shadow-xl transition-all duration-500 overflow-hidden flex flex-col h-full">
-            <div className="absolute top-5 right-5 text-[#A82228] bg-[#A82228]/5 p-2 rounded-xl">
-               <FileText size={20} strokeWidth={2.5} />
+            <div className="absolute top-5 right-5 flex items-center justify-center w-9 h-9">
+               <img src="/icon/pad.png" alt="Pad" className="w-5 h-5 flex-shrink-0" />
             </div>
             
             <div className="space-y-3 mb-5">

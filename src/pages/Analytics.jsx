@@ -61,10 +61,8 @@ const Analytics = () => {
       <div className="bg-white rounded-3xl p-4 md:p-8 border border-[#eeeeee] shadow-sm space-y-8">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-3">
-             <div className="w-6 h-6 rounded-full border-2 border-[#A82228] flex items-center justify-center p-0.5 shrink-0">
-                <div className="w-full h-full rounded-full bg-[#A82228]/10 flex items-center justify-center">
-                    <div className="w-1 h-1 rounded-full bg-[#A82228]" />
-                </div>
+             <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                <img src="/icon/assessment.png" alt="Assessment" className="w-full h-full object-contain brightness-0 filter" style={{ filter: 'invert(15%) sepia(95%) saturate(3932%) hue-rotate(346deg) brightness(88%) contrast(92%)' }} />
              </div>
              <h3 className="text-[15px] md:text-[16px] font-normal text-[#1a1a1a]">Assessment Analytics (Our School Vs 50 schools average)</h3>
           </div>
@@ -166,8 +164,8 @@ const Analytics = () => {
       <div className="bg-white rounded-3xl p-4 md:p-8 border border-[#eeeeee] shadow-sm space-y-6">
         <div className="flex justify-between items-center flex-wrap gap-4">
            <div className="flex items-center gap-3">
-              <div className="w-6 h-6 rounded-full border-2 border-[#A82228] flex items-center justify-center p-0.5 shrink-0">
-                 <div className="w-full h-full rounded-full bg-[#A82228]/10 flex items-center justify-center" />
+              <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                 <img src="/icon/assessment.png" alt="Assessment" className="w-full h-full object-contain brightness-0 filter" style={{ filter: 'invert(15%) sepia(95%) saturate(3932%) hue-rotate(346deg) brightness(88%) contrast(92%)' }} />
               </div>
               <h3 className="text-[16px] font-normal text-[#1a1a1a]">Our School Insights</h3>
            </div>

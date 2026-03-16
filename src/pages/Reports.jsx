@@ -150,7 +150,7 @@ const Reports = () => {
                     View
                 </button>
                 <button className="flex-[1.5] flex items-center justify-center gap-2 bg-[#1caf5f] hover:bg-[#169450] py-3.5 rounded-2xl text-[12px] font-normal text-white shadow-lg shadow-[#1caf5f]/20 transition-all">
-                    <CheckCircle2 size={16} strokeWidth={2.5} />
+                    <img src="/icon/tick.png" alt="Approve" className="w-[18px] h-[18px] drop-shadow-sm brightness-0 invert" />
                     Approve
                 </button>
                 <button className="w-12 h-12 flex items-center justify-center bg-brand-gradient hover:opacity-90 rounded-2xl text-white shadow-lg shadow-[#A82228]/20 transition-all">
