@@ -154,7 +154,7 @@ const Reports = () => {
                     Approve
                 </button>
                 <button className="w-12 h-12 flex items-center justify-center bg-brand-gradient hover:opacity-90 rounded-2xl text-white shadow-lg shadow-[#A82228]/20 transition-all">
-                    <MoreHorizontal size={20} strokeWidth={2.5} />
+                    <img src="/icon/remove.png" alt="Remove" className="w-[18px] h-[18px] brightness-0 invert" />
                 </button>
              </div>
           </div>

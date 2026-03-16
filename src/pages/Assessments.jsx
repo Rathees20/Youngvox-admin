@@ -51,8 +51,8 @@ const Assessments = () => {
     <div className="p-4 max-w-[1600px] mx-auto space-y-6 animate-in fade-in duration-700">
       {/* Overall Insights */}
       <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm space-y-4">
-        <div className="flex items-center gap-2 mb-2">
-           <div className="w-1.5 h-4 bg-purple-500 rounded-full" />
+        <div className="flex items-center gap-3">
+           <img src="/icon/over all.png" alt="Overall" className="w-[18px] h-[18px]" />
            <h3 className="text-[14px] font-normal text-[#1a1a1a] uppercase tracking-wider">Overall Insights</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
