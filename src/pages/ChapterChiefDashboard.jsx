@@ -1,5 +1,6 @@
-import React from 'react';
-import { Users, Target, TrendingUp, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { Users, Target, TrendingUp, Award, X } from 'lucide-react';
+import { cn } from '../utils/cn';
 
 const StatCard = ({ icon, label, value, change, bgColor, percentage, bgIcon, barColor, labelColor = "text-white/70" }) => (
   <div className="flex flex-col h-full min-w-[240px] bg-white rounded-[24px] shadow-sm overflow-hidden border border-gray-100/50 group hover:shadow-xl transition-all duration-700">
@@ -39,11 +40,49 @@ const StatCard = ({ icon, label, value, change, bgColor, percentage, bgIcon, bar
 );
 
 const ChapterChiefDashboard = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const stats = [
-    { icon: <Users />, label: 'Active Members', value: '236', change: '+12%', percentage: 65, bgColor: 'bg-gradient-to-br from-[#2B7FFF] to-[#155DFC]', bgIcon: '🎉', barColor: '#2B7FFF' },
-    { icon: <Target />, label: 'Reports Pending', value: '3', change: '-40%', percentage: 35, bgColor: 'bg-gradient-to-br from-[#FE9A00] to-[#E17100]', bgIcon: '⚡', barColor: '#FE9A00' },
-    { icon: <TrendingUp />, label: 'Chapter Success', value: '94%', change: '+5%', percentage: 94, bgColor: 'bg-gradient-to-br from-[#00C950] to-[#00A63E]', bgIcon: '🚀', barColor: '#00C950' },
-    { icon: <Award />, label: 'Chapter Chief Ranking', value: '#3', change: '+0.3', percentage: 75, bgColor: 'bg-gradient-to-br from-[#FF6900] to-[#F54900]', bgIcon: '⭐', barColor: '#FF6900' },
+    {
+      icon: <Users />,
+      label: 'Active Members',
+      value: '236',
+      change: '+12%',
+      percentage: 65,
+      bgColor: 'bg-gradient-to-br from-[#2B7FFF] to-[#155DFC]',
+      bgIcon: <img src="/images/1c (1).png" alt="Icon" className="w-10 h-10 object-contain" />,
+      barColor: '#2B7FFF'
+    },
+    {
+      icon: <Target />,
+      label: 'Reports Pending',
+      value: '3',
+      change: '-40%',
+      percentage: 35,
+      bgColor: 'bg-gradient-to-br from-[#FE9A00] to-[#E17100]',
+      bgIcon: <img src="/images/1c (2).png" alt="Icon" className="w-10 h-10 object-contain" />,
+      barColor: '#FE9A00'
+    },
+    {
+      icon: <TrendingUp />,
+      label: 'Chapter Success',
+      value: '94%',
+      change: '+5%',
+      percentage: 94,
+      bgColor: 'bg-gradient-to-br from-[#00C950] to-[#00A63E]',
+      bgIcon: <img src="/images/1c (3).png" alt="Icon" className="w-10 h-10 object-contain" />,
+      barColor: '#00C950'
+    },
+    {
+      icon: <Award />,
+      label: 'Chapter Chief Ranking',
+      value: '#3',
+      change: '+0.3',
+      percentage: 75,
+      bgColor: 'bg-gradient-to-br from-[#FF6900] to-[#F54900]',
+      bgIcon: <img src="/images/1c (4).png" alt="Icon" className="w-10 h-10 object-contain" />,
+      barColor: '#FF6900'
+    },
   ];
 
   const events = [
@@ -53,7 +92,7 @@ const ChapterChiefDashboard = () => {
   ];
 
   return (
-    <div className="p-6 space-y-6 bg-[#f7f7f8] min-h-screen max-w-[1600px] mx-auto">
+    <div className="p-6 space-y-6 bg-white min-h-screen max-w-[1600px] mx-auto">
 
       {/* Hero Banner with Breakout Illustration */}
       <div className="relative mt-12 mb-12">
@@ -101,23 +140,38 @@ const ChapterChiefDashboard = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Main Illustration Section - Group of Kids */}
-        <div className="lg:col-span-6 bg-[#f2f4f6] rounded-[32px] overflow-hidden shadow-sm flex items-center justify-center p-8 min-h-[460px] border border-gray-100/50">
+        <div className="lg:col-span-6 bg-[#f2f4f6] rounded-[32px] overflow-hidden shadow-sm flex items-center justify-center p-6 min-h-[300px] border border-gray-100/50 relative group">
+          {/* Background Vector Image */}
+          <div className="absolute right-[-140px] bottom-[10px] inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+            <img
+              src="/images/Vector.png"
+              alt="Decorative Background"
+              className="w-[45%] h-auto object-contain opacity-50 group-hover:scale-110 transition-transform duration-1000"
+            />
+          </div>
+
           <img
             src="/images/chief02.png"
             alt="Chapter Members Illustration"
-            className="w-full h-auto max-h-[400px] object-contain"
+            className="w-full h-auto max-h-[380px] object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.1)]"
           />
         </div>
 
         {/* Side Content Section: Upcoming Events with Breakout character */}
-        <div className="lg:col-span-6 bg-white p-6 md:p-8 rounded-[32px] shadow-sm border border-gray-100/50 relative">
-          <h3 className="text-[20px] font-normal text-[#1a1a1a] mb-8 tracking-tight">
+        <div className="lg:col-span-6 bg-white p-6 md:p-7 rounded-[32px] shadow-sm border border-gray-100/50 relative">
+          <h3 className="text-[18px] font-normal text-[#1a1a1a] mb-3 tracking-tight">
             Upcoming Events
           </h3>
 
           <div className="space-y-4">
             {events.map((event, index) => (
-              <div key={index} className="flex items-center justify-between gap-4 p-4 bg-[#f7f7f8] rounded-[20px] transition-all duration-300 hover:shadow-md border border-gray-100/50">
+              <div
+                key={index}
+                className={cn(
+                  "flex items-center justify-between gap-4 p-4 bg-[#f7f7f8] rounded-[20px] transition-all duration-300 hover:shadow-md border border-gray-100/50 relative",
+                  index < 2 ? "z-10" : "z-30"
+                )}
+              >
                 <div className="flex items-center gap-4 flex-1 min-w-0">
                   <div className="w-20 h-14 rounded-xl overflow-hidden shadow-sm flex-shrink-0 border border-gray-100">
                     <img src={event.img} alt="Event" className="w-full h-full object-cover" />
@@ -126,7 +180,10 @@ const ChapterChiefDashboard = () => {
                     {event.title}
                   </p>
                 </div>
-                <button className="whitespace-nowrap text-[11px] font-normal text-[#155DFC] bg-white hover:bg-[#155DFC] hover:text-white px-5 py-2.5 rounded-xl transition-all duration-300 border border-[#155DFC]/20 shadow-sm">
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="whitespace-nowrap text-[11px] font-normal text-[#155DFC] bg-white hover:bg-[#155DFC] hover:text-white px-5 py-2.5 rounded-xl transition-all duration-300 border border-[#155DFC]/20 shadow-sm"
+                >
                   Submit report
                 </button>
               </div>
@@ -134,15 +191,99 @@ const ChapterChiefDashboard = () => {
           </div>
 
           {/* Breakout Character Illustration */}
-          <div className="absolute right-[-20px] bottom-[-10px] w-[200px] md:w-[240px] pointer-events-none z-20 overflow-visible">
+          <div className="absolute right-[-40px] bottom-[10px] w-[200px] md:w-[140px] pointer-events-none z-20 overflow-visible">
             <img
-              src="/images/chief01.png"
+              src="/images/chief04.png"
               alt="Decorative Character"
               className="w-full h-auto object-contain drop-shadow-[-20px_20px_30px_rgba(0,0,0,0.15)] transform translate-y-4"
             />
           </div>
         </div>
       </div>
+
+      {/* Submit Report Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsModalOpen(false)} />
+          <div className="bg-white w-full max-w-[380px] rounded-[24px] shadow-2xl relative z-10 animate-in zoom-in-95 duration-200 overflow-hidden font-['Arial']">
+            {/* Modal Header */}
+            <div className="p-6 pb-2 flex items-center justify-between">
+              <h3 className="text-[17px] font-bold text-[#1a1a1a]">Submit report</h3>
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Close modal"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Modal Body / Form */}
+            <div className="p-6 pt-2 space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">Event name</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter Event name"
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">Date</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter date"
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">No. of students attended</label>
+                <input 
+                  type="number" 
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">No. of parents attended</label>
+                <input 
+                  type="number" 
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">Submitted on</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter date"
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">Submitted by</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter name"
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 outline-none"
+                />
+              </div>
+
+              <div className="pt-2">
+                <button 
+                  onClick={() => setIsModalOpen(false)}
+                  className="w-full sm:w-auto bg-[#A82228] text-white px-6 py-2 rounded-lg text-[13px] font-bold transition-all hover:brightness-110 active:scale-95"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
