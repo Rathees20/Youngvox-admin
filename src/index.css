@@ -10,16 +10,19 @@
   --color-light: #f7f7f8;
   --color-gray-dark: #555555;
   --color-gray-light: #dddddd;
-  --font-sans: Arial, sans-serif;
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 @utility bg-brand-gradient {
   background-image: var(--color-brand-gradient);
 }
 
+* {
+  font-family: var(--font-sans) !important;
+}
+
 body {
   @apply bg-[#f7f7f8] text-[#1a1a1a] antialiased overflow-x-hidden;
-  font-family: var(--font-sans);
 }
 
 /* Custom Scrollbar */

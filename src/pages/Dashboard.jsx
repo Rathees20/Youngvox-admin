@@ -2,14 +2,14 @@ import React from 'react';
 import { MessageSquare, Paperclip, Send } from 'lucide-react';
 
 const StatCard = ({ icon, emojiIcon, label, value, change, bgColor, barColor, percentage }) => (
-  <div className="bg-white rounded-[20px] shadow-sm p-1.5 flex flex-col h-full min-w-[200px]">
-    <div className={`p-4 rounded-[16px] ${bgColor} relative overflow-hidden flex-1 group hover:shadow-md transition-shadow duration-300`}>
+  <div className="bg-white rounded-[20px] shadow-sm flex flex-col h-full min-w-[200px] overflow-hidden group hover:shadow-lg transition-all duration-300">
+    <div className={`p-4 ${bgColor} relative flex-1`}>
       <div className="flex items-start justify-between mb-8">
         <div className="text-white">
           <img src={icon} alt={label} className="w-[22px] h-[22px] object-contain brightness-0 invert" />
         </div>
         <div className="text-[20px] leading-none select-none">
-          <img src={emojiIcon} alt={label} className="w-10 h-10 object-contain drop-shadow-md transform hover:scale-110 transition-transform duration-300" />
+          <img src={emojiIcon} alt={label} className="w-10 h-10 object-contain drop-shadow-md transform group-hover:scale-110 transition-transform duration-300" />
         </div>
       </div>
       
@@ -24,12 +24,12 @@ const StatCard = ({ icon, emojiIcon, label, value, change, bgColor, barColor, pe
       </div>
       
       {/* Background Decorative Gradient */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none rounded-[16px]"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
     </div>
     
-    <div className="px-4 py-3 flex items-center justify-between bg-white rounded-b-[20px]">
-      <span className="text-[10px] text-[#555555] opacity-50 font-medium">vs. last month</span>
-      <div className="h-1.5 bg-gray-100 rounded-full w-32 overflow-hidden">
+    <div className="px-4 py-3 flex items-center justify-start gap-1.5 bg-white">
+      <span className="text-[10px] text-gray-400 font-normal whitespace-nowrap">vs. last month</span>
+      <div className="h-[5px] bg-gray-100 rounded-full w-28 overflow-hidden">
         <div 
           className={`h-full ${barColor} rounded-full transition-all duration-1000`}
           style={{ width: `${percentage}%` }}
