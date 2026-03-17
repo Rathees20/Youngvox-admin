@@ -22,7 +22,7 @@ const ChapterChiefSidebar = ({ onClose }) => {
     { icon: BarChart2, label: 'Analytics', path: '/chapter-chief/analytics' },
     { icon: Box, label: 'Resources', path: '/chapter-chief/resources' },
     { icon: Calendar, label: 'Events', path: '/chapter-chief/events' },
-    { icon: Settings, label: 'Settings', path: '/settings' },
+    { icon: Settings, label: 'Settings', path: '/chapter-chief/settings' },
   ];
 
   return (

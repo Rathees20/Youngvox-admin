@@ -11,6 +11,7 @@ import ChapterReports from './pages/ChapterReports';
 import ChapterEvents from './pages/ChapterEvents';
 import ChapterAnalytics from './pages/ChapterAnalytics';
 import ChapterResources from './pages/ChapterResources';
+import ChapterSettings from './pages/ChapterSettings';
 
 import Layout from './layouts/Layout';
 import ChapterChiefLayout from './layouts/ChapterChiefLayout';
@@ -89,6 +90,14 @@ function App() {
                   element={
                     <ChapterChiefLayout>
                       <ChapterResources />
+                    </ChapterChiefLayout>
+                  }
+                />
+                <Route
+                  path="/chapter-chief/settings"
+                  element={
+                    <ChapterChiefLayout>
+                      <ChapterSettings />
                     </ChapterChiefLayout>
                   }
                 />
