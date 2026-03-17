@@ -4,45 +4,56 @@ import { Mail, Lock, LogIn, ShieldCheck } from 'lucide-react';
 import { cn } from '../utils/cn';
 
 const Login = () => {
-  const [loginType, setLoginType] = useState('mentor'); // 'mentor' or 'chief'
+  const [primaryType, setPrimaryType] = useState('mentor'); // 'mentor', 'chief', 'wing'
+  const [loginType, setLoginType] = useState('mentor'); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  const roleConfig = {
+    'mentor': { label: 'Mentor', email: 'admin@youngvox.com', pass: 'admin123', redirect: '/dashboard', role: 'mentor' },
+    'chief': { label: 'Chapter Chief', email: 'chief@youngvox.com', pass: 'chief123', redirect: '/chapter-chief-dashboard', role: 'chapter-chief' },
+    'academic-wing': { label: 'Academic & Career Guidance', email: 'academic@youngvox.com', pass: 'wing123', redirect: '/dashboard', role: 'wing-leader' },
+    'wellbeing-wing': { label: 'Student Wellbeing', email: 'wellbeing@youngvox.com', pass: 'wing123', redirect: '/dashboard', role: 'wing-leader' },
+    'rights-wing': { label: 'Child Rights & Social Justice', email: 'rights@youngvox.com', pass: 'wing123', redirect: '/dashboard', role: 'wing-leader' },
+    'outreach-wing': { label: 'Community Outreach & Service', email: 'outreach@youngvox.com', pass: 'wing123', redirect: '/dashboard', role: 'wing-leader' }
+  };
+
+  const handlePrimaryChange = (type) => {
+    setPrimaryType(type);
+    if (type === 'wing') {
+      setLoginType('academic-wing'); // Default to first wing
+    } else {
+      setLoginType(type);
+    }
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);
 
+    const config = roleConfig[loginType] || roleConfig['mentor'];
+
     // Mock authentication logic
     setTimeout(() => {
-      if (loginType === 'mentor') {
-        if (email === 'admin@youngvox.com' && password === 'admin123') {
-          localStorage.setItem('isAuthenticated', 'true');
-          localStorage.setItem('userRole', 'mentor');
-          navigate('/dashboard');
-        } else {
-          setError('Invalid mentor credentials. Use admin@youngvox.com / admin123');
-          setIsLoading(false);
-        }
+      if (email === config.email && password === config.pass) {
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('userRole', config.role);
+        localStorage.setItem('wingType', loginType.includes('wing') ? loginType : '');
+        navigate(config.redirect);
       } else {
-        if (email === 'chief@youngvox.com' && password === 'chief123') {
-          localStorage.setItem('isAuthenticated', 'true');
-          localStorage.setItem('userRole', 'chapter-chief');
-          navigate('/chapter-chief-dashboard');
-        } else {
-          setError('Invalid chief credentials. Use chief@youngvox.com / chief123');
-          setIsLoading(false);
-        }
+        setError(`Invalid credentials. For ${roleConfig[loginType].label}, use ${config.email} / ${config.pass}`);
+        setIsLoading(false);
       }
     }, 1000);
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-[#f7f7f8] p-6">
-      <div className="w-full max-w-[450px] space-y-8">
+    <div className="min-h-screen w-full flex items-center justify-center bg-[#f7f7f8] p-6 py-12">
+      <div className="w-full max-w-[550px] space-y-8">
         {/* Logo and Welcome */}
         <div className="text-center space-y-4">
           <div className="flex justify-center">
@@ -52,33 +63,97 @@ const Login = () => {
           </div>
           <div className="space-y-4">
             <h1 className="text-[32px] font-[900] text-[#1a1a1a] tracking-tight leading-tight">
-              {loginType === 'mentor' ? 'Mentor Portal' : 'Chapter Chief'}
+              {roleConfig[loginType].label} Portal
             </h1>
             
-            {/* Login Type Switcher */}
-            <div className="flex justify-center p-1 bg-gray-200/50 rounded-2xl w-fit mx-auto border border-gray-100">
-               <button 
-                onClick={() => setLoginType('mentor')}
-                className={cn(
-                  "px-6 py-2.5 rounded-xl text-[12px] font-[900] uppercase tracking-widest transition-all",
-                  loginType === 'mentor' 
-                    ? "bg-white text-[#c72030] shadow-md shadow-black/5" 
-                    : "text-[#555555] opacity-50 hover:opacity-100"
-                )}
-               >
-                Mentor
-               </button>
-               <button 
-                onClick={() => setLoginType('chief')}
-                className={cn(
-                  "px-6 py-2.5 rounded-xl text-[12px] font-[900] uppercase tracking-widest transition-all",
-                  loginType === 'chief' 
-                    ? "bg-white text-[#c72030] shadow-md shadow-black/5" 
-                    : "text-[#555555] opacity-50 hover:opacity-100"
-                )}
-               >
-                Chapter Chief
-               </button>
+            {/* Tiered Login Type Switcher */}
+            <div className="space-y-3">
+              {/* Primary Level */}
+              <div className="flex justify-center p-1 bg-gray-200/50 rounded-2xl w-fit mx-auto border border-gray-100">
+                <button 
+                  onClick={() => handlePrimaryChange('mentor')}
+                  className={cn(
+                    "px-6 py-2.5 rounded-xl text-[12px] font-[900] uppercase tracking-widest transition-all",
+                    primaryType === 'mentor' 
+                      ? "bg-white text-[#c72030] shadow-md shadow-black/5" 
+                      : "text-[#555555] opacity-50 hover:opacity-100"
+                  )}
+                >
+                  Mentor
+                </button>
+                <button 
+                  onClick={() => handlePrimaryChange('chief')}
+                  className={cn(
+                    "px-6 py-2.5 rounded-xl text-[12px] font-[900] uppercase tracking-widest transition-all",
+                    primaryType === 'chief' 
+                      ? "bg-white text-[#c72030] shadow-md shadow-black/5" 
+                      : "text-[#555555] opacity-50 hover:opacity-100"
+                  )}
+                >
+                  Chapter Chief
+                </button>
+                <button 
+                  onClick={() => handlePrimaryChange('wing')}
+                  className={cn(
+                    "px-6 py-2.5 rounded-xl text-[12px] font-[900] uppercase tracking-widest transition-all",
+                    primaryType === 'wing' 
+                      ? "bg-white text-[#c72030] shadow-md shadow-black/5" 
+                      : "text-[#555555] opacity-50 hover:opacity-100"
+                  )}
+                >
+                  Wing Leader
+                </button>
+              </div>
+
+              {/* Secondary Level (Only if Wing Leader selected) */}
+              {primaryType === 'wing' && (
+                <div className="flex flex-wrap justify-center gap-1.5 p-1 bg-[#c72030]/5 rounded-2xl w-full max-w-lg mx-auto border border-[#c72030]/10 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <button 
+                    onClick={() => setLoginType('academic-wing')}
+                    className={cn(
+                      "flex-1 px-3 py-2 rounded-xl text-[9px] font-[900] uppercase tracking-widest transition-all text-center leading-tight",
+                      loginType === 'academic-wing' 
+                        ? "bg-[#c72030] text-white shadow-md shadow-[#c72030]/20" 
+                        : "text-[#c72030] opacity-40 hover:opacity-100"
+                    )}
+                  >
+                    Academic
+                  </button>
+                  <button 
+                    onClick={() => setLoginType('wellbeing-wing')}
+                    className={cn(
+                      "flex-1 px-3 py-2 rounded-xl text-[9px] font-[900] uppercase tracking-widest transition-all text-center leading-tight",
+                      loginType === 'wellbeing-wing' 
+                        ? "bg-[#c72030] text-white shadow-md shadow-[#c72030]/20" 
+                        : "text-[#c72030] opacity-40 hover:opacity-100"
+                    )}
+                  >
+                    Wellbeing
+                  </button>
+                  <button 
+                    onClick={() => setLoginType('rights-wing')}
+                    className={cn(
+                      "flex-1 px-3 py-2 rounded-xl text-[9px] font-[900] uppercase tracking-widest transition-all text-center leading-tight",
+                      loginType === 'rights-wing' 
+                        ? "bg-[#c72030] text-white shadow-md shadow-[#c72030]/20" 
+                        : "text-[#c72030] opacity-40 hover:opacity-100"
+                    )}
+                  >
+                    Rights
+                  </button>
+                  <button 
+                    onClick={() => setLoginType('outreach-wing')}
+                    className={cn(
+                      "flex-1 px-3 py-2 rounded-xl text-[9px] font-[900] uppercase tracking-widest transition-all text-center leading-tight",
+                      loginType === 'outreach-wing' 
+                        ? "bg-[#c72030] text-white shadow-md shadow-[#c72030]/20" 
+                        : "text-[#c72030] opacity-40 hover:opacity-100"
+                    )}
+                  >
+                    Outreach
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -99,7 +174,7 @@ const Login = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder={loginType === 'mentor' ? 'admin@youngvox.com' : 'chief@youngvox.com'}
+                  placeholder={(roleConfig[loginType] || roleConfig['mentor']).email}
                   className="w-full h-[64px] bg-[#f7f7f8] border-2 border-transparent focus:border-[#c72030]/10 focus:bg-white rounded-[20px] pl-16 pr-8 text-[14px] font-[900] text-[#1a1a1a] outline-none transition-all placeholder:text-[#555555]/20"
                   required
                 />

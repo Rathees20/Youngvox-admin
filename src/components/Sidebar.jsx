@@ -8,8 +8,34 @@ const Sidebar = ({ onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
   
+  const userRole = localStorage.getItem('userRole') || 'mentor';
+  const wingType = localStorage.getItem('wingType');
+
+  const wingNames = {
+    'academic-wing': 'Academic & Career',
+    'wellbeing-wing': 'Student Wellbeing',
+    'rights-wing': 'Child Rights',
+    'outreach-wing': 'Community Service'
+  };
+
+  const getRoleLabel = () => {
+    if (userRole === 'mentor') return 'Mentor Portal';
+    if (userRole === 'chapter-chief') return 'Chief Portal';
+    if (wingType && wingNames[wingType]) return 'Wing Portal';
+    return 'User Portal';
+  };
+
+  const getUserRoleLabel = () => {
+    if (userRole === 'mentor') return 'Senior Mentor';
+    if (userRole === 'chapter-chief') return 'Chapter Chief';
+    if (wingType && wingNames[wingType]) return wingNames[wingType] + ' Leader';
+    return 'User';
+  };
+
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('wingType');
     navigate('/login');
   };
 
@@ -37,7 +63,7 @@ const Sidebar = ({ onClose }) => {
           />
           <div className="flex flex-col">
             <h1 className="text-[17px] font-normal text-[#1a1a1a] tracking-wide leading-none mb-1">YoungVox</h1>
-            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Mentor Portal</p>
+            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">{getRoleLabel()}</p>
           </div>
         </div>
         <button 
@@ -90,7 +116,7 @@ const Sidebar = ({ onClose }) => {
             </div>
             <div className="flex flex-col min-w-0">
               <p className="text-[13px] font-normal text-[#1a1a1a] truncate leading-tight mb-0.5">Jane Doe</p>
-              <p className="text-[9px] font-normal text-[#555555] truncate uppercase tracking-tighter opacity-50">Senior Mentor</p>
+              <p className="text-[9px] font-normal text-[#555555] truncate uppercase tracking-tighter opacity-50">{getUserRoleLabel()}</p>
             </div>
           </div>
           <button 
