@@ -1,23 +1,23 @@
 import React from 'react';
-import { Users, Activity, CheckCircle, Star, MessageSquare, Paperclip, Send } from 'lucide-react';
+import { MessageSquare, Paperclip, Send } from 'lucide-react';
 
 const StatCard = ({ icon, emojiIcon, label, value, change, bgColor, barColor, percentage }) => (
   <div className="bg-white rounded-[20px] shadow-sm p-1.5 flex flex-col h-full min-w-[200px]">
     <div className={`p-4 rounded-[16px] ${bgColor} relative overflow-hidden flex-1 group hover:shadow-md transition-shadow duration-300`}>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-start justify-between mb-8">
         <div className="text-white">
-          {React.cloneElement(icon, { size: 24, strokeWidth: 2 })}
+          <img src={icon} alt={label} className="w-[22px] h-[22px] object-contain brightness-0 invert" />
         </div>
-        <div className="text-[20px] leading-none select-none drop-shadow-sm">
-          {emojiIcon}
+        <div className="text-[20px] leading-none select-none">
+          <img src={emojiIcon} alt={label} className="w-10 h-10 object-contain drop-shadow-md transform hover:scale-110 transition-transform duration-300" />
         </div>
       </div>
       
       <div className="mt-auto relative z-10 flex flex-col gap-1">
-        <p className="text-white/90 text-[12px] font-medium tracking-wide">{label}</p>
+        <p className="text-white/80 text-[12px] font-normal tracking-wide">{label}</p>
         <div className="flex items-end justify-between">
           <p className="text-white text-3xl font-bold tracking-tight leading-none">{value}</p>
-          <div className="text-[11px] font-semibold bg-white/20 text-white px-2.5 py-1 rounded-full backdrop-blur-sm">
+          <div className="text-[11px] font-bold bg-white/20 text-white px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10">
             {change}
           </div>
         </div>
@@ -27,9 +27,9 @@ const StatCard = ({ icon, emojiIcon, label, value, change, bgColor, barColor, pe
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none rounded-[16px]"></div>
     </div>
     
-    <div className="px-3 py-3 flex items-center justify-between bg-white rounded-b-[20px]">
-      <span className="text-[10px] text-gray-400 font-medium">vs. last month</span>
-      <div className="h-1.5 bg-gray-100 rounded-full w-24 overflow-hidden">
+    <div className="px-4 py-3 flex items-center justify-between bg-white rounded-b-[20px]">
+      <span className="text-[10px] text-[#555555] opacity-50 font-medium">vs. last month</span>
+      <div className="h-1.5 bg-gray-100 rounded-full w-32 overflow-hidden">
         <div 
           className={`h-full ${barColor} rounded-full transition-all duration-1000`}
           style={{ width: `${percentage}%` }}
@@ -41,10 +41,10 @@ const StatCard = ({ icon, emojiIcon, label, value, change, bgColor, barColor, pe
 
 const Dashboard = () => {
   const stats = [
-    { icon: <Users />, emojiIcon: '🎉', label: 'Student Benefited', value: '236', change: '+12%', percentage: 65, bgColor: 'bg-[#2B70FF]', barColor: 'bg-[#2B70FF]' },
-    { icon: <Activity />, emojiIcon: '⚡', label: 'Activity Pending', value: '3', change: '-40%', percentage: 35, bgColor: 'bg-[#F7941E]', barColor: 'bg-[#F7941E]' },
-    { icon: <CheckCircle />, emojiIcon: '🚀', label: 'Chapter Success', value: '94%', change: '+5%', percentage: 94, bgColor: 'bg-[#00C853]', barColor: 'bg-[#00C853]' },
-    { icon: <Star />, emojiIcon: '⭐', label: 'Mentor Ranking', value: '#3', change: '+0.3', percentage: 75, bgColor: 'bg-[#FF5722]', barColor: 'bg-[#FF5722]' },
+    { icon: '/icon/dash 1.png', emojiIcon: '/icon/dash 11.png', label: 'Student Benefited', value: '236', change: '+12%', percentage: 65, bgColor: 'bg-[#2B70FF]', barColor: 'bg-[#2B70FF]' },
+    { icon: '/icon/dash 2.png', emojiIcon: '/icon/dash 12.png', label: 'Activity Pending', value: '3', change: '-40%', percentage: 35, bgColor: 'bg-[#F7941E]', barColor: 'bg-[#F7941E]' },
+    { icon: '/icon/dash 3.png', emojiIcon: '/icon/dash 13.png', label: 'Chapter Success', value: '94%', change: '+5%', percentage: 94, bgColor: 'bg-[#00C853]', barColor: 'bg-[#00C853]' },
+    { icon: '/icon/dash 4.png', emojiIcon: '/icon/dash 14.png', label: 'Mentor Ranking', value: '#3', change: '+0.3', percentage: 75, bgColor: 'bg-[#FF5722]', barColor: 'bg-[#FF5722]' },
   ];
 
   const events = [
@@ -69,7 +69,7 @@ const Dashboard = () => {
       </div>
 
       {/* Stats Cards Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {stats.map((stat, index) => (
           <StatCard key={index} {...stat} />
         ))}
