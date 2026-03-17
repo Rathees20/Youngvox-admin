@@ -23,7 +23,7 @@ const Header = ({ onMenuClick }) => {
 
       <div className="flex items-center gap-4 md:gap-8">
         <button className="relative p-2.5 md:p-3 hover:bg-gray-50 rounded-2xl transition-all duration-500 group border border-transparent hover:border-gray-100 box-border">
-          <Bell size={22} md:size={24} className="text-[#1a1a1a] group-hover:scale-110 transition-transform" strokeWidth={2.5} md:strokeWidth={3} />
+          <Bell size={22} className="text-[#1a1a1a] group-hover:scale-110 transition-transform" strokeWidth={2.5} />
           <span className="absolute top-1 right-1 md:top-1.5 md:right-1.5 w-[16px] h-[16px] md:w-[20px] md:h-[20px] bg-[#A82228] text-white text-[9px] md:text-[10px] font-normal rounded-full flex items-center justify-center border-2 border-white shadow-lg">
             3
           </span>
