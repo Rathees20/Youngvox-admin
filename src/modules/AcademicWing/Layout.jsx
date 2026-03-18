@@ -1,13 +1,13 @@
 import React from 'react';
-import AcademicWingSidebar from '../components/AcademicWingSidebar';
-import Header from '../components/Header';
-import { cn } from '../utils/cn';
+import AcademicWingSidebar from './Sidebar';
+import Header from '../../components/Header';
+import { cn } from '../../utils/cn';
 
 const AcademicWingLayout = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   return (
-    <div className="flex min-h-screen w-full bg-[#f7f7f8] selection:bg-primary/10">
+    <div className="flex min-h-screen w-full bg-[#f7f7f8] selection:bg-primary/10 font-['Arial']">
       {/* Sidebar - Desktop: fixed, Mobile: slide-over */}
       <aside className={cn(
         "fixed inset-y-0 left-0 w-[260px] h-screen z-50 border-r border-[#eeeeee] bg-white transition-transform duration-300 ease-in-out md:sticky md:top-0 md:translate-x-0 md:flex-shrink-0",

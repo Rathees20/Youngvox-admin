@@ -12,12 +12,22 @@ import ChapterEvents from './pages/ChapterEvents';
 import ChapterAnalytics from './pages/ChapterAnalytics';
 import ChapterResources from './pages/ChapterResources';
 import ChapterSettings from './pages/ChapterSettings';
-import AcademicWingDashboard from './pages/AcademicWingDashboard';
-import AcademicWingProfile from './pages/AcademicWingProfile';
+import AcademicWingDashboard from './modules/AcademicWing/Dashboard';
+import AcademicWingProfile from './modules/AcademicWing/Profile';
+import AcademicWingMembers from './modules/AcademicWing/Members';
+import AcademicWingReports from './modules/AcademicWing/Reports';
+import AcademicWingEvents from './modules/AcademicWing/Events';
+import AcademicWingAnalytics from './modules/AcademicWing/Analytics';
+import AcademicWingResources from './modules/AcademicWing/Resources';
+
+
+
+
+
 
 import Layout from './layouts/Layout';
 import ChapterChiefLayout from './layouts/ChapterChiefLayout';
-import AcademicWingLayout from './layouts/AcademicWingLayout';
+import AcademicWingLayout from './modules/AcademicWing/Layout';
 import CreateProject from './pages/CreateProject';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
@@ -56,6 +66,57 @@ function App() {
                     </AcademicWingLayout>
                   }
                 />
+                 <Route
+                  path="/academic-wing-profile"
+                  element={
+                    <AcademicWingLayout>
+                      <AcademicWingProfile />
+                    </AcademicWingLayout>
+                  }
+                />
+                <Route
+                  path="/academic-wing-members"
+                  element={
+                    <AcademicWingLayout>
+                      <AcademicWingMembers />
+                    </AcademicWingLayout>
+                  }
+                />
+                <Route
+                  path="/academic-wing-reports"
+                  element={
+                    <AcademicWingLayout>
+                      <AcademicWingReports />
+                    </AcademicWingLayout>
+                  }
+                />
+                <Route
+                  path="/academic-wing-events"
+                  element={
+                    <AcademicWingLayout>
+                      <AcademicWingEvents />
+                    </AcademicWingLayout>
+                  }
+                />
+                <Route
+                  path="/academic-wing-analytics"
+                  element={
+                    <AcademicWingLayout>
+                      <AcademicWingAnalytics />
+                    </AcademicWingLayout>
+                  }
+                />
+                <Route
+                  path="/academic-wing-resources"
+                  element={
+                    <AcademicWingLayout>
+                      <AcademicWingResources />
+                    </AcademicWingLayout>
+                  }
+                />
+
+
+
                 <Route
                   path="/chapter-chief/profile"
                   element={

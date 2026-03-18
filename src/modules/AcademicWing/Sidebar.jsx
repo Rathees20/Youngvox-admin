@@ -1,7 +1,7 @@
 import React from 'react';
 import { LayoutDashboard, User, Users, FileText, CheckSquare, BarChart2, Heart, Box, Calendar, Settings, LogOut, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { cn } from '../utils/cn';
+import { cn } from '../../utils/cn';
 
 const AcademicWingSidebar = ({ onClose }) => {
   const location = useLocation();
@@ -16,19 +16,19 @@ const AcademicWingSidebar = ({ onClose }) => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/academic-wing-dashboard' },
-    { icon: User, label: 'Profile', path: '/academic-wing/profile' },
-    { icon: Users, label: 'Members', path: '/members' },
-    { icon: FileText, label: 'Reports', path: '/reports', badge: '3' },
+    { icon: User, label: 'Profile', path: '/academic-wing-profile' },
+    { icon: Users, label: 'Members', path: '/academic-wing-members' },
+    { icon: FileText, label: 'Reports', path: '/academic-wing-reports', badge: '3' },
     { icon: CheckSquare, label: 'Assessments', path: '/assessments', badge: '2' },
-    { icon: BarChart2, label: 'Analytics', path: '/analytics' },
+    { icon: BarChart2, label: 'Analytics', path: '/academic-wing-analytics' },
     { icon: Heart, label: 'Chapter Health', path: '/chapter-health' },
-    { icon: Box, label: 'Resources', path: '/resources' },
-    { icon: Calendar, label: 'Events', path: '/events' },
+    { icon: Box, label: 'Resources', path: '/academic-wing-resources' },
+    { icon: Calendar, label: 'Events', path: '/academic-wing-events' },
     { icon: Settings, label: 'Settings', path: '/settings' },
   ];
 
   return (
-    <div className="flex flex-col h-full bg-white select-none">
+    <div className="flex flex-col h-full bg-white select-none font-['Arial']">
       {/* Logo Section */}
       <div className="p-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -66,7 +66,7 @@ const AcademicWingSidebar = ({ onClose }) => {
             >
               <div className="flex items-center gap-4">
                 <item.icon size={20} className={isActive ? "text-white" : "text-[#555555] opacity-70"} strokeWidth={isActive ? 3 : 2.5} />
-                <span className="tracking-tight">{item.label}</span>
+                <span className="tracking-wide">{item.label}</span>
               </div>
               {item.badge && (
                 <span className={cn(
