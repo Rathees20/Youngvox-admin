@@ -15,7 +15,7 @@ const Login = () => {
   const roleConfig = {
     'mentor': { label: 'Mentor', email: 'admin@youngvox.com', pass: 'admin123', redirect: '/dashboard', role: 'mentor' },
     'chief': { label: 'Chapter Chief', email: 'chief@youngvox.com', pass: 'chief123', redirect: '/chapter-chief-dashboard', role: 'chapter-chief' },
-    'academic-wing': { label: 'Academic & Career Guidance', email: 'academic@youngvox.com', pass: 'wing123', redirect: '/dashboard', role: 'wing-leader' },
+    'academic-wing': { label: 'Academic & Career Guidance', email: 'academic@youngvox.com', pass: 'wing123', redirect: '/academic-wing-dashboard', role: 'wing-leader' },
     'wellbeing-wing': { label: 'Student Wellbeing', email: 'wellbeing@youngvox.com', pass: 'wing123', redirect: '/dashboard', role: 'wing-leader' },
     'rights-wing': { label: 'Child Rights & Social Justice', email: 'rights@youngvox.com', pass: 'wing123', redirect: '/dashboard', role: 'wing-leader' },
     'outreach-wing': { label: 'Community Outreach & Service', email: 'outreach@youngvox.com', pass: 'wing123', redirect: '/dashboard', role: 'wing-leader' }

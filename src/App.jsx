@@ -11,9 +11,12 @@ import ChapterReports from './pages/ChapterReports';
 import ChapterEvents from './pages/ChapterEvents';
 import ChapterAnalytics from './pages/ChapterAnalytics';
 import ChapterResources from './pages/ChapterResources';
+import AcademicWingDashboard from './pages/AcademicWingDashboard';
+import AcademicWingProfile from './pages/AcademicWingProfile';
 
 import Layout from './layouts/Layout';
 import ChapterChiefLayout from './layouts/ChapterChiefLayout';
+import AcademicWingLayout from './layouts/AcademicWingLayout';
 import CreateProject from './pages/CreateProject';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
@@ -42,6 +45,14 @@ function App() {
                     <ChapterChiefLayout>
                       <ChapterChiefDashboard />
                     </ChapterChiefLayout>
+                  }
+                />
+                <Route
+                  path="/academic-wing-dashboard"
+                  element={
+                    <AcademicWingLayout>
+                      <AcademicWingDashboard />
+                    </AcademicWingLayout>
                   }
                 />
                 <Route
