@@ -19,6 +19,14 @@ import AcademicWingReports from './modules/AcademicWing/Reports';
 import AcademicWingEvents from './modules/AcademicWing/Events';
 import AcademicWingAnalytics from './modules/AcademicWing/Analytics';
 import AcademicWingResources from './modules/AcademicWing/Resources';
+import WellbeingWingDashboard from './modules/WellbeingWing/Dashboard';
+import WellbeingWingProfile from './modules/WellbeingWing/Profile';
+import WellbeingWingMembers from './modules/WellbeingWing/Members';
+import WellbeingWingReports from './modules/WellbeingWing/Reports';
+import WellbeingWingEvents from './modules/WellbeingWing/Events';
+import WellbeingWingAnalytics from './modules/WellbeingWing/Analytics';
+import WellbeingWingResources from './modules/WellbeingWing/Resources';
+import WellbeingWingLayout from './modules/WellbeingWing/Layout';
 
 
 
@@ -114,6 +122,16 @@ function App() {
                     </AcademicWingLayout>
                   }
                 />
+
+
+                {/* Wellbeing Wing Routes */}
+                <Route path="/wellbeing-wing-dashboard" element={<WellbeingWingLayout><WellbeingWingDashboard /></WellbeingWingLayout>} />
+                <Route path="/wellbeing-wing-profile" element={<WellbeingWingLayout><WellbeingWingProfile /></WellbeingWingLayout>} />
+                <Route path="/wellbeing-wing-members" element={<WellbeingWingLayout><WellbeingWingMembers /></WellbeingWingLayout>} />
+                <Route path="/wellbeing-wing-reports" element={<WellbeingWingLayout><WellbeingWingReports /></WellbeingWingLayout>} />
+                <Route path="/wellbeing-wing-events" element={<WellbeingWingLayout><WellbeingWingEvents /></WellbeingWingLayout>} />
+                <Route path="/wellbeing-wing-analytics" element={<WellbeingWingLayout><WellbeingWingAnalytics /></WellbeingWingLayout>} />
+                <Route path="/wellbeing-wing-resources" element={<WellbeingWingLayout><WellbeingWingResources /></WellbeingWingLayout>} />
 
 
 
