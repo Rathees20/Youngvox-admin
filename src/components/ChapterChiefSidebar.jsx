@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 const ChapterChiefSidebar = ({ onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
     localStorage.removeItem('userRole');
@@ -19,12 +19,10 @@ const ChapterChiefSidebar = ({ onClose }) => {
     { icon: User, label: 'Profile', path: '/chapter-chief/profile' },
     { icon: FileText, label: 'Chapter Directory', path: '/chapter-chief/directory' },
     { icon: FileText, label: 'Reports', path: '/chapter-chief/reports', badge: '3' },
-    { icon: CheckSquare, label: 'Assessments', path: '/assessments', badge: '2' },
     { icon: BarChart2, label: 'Analytics', path: '/chapter-chief/analytics' },
-    { icon: Heart, label: 'Chapter Health', path: '/chapter-health' },
     { icon: Box, label: 'Resources', path: '/chapter-chief/resources' },
     { icon: Calendar, label: 'Events', path: '/chapter-chief/events' },
-    { icon: Settings, label: 'Settings', path: '/settings' },
+    { icon: Settings, label: 'Settings', path: '/chapter-chief/settings' },
   ];
 
   return (
@@ -40,14 +38,14 @@ const ChapterChiefSidebar = ({ onClose }) => {
             <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Chapter Chief</p>
           </div>
         </div>
-        <button 
+        <button
           onClick={onClose}
           className="md:hidden p-2 hover:bg-gray-50 rounded-xl text-[#555555] transition-all"
         >
           <X size={20} strokeWidth={3} />
         </button>
       </div>
-      
+
       {/* Navigation */}
       <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto custom-scrollbar">
         {menuItems.map((item) => {
@@ -93,7 +91,7 @@ const ChapterChiefSidebar = ({ onClose }) => {
               <p className="text-[9px] font-normal text-[#555555] truncate uppercase tracking-tighter opacity-50">Chapter Chief</p>
             </div>
           </div>
-          <button 
+          <button
             onClick={handleLogout}
             className="p-2.5 bg-white text-[#A82228] hover:bg-red-50 rounded-lg transition-all duration-300 border border-transparent hover:border-red-100 shadow-sm"
             title="Logout"
