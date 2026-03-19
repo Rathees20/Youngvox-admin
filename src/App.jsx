@@ -27,6 +27,22 @@ import WellbeingWingEvents from './modules/WellbeingWing/Events';
 import WellbeingWingAnalytics from './modules/WellbeingWing/Analytics';
 import WellbeingWingResources from './modules/WellbeingWing/Resources';
 import WellbeingWingLayout from './modules/WellbeingWing/Layout';
+import ChildRightsWingDashboard from './modules/ChildRightsWing/Dashboard';
+import ChildRightsWingProfile from './modules/ChildRightsWing/Profile';
+import ChildRightsWingMembers from './modules/ChildRightsWing/Members';
+import ChildRightsWingReports from './modules/ChildRightsWing/Reports';
+import ChildRightsWingEvents from './modules/ChildRightsWing/Events';
+import ChildRightsWingAnalytics from './modules/ChildRightsWing/Analytics';
+import ChildRightsWingResources from './modules/ChildRightsWing/Resources';
+import ChildRightsWingLayout from './modules/ChildRightsWing/Layout';
+import CommunityOutreachWingDashboard from './modules/CommunityOutreachWing/Dashboard';
+import CommunityOutreachWingProfile from './modules/CommunityOutreachWing/Profile';
+import CommunityOutreachWingMembers from './modules/CommunityOutreachWing/Members';
+import CommunityOutreachWingReports from './modules/CommunityOutreachWing/Reports';
+import CommunityOutreachWingEvents from './modules/CommunityOutreachWing/Events';
+import CommunityOutreachWingAnalytics from './modules/CommunityOutreachWing/Analytics';
+import CommunityOutreachWingResources from './modules/CommunityOutreachWing/Resources';
+import CommunityOutreachWingLayout from './modules/CommunityOutreachWing/Layout';
 
 
 
@@ -132,6 +148,24 @@ function App() {
                 <Route path="/wellbeing-wing-events" element={<WellbeingWingLayout><WellbeingWingEvents /></WellbeingWingLayout>} />
                 <Route path="/wellbeing-wing-analytics" element={<WellbeingWingLayout><WellbeingWingAnalytics /></WellbeingWingLayout>} />
                 <Route path="/wellbeing-wing-resources" element={<WellbeingWingLayout><WellbeingWingResources /></WellbeingWingLayout>} />
+
+                {/* Child Rights Wing Routes */}
+                <Route path="/child-rights-wing-dashboard" element={<ChildRightsWingLayout><ChildRightsWingDashboard /></ChildRightsWingLayout>} />
+                <Route path="/child-rights-wing-profile" element={<ChildRightsWingLayout><ChildRightsWingProfile /></ChildRightsWingLayout>} />
+                <Route path="/child-rights-wing-members" element={<ChildRightsWingLayout><ChildRightsWingMembers /></ChildRightsWingLayout>} />
+                <Route path="/child-rights-wing-reports" element={<ChildRightsWingLayout><ChildRightsWingReports /></ChildRightsWingLayout>} />
+                <Route path="/child-rights-wing-events" element={<ChildRightsWingLayout><ChildRightsWingEvents /></ChildRightsWingLayout>} />
+                <Route path="/child-rights-wing-analytics" element={<ChildRightsWingLayout><ChildRightsWingAnalytics /></ChildRightsWingLayout>} />
+                <Route path="/child-rights-wing-resources" element={<ChildRightsWingLayout><ChildRightsWingResources /></ChildRightsWingLayout>} />
+
+                {/* Community Outreach Wing Routes */}
+                <Route path="/community-outreach-wing-dashboard" element={<CommunityOutreachWingLayout><CommunityOutreachWingDashboard /></CommunityOutreachWingLayout>} />
+                <Route path="/community-outreach-wing-profile" element={<CommunityOutreachWingLayout><CommunityOutreachWingProfile /></CommunityOutreachWingLayout>} />
+                <Route path="/community-outreach-wing-members" element={<CommunityOutreachWingLayout><CommunityOutreachWingMembers /></CommunityOutreachWingLayout>} />
+                <Route path="/community-outreach-wing-reports" element={<CommunityOutreachWingLayout><CommunityOutreachWingReports /></CommunityOutreachWingLayout>} />
+                <Route path="/community-outreach-wing-events" element={<CommunityOutreachWingLayout><CommunityOutreachWingEvents /></CommunityOutreachWingLayout>} />
+                <Route path="/community-outreach-wing-analytics" element={<CommunityOutreachWingLayout><CommunityOutreachWingAnalytics /></CommunityOutreachWingLayout>} />
+                <Route path="/community-outreach-wing-resources" element={<CommunityOutreachWingLayout><CommunityOutreachWingResources /></CommunityOutreachWingLayout>} />
 
 
 
