@@ -6,7 +6,7 @@ import { cn } from '../../utils/cn';
 const AcademicWingSidebar = ({ onClose }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
     localStorage.removeItem('userRole');
@@ -19,9 +19,7 @@ const AcademicWingSidebar = ({ onClose }) => {
     { icon: User, label: 'Profile', path: '/academic-wing-profile' },
     { icon: Users, label: 'Members', path: '/academic-wing-members' },
     { icon: FileText, label: 'Reports', path: '/academic-wing-reports', badge: '3' },
-    { icon: CheckSquare, label: 'Assessments', path: '/assessments', badge: '2' },
     { icon: BarChart2, label: 'Analytics', path: '/academic-wing-analytics' },
-    { icon: Heart, label: 'Chapter Health', path: '/chapter-health' },
     { icon: Box, label: 'Resources', path: '/academic-wing-resources' },
     { icon: Calendar, label: 'Events', path: '/academic-wing-events' },
     { icon: Settings, label: 'Settings', path: '/settings' },
@@ -37,17 +35,17 @@ const AcademicWingSidebar = ({ onClose }) => {
           </div>
           <div className="flex flex-col">
             <h1 className="text-[17px] font-normal text-[#1a1a1a] tracking-wide leading-none mb-1">YoungVox</h1>
-            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Chapter chief</p>
+            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Chapter Academic</p>
           </div>
         </div>
-        <button 
+        <button
           onClick={onClose}
           className="md:hidden p-2 hover:bg-gray-50 rounded-xl text-[#555555] transition-all"
         >
           <X size={20} strokeWidth={3} />
         </button>
       </div>
-      
+
       {/* Navigation */}
       <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto custom-scrollbar">
         {menuItems.map((item) => {
@@ -60,7 +58,7 @@ const AcademicWingSidebar = ({ onClose }) => {
               className={cn(
                 "flex items-center justify-between gap-3 px-4 py-3 rounded-xl text-[13px] font-normal transition-all duration-300",
                 isActive
-                   ? "bg-brand-gradient text-white shadow-2xl shadow-[#A82228]/30 scale-[1.02]"
+                  ? "bg-brand-gradient text-white shadow-2xl shadow-[#A82228]/30 scale-[1.02]"
                   : "text-[#555555] hover:bg-gray-50 hover:text-[#1a1a1a]"
               )}
             >
@@ -93,7 +91,7 @@ const AcademicWingSidebar = ({ onClose }) => {
               <p className="text-[9px] font-normal text-[#555555] truncate uppercase tracking-tighter opacity-50">Wing Leader</p>
             </div>
           </div>
-          <button 
+          <button
             onClick={handleLogout}
             className="p-2.5 bg-white text-[#A82228] hover:bg-red-50 rounded-lg transition-all duration-300 border border-transparent hover:border-red-100 shadow-sm"
             title="Logout"

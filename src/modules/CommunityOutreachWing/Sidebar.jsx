@@ -19,9 +19,7 @@ const CommunityOutreachWingSidebar = ({ onClose }) => {
     { icon: User, label: 'Profile', path: '/community-outreach-wing-profile' },
     { icon: Users, label: 'Members', path: '/community-outreach-wing-members' },
     { icon: FileText, label: 'Reports', path: '/community-outreach-wing-reports', badge: '3' },
-    { icon: CheckSquare, label: 'Assessments', path: '/community-outreach-wing-assessments', badge: '2' },
     { icon: BarChart2, label: 'Analytics', path: '/community-outreach-wing-analytics' },
-    { icon: Heart, label: 'Chapter Health', path: '/community-outreach-wing-chapter-health' },
     { icon: Box, label: 'Resources', path: '/community-outreach-wing-resources' },
     { icon: Calendar, label: 'Events', path: '/community-outreach-wing-events' },
     { icon: Settings, label: 'Settings', path: '/community-outreach-wing-settings' },
@@ -37,7 +35,7 @@ const CommunityOutreachWingSidebar = ({ onClose }) => {
           </div>
           <div className="flex flex-col">
             <h1 className="text-[17px] font-normal text-[#1a1a1a] tracking-wide leading-none mb-1">YoungVox</h1>
-            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Chapter chief</p>
+            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Chapter Outreach Wing</p>
           </div>
         </div>
         <button

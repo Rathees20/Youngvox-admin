@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Search, ChevronDown, Filter, MoreVertical } from 'lucide-react';
+import { Search, ChevronDown, ChevronUp, Filter, MoreVertical, Mail, Phone, Activity } from 'lucide-react';
 
 const ChildRightsWingMembers = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [expandedId, setExpandedId] = useState(null);
+
+  const toggleExpand = (id) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
 
   const members = [
     { id: 'AJ', name: 'Esther Howard', email: 'alice.j@school.edu', role: 'Wing Leader - Child Rights & Social Justice', status: 'active', performance: 95, color: '#1caf5f' },
@@ -75,50 +80,119 @@ const ChildRightsWingMembers = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
-                {members.map((member) => (
-                  <tr key={member.id} className="transition-all duration-300 hover:bg-[#fbfbfc] group">
-                    <td className="px-8 py-5">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[14px] font-normal shadow-lg shadow-[#A82228]/10 group-hover:scale-105 transition-transform">
-                          {member.id}
-                        </div>
-                        <div className="flex flex-col min-w-0">
-                          <span className="text-[14px] font-normal text-[#1a1a1a] leading-tight mb-0.5 truncate">{member.name}</span>
-                          <span className="text-[12px] font-normal text-[#555555] opacity-50 truncate">{member.email}</span>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-5">
-                      <span className="text-[13px] font-normal text-[#555555] leading-snug">{member.role}</span>
-                    </td>
-                    <td className="px-8 py-5">
-                      <span className={`inline-flex items-center px-4 py-1.5 rounded-xl text-[10px] font-normal uppercase tracking-[1px] ${
-                        member.status === 'active' ? 'bg-[#e7f6ed] text-[#1caf5f]' : 'bg-[#fff4e6] text-[#FF9800]'
-                      }`}>
-                        <span className={`w-1.5 h-1.5 rounded-full mr-2 ${member.status === 'active' ? 'bg-[#1caf5f]' : 'bg-[#FF9800]'}`}></span>
-                        {member.status}
-                      </span>
-                    </td>
-                    <td className="px-8 py-5">
-                      <div className="flex flex-col gap-2.5 max-w-[200px]">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[12px] font-normal text-[#1a1a1a]/80">{member.performance}%</span>
-                        </div>
-                        <div className="h-2 bg-[#f4f4f5]/80 rounded-full overflow-hidden w-full border border-gray-50">
-                          <div
-                            className="h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_8px_rgba(0,0,0,0.05)]"
-                            style={{ width: `${member.performance}%`, backgroundColor: getPerformanceColor(member.performance) }}
-                          ></div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-5 text-right">
-                      <button className="p-2.5 hover:bg-white hover:shadow-xl rounded-xl transition-all text-[#555555] opacity-30 hover:opacity-100 hover:text-[#1a1a1a] border border-transparent hover:border-gray-100">
-                        <ChevronDown size={20} strokeWidth={2.5} className="opacity-40" />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {members.map((member) => {
+                  const isExpanded = expandedId === member.id;
+                  return (
+                    <React.Fragment key={member.id}>
+                      <tr 
+                        className={`transition-all duration-300 cursor-pointer group ${
+                          isExpanded ? 'bg-[#7a7a7a] text-white overflow-hidden' : 'hover:bg-[#fbfbfc] text-[#1a1a1a]'
+                        }`}
+                        onClick={() => toggleExpand(member.id)}
+                      >
+                        <td className="px-8 py-5">
+                          <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-full bg-brand-gradient flex items-center justify-center text-white text-[14px] font-normal shadow-lg shadow-[#A82228]/10 group-hover:scale-105 transition-transform">
+                              {member.id}
+                            </div>
+                            <div className="flex flex-col min-w-0">
+                              <span className="text-[14px] font-normal leading-tight mb-0.5 truncate">{member.name}</span>
+                              <span className={`text-[12px] font-normal truncate ${isExpanded ? 'text-white/60' : 'text-[#555555] opacity-50'}`}>{member.email}</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-8 py-5">
+                          <span className={`text-[13px] font-normal leading-snug ${isExpanded ? 'text-white/80' : 'text-[#555555]'}`}>{member.role}</span>
+                        </td>
+                        <td className="px-8 py-5">
+                          {isExpanded ? (
+                            <span className="inline-flex items-center px-4 py-1.5 rounded-xl text-[10px] font-normal uppercase tracking-[1px] bg-white/20 text-white">active</span>
+                          ) : (
+                            <span className={`inline-flex items-center px-4 py-1.5 rounded-xl text-[10px] font-normal uppercase tracking-[1px] ${
+                              member.status === 'active' 
+                                ? 'bg-[#e7f6ed] text-[#1caf5f]' 
+                                : 'bg-[#fff4e6] text-[#FF9800]'
+                            }`}>
+                              <span className={`w-1.5 h-1.5 rounded-full mr-2 ${
+                                member.status === 'active' ? 'bg-[#1caf5f]' : 'bg-[#FF9800]'
+                              }`}></span>
+                              {member.status}
+                            </span>
+                          )}
+                        </td>
+                        <td className="px-8 py-5 text-right">
+                          <div className="flex flex-col gap-2.5 max-w-[200px] ml-auto">
+                            <div className="flex items-center justify-between">
+                              <span className={`text-[12px] font-normal ${isExpanded ? 'text-white/80' : 'text-[#1a1a1a]/80'}`}>{member.performance}%</span>
+                            </div>
+                            <div className={`h-2 rounded-full overflow-hidden w-full border ${isExpanded ? 'bg-white/20 border-white/10' : 'bg-[#f4f4f5]/80 border-gray-50'}`}>
+                              <div 
+                                className="h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_8px_rgba(0,0,0,0.05)]" 
+                                style={{ 
+                                  width: `${member.performance}%`, 
+                                  backgroundColor: isExpanded ? '#4ade80' : getPerformanceColor(member.performance)
+                                }}
+                              ></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-8 py-5 text-right">
+                          <button className={`p-2.5 hover:bg-white/20 rounded-xl transition-all ${isExpanded ? 'text-white' : 'text-[#555555] opacity-30'} hover:opacity-100`}>
+                            {isExpanded ? <ChevronUp size={20} strokeWidth={2.5} /> : <ChevronDown size={20} strokeWidth={2.5} />}
+                          </button>
+                        </td>
+                      </tr>
+                      
+                      {/* Expanded Detail Panel */}
+                      {isExpanded && (
+                        <tr>
+                          <td colSpan={5} className="bg-white p-10">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 animate-in slide-in-from-top-4 duration-300">
+                              {/* Column 1: Contact Info */}
+                              <div className="space-y-6">
+                                <h4 className="text-[14px] font-bold text-[#1a1a1a]">Contact Information</h4>
+                                <div className="space-y-4">
+                                  <div className="flex items-center gap-3 text-[13px] text-[#555555]">
+                                    <Mail size={16} className="opacity-40" />
+                                    <span>{member.email}</span>
+                                  </div>
+                                  <div className="flex items-center gap-3 text-[13px] text-[#555555]">
+                                    <Phone size={16} className="opacity-40" />
+                                    <span>(555) 123-4567</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Column 2: Activity Summary */}
+                              <div className="space-y-6">
+                                <h4 className="text-[14px] font-bold text-[#1a1a1a]">Activity Summary</h4>
+                                <div className="space-y-4">
+                                  <div className="text-[13px] text-[#555555]">
+                                    <span>Activities Completed</span>
+                                  </div>
+                                  <div className="text-[13px] text-[#555555]">
+                                    <span>Reports Submitted</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Column 3: Quick Actions */}
+                              <div className="space-y-6">
+                                <h4 className="text-[14px] font-bold text-[#1a1a1a]">Quick Actions</h4>
+                                <button className="flex items-center gap-3 bg-white border border-gray-100 w-full p-4 rounded-xl text-[13px] font-bold text-[#1a1a1a] shadow-sm hover:shadow-md transition-all group/action">
+                                  <div className="p-1.5 bg-gray-50 rounded-lg group-hover/action:bg-gray-100 transition-colors">
+                                    <Activity size={16} className="text-[#1a1a1a]" />
+                                  </div>
+                                  View Activity Log
+                                </button>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </React.Fragment>
+                  );
+                })}
               </tbody>
             </table>
           </div>

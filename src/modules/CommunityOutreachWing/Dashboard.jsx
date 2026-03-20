@@ -1,5 +1,5 @@
-import React from 'react';
-import { Users, Target, TrendingUp, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { Users, Target, TrendingUp, Award, X } from 'lucide-react';
 
 const StatCard = ({ icon, label, value, change, bgColor, percentage, bgIcon, barColor, labelColor = "text-white/70" }) => (
   <div className="flex flex-col h-full min-w-[240px] bg-white rounded-[24px] shadow-sm overflow-hidden border border-gray-100/50 group hover:shadow-xl transition-all duration-700">
@@ -37,6 +37,7 @@ const StatCard = ({ icon, label, value, change, bgColor, percentage, bgIcon, bar
 );
 
 const CommunityOutreachWingDashboard = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const stats = [
     {
       icon: <Users />,
@@ -165,6 +166,7 @@ const CommunityOutreachWingDashboard = () => {
                   </p>
                 </div>
                 <button
+                  onClick={() => setIsModalOpen(true)}
                   className="whitespace-nowrap text-[11px] font-normal text-[#155DFC] bg-white hover:bg-[#155DFC] hover:text-white px-5 py-2.5 rounded-xl transition-all duration-300 border border-[#155DFC]/20 shadow-sm"
                 >
                   Submit report
@@ -182,6 +184,90 @@ const CommunityOutreachWingDashboard = () => {
           </div>
         </div>
       </div>
+
+      {/* Submit Report Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsModalOpen(false)} />
+          <div className="bg-white w-full max-w-[380px] rounded-[24px] shadow-2xl relative z-10 animate-in zoom-in-95 duration-200 overflow-hidden font-['Arial']">
+            {/* Modal Header */}
+            <div className="p-6 pb-2 flex items-center justify-between">
+              <h3 className="text-[17px] font-bold text-[#1a1a1a]">Submit report</h3>
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Close modal"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Modal Body / Form */}
+            <div className="p-6 pt-2 space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">Event name</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter Event name"
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">Date</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter date"
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">No. of students attended</label>
+                <input 
+                  type="number" 
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">No. of parents attended</label>
+                <input 
+                  type="number" 
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">Submitted on</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter date"
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[12px] font-bold text-[#1a1a1a] opacity-80">Submitted by</label>
+                <input 
+                  type="text" 
+                  placeholder="Enter name"
+                  className="w-full bg-[#f4f4f5] border-none rounded-xl py-2.5 px-4 text-[13px] text-[#1a1a1a] placeholder:text-[#1a1a1a]/30 outline-none"
+                />
+              </div>
+
+              <div className="pt-2">
+                <button 
+                  onClick={() => setIsModalOpen(false)}
+                  className="w-full sm:w-auto bg-[#A82228] text-white px-6 py-2 rounded-lg text-[13px] font-bold transition-all hover:brightness-110 active:scale-95"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

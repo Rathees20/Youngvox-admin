@@ -1,247 +1,294 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Calendar, Award, CheckCircle2, ShieldCheck, Globe } from 'lucide-react';
-import { cn } from '../../utils/cn';
-
-const InfoCard = ({ title, children, icon: Icon }) => (
-  <div className="bg-white rounded-[24px] p-8 border border-gray-100 shadow-sm space-y-6 relative overflow-hidden group hover:shadow-xl transition-all duration-500">
-    <div className="flex items-center gap-3 relative z-10">
-      <Icon size={18} className="text-[#1a1a1a]" strokeWidth={2.5} />
-      <h3 className="text-[16px] font-normal text-[#1a1a1a] tracking-tight">{title}</h3>
-    </div>
-    <div className="relative z-10">
-      {children}
-    </div>
-  </div>
-);
-
-const DetailItem = ({ label, value }) => (
-  <div className="space-y-1">
-    <p className="text-[12px] font-normal text-[#555555] opacity-50 tracking-tight">{label}</p>
-    <p className="text-[14px] font-normal text-[#1a1a1a] tracking-tight">{value}</p>
-  </div>
-);
-
-const CertificateItem = ({ title, date }) => (
-  <div className="flex items-center justify-between p-5 bg-[#f8f9fa] rounded-2xl border border-gray-50 group hover:bg-white hover:shadow-lg transition-all duration-300">
-    <div className="flex items-center gap-4">
-      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#10b981] shadow-sm">
-        <CheckCircle2 size={24} strokeWidth={2} />
-      </div>
-      <div className="space-y-0.5">
-        <h5 className="text-[14px] font-normal text-[#1a1a1a] tracking-tight">{title}</h5>
-        <div className="flex items-center gap-2 text-[12px] text-[#555555] opacity-60">
-          <Calendar size={12} />
-          <span>Completed on {date}</span>
-        </div>
-      </div>
-    </div>
-    <span className="bg-[#10b981] text-white text-[10px] font-normal px-3 py-1 rounded-md uppercase tracking-wider">
-      Completed
-    </span>
-  </div>
-);
+import { Mail, Phone, School, MapPin, UserCircle, Award, Trophy, TrendingUp, CheckCircle2, Calendar, BookOpen, GraduationCap, Globe } from 'lucide-react';
 
 const CommunityOutreachWingProfile = () => {
   return (
-    <div className="p-6 space-y-8 animate-in fade-in duration-700 pb-24 max-w-[1600px] mx-auto font-['Arial'] bg-[#f7f7f8] min-h-screen">
-      <div className="space-y-1">
-        <h2 className="text-[20px] font-normal text-[#1a1a1a] tracking-tight">Profile Overview</h2>
+    <div className="p-4 max-w-7xl mx-auto space-y-4 animate-in fade-in duration-700 font-['Arial']">
+      {/* Profile Overview Header */}
+      <div className="flex flex-col gap-1 px-4 mt-4">
+        <h2 className="text-[20px] font-bold text-[#1a1a1a]">Profile Overview</h2>
         <p className="text-[13px] font-normal text-[#555555] opacity-60">Your complete profile and credentials</p>
       </div>
 
-      {/* Main Profile Header Card */}
-      <div className="bg-white rounded-[32px] overflow-hidden border border-gray-100 shadow-sm h-full">
-        {/* Banner with characters */}
-        <div className="h-[180px] w-full relative">
-          <img 
-            src="/images/profile-banner-outreach.png" 
-            alt="Profile Banner" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="p-8 pt-0 -mt-16 relative flex flex-col md:flex-row items-end justify-between gap-8">
-          <div className="flex flex-col md:flex-row items-end gap-6 w-full md:w-auto">
-            {/* Avatar */}
-            <div className="relative group">
-              <div className="w-[160px] h-[160px] rounded-full bg-white p-1.5 shadow-xl">
-                <div className="w-full h-full rounded-full overflow-hidden bg-[#fef3c7] flex items-center justify-center">
-                  <img src="/images/avatar-outreach.png" alt="Profile" className="w-[85%] h-auto object-contain" />
-                </div>
-              </div>
-            </div>
-
-            <div className="pb-4 space-y-4 w-full md:w-auto">
-              <div className="space-y-1 text-center md:text-left">
-                <h1 className="text-[24px] font-normal text-[#1a1a1a] tracking-tight">Jane Doe</h1>
-                <p className="text-[14px] font-normal text-[#555555] opacity-60">Community Outreach & Service Wing Leader</p>
-                <div className="flex items-center justify-center md:justify-start gap-2 pt-1">
-                  <span className="bg-[#10b981] text-white text-[10px] font-normal px-2.5 py-1 rounded-md uppercase tracking-wider">Active</span>
-                  <span className="bg-gray-100 text-[#555555] text-[10px] font-normal px-2.5 py-1 rounded-md tracking-wider">YV-TM-2024-0647</span>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                <div className="flex items-center gap-3 bg-gray-50 px-5 py-3 rounded-2xl border border-gray-100/50 flex-1 md:flex-initial">
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-[#555555]">
-                    <Mail size={16} />
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-[10px] font-normal text-[#555555] opacity-40 uppercase tracking-widest">Email</p>
-                    <p className="text-[13px] font-normal text-[#1a1a1a]">jane.doe@greenwood.edu</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 bg-gray-50 px-5 py-3 rounded-2xl border border-gray-100/50 flex-1 md:flex-initial">
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-[#555555]">
-                    <Phone size={16} />
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-[10px] font-normal text-[#555555] opacity-40 uppercase tracking-widest">Contact</p>
-                    <p className="text-[13px] font-normal text-[#1a1a1a]">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* Hero Banner Section */}
+      <div className="relative px-4 mt-6">
+        <div className="bg-white rounded-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden">
+          {/* Banner Image */}
+          <div className="h-48 md:h-52 w-full relative overflow-hidden">
+            <img
+              src="/images/chiefp.png"
+              alt="Students"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
 
-          {/* Ranking mini card */}
-          <div className="bg-[#fefce8] border border-[#fef08a] rounded-[24px] p-6 flex flex-col items-center justify-center space-y-1 min-w-[140px] mb-4">
-             <div className="text-[#facc15]">
-               <Award size={32} strokeWidth={2.5} />
-             </div>
-             <p className="text-[24px] font-normal text-[#1a1a1a] tracking-tight">#3</p>
-             <p className="text-[10px] font-normal text-[#555555] opacity-60 uppercase tracking-widest">of 50 mentors</p>
+          {/* Profile Content Area */}
+          <div className="relative px-8 pb-12 font-['Arial']">
+            {/* Overlapping Avatar Area - Perfectly circular with thick border */}
+            <div className="absolute -top-16 left-8">
+              <div className="w-32 h-32 rounded-full border-[6px] border-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] overflow-hidden bg-white">
+                <img
+                  src="/images/cp01.png"
+                  alt="Jane Doe"
+                  className="w-full h-full object-cover scale-110"
+                />
+              </div>
+            </div>
+
+            {/* Main Information Layout */}
+            <div className="pt-6 md:pl-36 flex flex-col lg:flex-row justify-between items-start gap-8">
+              {/* Left Column: Name, Title, Badges, and Contact Cards */}
+              <div className="flex flex-col gap-8 flex-1">
+                {/* Identity & Status */}
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-[22px] font-bold text-[#1a1a1a]">Jane Doe</h3>
+                  <p className="text-[14px] font-normal text-[#555555] opacity-60">Community Outreach & Service Wing Leader</p>
+
+                  <div className="flex items-center gap-2 mt-2">
+                    <span className="bg-[#e7f6ed] text-[#1caf5f] text-[11px] font-bold px-3 py-1 rounded-[8px]">Active</span>
+                    <span className="bg-[#f8f9fa] text-[#555555] text-[11px] font-normal px-3 py-1 rounded-[8px] border border-gray-100/50">YV-TM-2024-0647</span>
+                  </div>
+                </div>
+
+                {/* Contact Information Cards - Positioned directly under identity */}
+                <div className="flex flex-wrap gap-4">
+                  {/* Email Card */}
+                  <div className="flex items-center gap-4 bg-[#f8f9fa] px-6 py-4 rounded-[20px] min-w-[280px]">
+                    <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#555555]/30 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-gray-50">
+                      <Mail size={18} />
+                    </div>
+                    <div className="flex flex-col items-start leading-tight">
+                      <span className="text-[11px] font-normal text-[#555555] opacity-50 mb-0.5">Email</span>
+                      <span className="text-[14px] font-bold text-[#1a1a1a]">jane.doe@greenwood.edu</span>
+                    </div>
+                  </div>
+                  {/* Contact Card */}
+                  <div className="flex items-center gap-4 bg-[#f8f9fa] px-6 py-4 rounded-[20px] min-w-[240px]">
+                    <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#555555]/30 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-gray-50">
+                      <Phone size={18} />
+                    </div>
+                    <div className="flex flex-col items-start leading-tight">
+                      <span className="text-[11px] font-normal text-[#555555] opacity-50 mb-0.5">Contact</span>
+                      <span className="text-[14px] font-bold text-[#1a1a1a]">+1 (555) 123-4567</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Side: Ranking Card */}
+              <div className="bg-[#fefce8] border border-[#fef08a] rounded-[24px] p-6 pr-10 flex items-center gap-5 shadow-[0_4px_25px_rgba(250,204,21,0.02)] min-w-[210px] mt-1 lg:mt-0">
+                <div className="w-14 h-14 rounded-2xl bg-[#fefce8] border border-[#fef08a]/50 flex items-center justify-center text-[#facc15]">
+                  <Trophy size={28} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[32px] font-bold text-[#1a1a1a] leading-none mb-1">#3</span>
+                  <span className="text-[12px] font-normal text-[#555555] opacity-60">of 50 mentors</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Personal Info */}
-        <InfoCard title="Personal Information" icon={Calendar}>
-          <div className="grid grid-cols-2 gap-y-6 gap-x-8">
-            <DetailItem label="Full Name" value="Jane Doe" />
-            <DetailItem label="Gender" value="Female" />
-            <DetailItem label="Date of Birth" value="6/15/1985 (40 years)" />
-            <DetailItem label="Grade" value="VI" />
-            <div className="col-span-2 space-y-2">
-              <p className="text-[12px] font-normal text-[#555555] opacity-50 tracking-tight">Languages Known</p>
+      {/* Info Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-4">
+        {/* Personal Information */}
+        <div className="bg-white rounded-[32px] p-8 shadow-sm border border-[#eeeeee]">
+          <div className="flex items-center gap-3 mb-8">
+            <UserCircle size={20} className="text-[#1a1a1a]" />
+            <h4 className="text-[17px] font-bold text-[#1a1a1a]">Personal Information</h4>
+          </div>
+
+          <div className="grid grid-cols-2 gap-y-8">
+            <div>
+              <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-2">Full Name</p>
+              <p className="text-[15px] font-bold text-[#1a1a1a]">Jane Doe</p>
+            </div>
+            <div>
+              <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-2">Gender</p>
+              <p className="text-[15px] font-bold text-[#1a1a1a]">Female</p>
+            </div>
+            <div>
+              <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-2">Date of Birth</p>
+              <p className="text-[15px] font-bold text-[#1a1a1a]">6/15/1985 (40 years)</p>
+            </div>
+            <div>
+              <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-2">Grade</p>
+              <p className="text-[15px] font-bold text-[#1a1a1a]">VI</p>
+            </div>
+            <div className="col-span-2 mt-2">
+              <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-4">Languages Known</p>
               <div className="flex flex-wrap gap-2">
                 {['English', 'Spanish', 'French'].map(lang => (
-                  <span key={lang} className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-lg text-[12px] font-normal text-[#1a1a1a]">
-                    <Globe size={12} className="opacity-40" /> {lang}
+                  <span key={lang} className="bg-white border border-gray-100/80 shadow-sm text-[#1a1a1a] text-[12px] font-bold px-4 py-2 rounded-full flex items-center gap-2">
+                    <Globe size={14} className="text-[#555555] opacity-40" />
+                    {lang}
                   </span>
                 ))}
               </div>
             </div>
           </div>
-        </InfoCard>
+        </div>
 
-        {/* Chapter Info */}
-        <InfoCard title="Chapter Information" icon={MapPin}>
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-8 relative h-full">
-             <div className="space-y-6 relative z-10">
-               <DetailItem label="School Name" value="Greenwood High School" />
-               <DetailItem label="Branch / Location" value="North Valley Campus" />
-               <DetailItem label="Chapter established on" value="2022" />
-               <DetailItem label="Current status" value="Active" />
-             </div>
-             
-             {/* Mascot Illustration */}
-             <div className="absolute right-0 -bottom-8 w-40 h-40 pointer-events-none">
-                <img src="/images/mascot-character.png" alt="Mascot" className="w-full h-full object-contain opacity-50" />
-             </div>
-           </div>
-        </InfoCard>
+        {/* Chapter Information */}
+        <div className="bg-white rounded-[32px] p-8 shadow-sm border border-[#eeeeee] relative overflow-hidden flex flex-col">
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-8">
+              <School size={20} className="text-[#1a1a1a]" />
+              <h4 className="text-[17px] font-bold text-[#1a1a1a]">Chapter Information</h4>
+            </div>
+
+            <div className="space-y-8 max-w-[65%]">
+              <div>
+                <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-2">School Name</p>
+                <p className="text-[15px] font-bold text-[#1a1a1a]">Greenwood High School</p>
+              </div>
+              <div>
+                <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-2">Branch / Location</p>
+                <div className="flex items-center gap-2 text-[15px] font-bold text-[#1a1a1a]">
+                  <MapPin size={16} className="text-[#555555] opacity-40" />
+                  North Valley Campus
+                </div>
+              </div>
+              <div>
+                <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-2">Chapter established on</p>
+                <p className="text-[15px] font-bold text-[#1a1a1a]">2022</p>
+              </div>
+              <div>
+                <p className="text-[11px] font-normal text-[#555555] opacity-50 mb-2">Current status</p>
+                <p className="text-[15px] font-bold text-[#1a1a1a]">Active</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Illustration with Vector Background */}
+          <div className="absolute right-0 bottom-0 w-[50%] h-full flex items-end justify-end pointer-events-none">
+            {/* Vector Background Shape */}
+            <img
+              src="/images/Vector.svg"
+              alt=""
+              className="absolute right-[-20px] bottom-[-20px] w-full h-full object-contain opacity-60 scale-125"
+            />
+            {/* Character Image */}
+            <img
+              src="/images/cp02.png"
+              alt="Chapter Illustration"
+              className="relative z-10 w-full h-[90%] object-contain object-right-bottom"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Certificates & Recognition */}
-      <div className="bg-white rounded-[32px] p-8 border border-gray-100 shadow-sm space-y-8">
-        <div className="flex items-center gap-3">
-          <Award size={20} className="text-[#1a1a1a]" strokeWidth={2.5} />
-          <h3 className="text-[18px] font-normal text-[#1a1a1a] tracking-tight">Certificates & Recognition</h3>
+      <div className="bg-white rounded-[32px] p-8 shadow-sm border border-[#eeeeee] mx-4">
+        <div className="flex items-center gap-3 mb-8">
+          <Award size={20} className="text-[#1a1a1a]" />
+          <h4 className="text-[17px] font-bold text-[#1a1a1a]">Certificates & Recognition</h4>
         </div>
-        <div className="grid grid-cols-1 gap-4">
-          <CertificateItem title="YoungVox Mentor Orientation" date="1/15/2024" />
-          <CertificateItem title="Child Protection Training" date="2/10/2024" />
-          <CertificateItem title="Advanced Leadership Workshop" date="8/22/2024" />
+
+        <div className="space-y-4">
+          {[
+            { title: 'YoungVox Mentor Orientation', date: '1/15/2024' },
+            { title: 'Child Protection Training', date: '2/10/2024' },
+            { title: 'Advanced Leadership Workshop', date: '8/22/2024' },
+          ].map((cert, idx) => (
+            <div key={idx} className="bg-[#f8f9fa] border border-gray-50/50 rounded-[20px] p-5 flex items-center justify-between gap-4 transition-all duration-300">
+              <div className="flex items-center gap-5">
+                <div className="flex items-center justify-center text-[#1caf5f]">
+                  <div className="w-10 h-10 rounded-full border-2 border-[#1caf5f]/20 flex items-center justify-center">
+                    <CheckCircle2 size={22} strokeWidth={2.5} />
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <p className="text-[15px] font-bold text-[#1a1a1a] mb-0.5">{cert.title}</p>
+                  <p className="text-[12px] font-normal text-[#555555] opacity-50 flex items-center gap-2">
+                    <Calendar size={14} />
+                    Completed on {cert.date}
+                  </p>
+                </div>
+              </div>
+              <span className="bg-[#1caf5f] text-white text-[11px] font-bold px-5 py-2 rounded-full shadow-sm">Completed</span>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Chapter Leader Ranking */}
-      <div className="bg-[#fffbeb] rounded-[32px] p-8 border border-[#fef3c7] shadow-sm">
+      {/* Chapter chief ranking Section */}
+      <div className="bg-white rounded-[32px] p-8 shadow-sm border border-[#eeeeee] mx-4 mb-8">
         <div className="flex items-center gap-3 mb-8">
-          <Award size={20} className="text-[#1a1a1a]" strokeWidth={2.5} />
-          <h3 className="text-[18px] font-normal text-[#1a1a1a] tracking-tight">Chapter chief ranking</h3>
+          <Trophy size={20} className="text-[#1a1a1a]" />
+          <h4 className="text-[17px] font-bold text-[#1a1a1a]">Chapter chief ranking</h4>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
-          <div className="flex-1 flex items-center gap-8">
-             <div className="w-[100px] h-[100px] rounded-full bg-orange-400 flex items-center justify-center text-white shadow-xl shadow-orange-400/20">
-               <Award size={48} strokeWidth={2} />
-             </div>
-             <div className="space-y-1">
-               <p className="text-[12px] font-normal text-[#555555] opacity-60 uppercase tracking-widest">Current Ranking</p>
-               <div className="flex items-baseline gap-2">
-                 <span className="text-[48px] font-normal text-[#1a1a1a] tracking-tighter">#3</span>
-                 <span className="text-[14px] font-normal text-[#555555] opacity-40">out of 50 mentors</span>
-               </div>
-               <div className="flex items-center gap-2 text-[#10b981] pt-1">
-                 <TrendingUp size={16} />
-                 <span className="text-[14px] font-normal">Up from #5</span>
-                 <span className="ml-2 bg-[#10b981] text-white text-[10px] px-2 py-0.5 rounded uppercase tracking-wider font-normal">Top 6%</span>
-               </div>
-             </div>
+        <div className="bg-[#fffbeb] border border-[#fef3c7]/50 rounded-[32px] p-8 flex flex-col xl:flex-row gap-10">
+          {/* Left Column: Ranking High-level Stats */}
+          <div className="flex-1 flex flex-col">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-8">
+              {/* Trophy Badge */}
+              <div className="relative">
+                <div className="w-24 h-24 rounded-full bg-orange-400 shadow-[0_8px_30px_rgba(251,146,60,0.3)] flex items-center justify-center text-white">
+                  <Trophy size={42} strokeWidth={2.5} />
+                </div>
+              </div>
+
+              {/* Stats & Trends */}
+              <div className="flex flex-col items-center md:items-start">
+                <span className="text-[12px] font-normal text-[#555555] opacity-50 mb-1">Current Ranking</span>
+                <div className="flex items-baseline gap-2">
+                  <h3 className="text-[48px] font-bold text-[#1a1a1a] leading-none mb-2">#3</h3>
+                </div>
+                <span className="text-[13px] font-normal text-[#555555] opacity-60 mb-4">out of 50 mentors</span>
+              </div>
+
+              {/* Trend Badge area */}
+              <div className="flex flex-col items-center md:items-start md:ml-auto md:pt-4">
+                <div className="flex items-center gap-2 text-[#10b981] text-[14px] font-bold mb-2">
+                  <TrendingUp size={18} strokeWidth={3} />
+                  Up from #5
+                </div>
+                <span className="bg-[#10b981] text-white text-[10px] font-bold px-3 py-1 rounded-md uppercase tracking-wider">Top 6%</span>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="h-px bg-[#1a1a1a]/5 w-full mb-8"></div>
+
+            {/* Criteria List */}
+            <div className="flex flex-col">
+              <span className="text-[12px] font-normal text-[#555555] opacity-60 mb-4">Ranking based on:</span>
+              <div className="flex flex-wrap gap-x-12 gap-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#ef4444]" />
+                  <span className="text-[14px] font-normal text-[#1a1a1a]">Timely submission</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#ef4444]" />
+                  <span className="text-[14px] font-normal text-[#1a1a1a]">Chapter success</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#ef4444]" />
+                  <span className="text-[14px] font-normal text-[#1a1a1a]">Collaboration & Communication</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="lg:w-[400px] bg-white rounded-[24px] p-6 shadow-sm flex flex-col items-center justify-center space-y-4 text-center border border-yellow-100">
-             <h4 className="text-[16px] font-normal text-[#1a1a1a] tracking-tight leading-snug">
-               Certificates & Recognition Mentor-specific
-             </h4>
-             <button className="w-full py-3.5 border border-[#A82228] text-[#A82228] rounded-xl text-[13px] font-normal hover:bg-[#A82228] hover:text-white transition-all tracking-tight">
-               Recognition Badges
-             </button>
+          {/* Right Column: Recognition Card */}
+          <div className="xl:w-[350px] flex items-center justify-center">
+            <div className="bg-white rounded-[24px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-yellow-100 w-full flex flex-col items-center text-center gap-6">
+              <div className="space-y-1">
+                <p className="text-[17px] font-bold text-[#1a1a1a]">Certificates & Recognition</p>
+                <p className="text-[14px] font-bold text-[#1a1a1a]">Mentor-specific</p>
+              </div>
+              <button className="w-full border border-[#A82228] text-[#A82228] text-[13px] font-normal py-3 px-6 rounded-xl hover:bg-[#A82228] hover:text-white transition-all duration-300 active:scale-95">
+                Recognition Badges
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="mt-8 pt-8 border-t border-yellow-200/50 flex flex-wrap gap-x-12 gap-y-4">
-           <div className="space-y-4 min-w-[200px]">
-             <div className="flex items-center gap-2">
-               <div className="w-2 h-2 rounded-full bg-[#ef4444]" />
-               <span className="text-[14px] font-normal text-[#555555]">Timely submission</span>
-             </div>
-             <div className="flex items-center gap-2">
-               <div className="w-2 h-2 rounded-full bg-[#ef4444]" />
-               <span className="text-[14px] font-normal text-[#555555]">Collaboration & Communication</span>
-             </div>
-           </div>
-           <div className="space-y-4 min-w-[200px]">
-             <div className="flex items-center gap-2">
-               <div className="w-2 h-2 rounded-full bg-[#ef4444]" />
-               <span className="text-[14px] font-normal text-[#555555]">Chapter success</span>
-             </div>
-           </div>
         </div>
       </div>
     </div>
   );
 };
-
-// Helper component for trending
-const TrendingUp = ({ size, className }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2.5" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
-    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-    <polyline points="17 6 23 6 23 12" />
-  </svg>
-);
 
 export default CommunityOutreachWingProfile;

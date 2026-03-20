@@ -19,9 +19,7 @@ const WellbeingWingSidebar = ({ onClose }) => {
     { icon: User, label: 'Profile', path: '/wellbeing-wing-profile' },
     { icon: Users, label: 'Members', path: '/wellbeing-wing-members' },
     { icon: FileText, label: 'Reports', path: '/wellbeing-wing-reports', badge: '3' },
-    { icon: CheckSquare, label: 'Assessments', path: '/assessments', badge: '2' },
     { icon: BarChart2, label: 'Analytics', path: '/wellbeing-wing-analytics' },
-    { icon: Heart, label: 'Chapter Health', path: '/chapter-health' },
     { icon: Box, label: 'Resources', path: '/wellbeing-wing-resources' },
     { icon: Calendar, label: 'Events', path: '/wellbeing-wing-events' },
     { icon: Settings, label: 'Settings', path: '/settings' },
@@ -37,7 +35,7 @@ const WellbeingWingSidebar = ({ onClose }) => {
           </div>
           <div className="flex flex-col">
             <h1 className="text-[17px] font-normal text-[#1a1a1a] tracking-wide leading-none mb-1">YoungVox</h1>
-            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Chapter chief</p>
+            <p className="text-[9px] font-normal text-[#555555] tracking-widest uppercase opacity-40 leading-none">Chapter wellbeing</p>
           </div>
         </div>
         <button
